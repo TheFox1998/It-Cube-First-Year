@@ -654,7 +654,7 @@ formul_window.withdraw()  # Скрытие окна треугольника
 
 # Окно калькулятора начинается тут(8 окно)
 calculate_triangle_window = Tk()  # Окно треугольника
-calculate_triangle_window.title('Калькулятор говно')  # Заголовок окна треугольника
+calculate_triangle_window.title('Калькулятор')  # Заголовок окна треугольника
 calculate_triangle_window['bg'] = first_color
 
 calculate_triangle_window.withdraw()  # Скрытие окна треугольника
