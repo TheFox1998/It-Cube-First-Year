@@ -1,8 +1,8 @@
+import math
+import os
+import tkinter.colorchooser
 from tkinter import *
 from tkinter import messagebox as mb
-import tkinter.colorchooser
-import os
-import math
 
 # import key_base
 
@@ -175,6 +175,9 @@ def visible_triangle_formul_func():
     first_formul_triangle_label = Label(formul_window, text='Формулы для нахождения площади: \n а)S=½bh, \n б)S=½ab⋅sin(α) \n в)S=√(p·(p-a)·(p-b)·(p-c))',
                                         font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
     first_formul_triangle_label.grid(row=1, column=0, columnspan=9, padx=10, sticky=W)  # Надпись аксиомы 1 расположение
+
+    back_button = Button(aksioma_triangle_window, text='Назад', command=visible_triangle_window_func, bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_button.place(x=10, y=460)  # Кнопка назад
 
 
 def visible_triangle_window_event_func(event):  # Открытие окна с треугольником через event
