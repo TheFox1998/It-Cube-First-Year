@@ -111,7 +111,7 @@ def visible_theorems_triangle_window_func():  # Показ окна с теор�
     first_theorem_triangle_label = Label(theorems_triangle_window, text='1.Сумма углов треугольника равна 180 градусам.',
                                          font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
     first_theorem_triangle_label.grid(row=1, column=0, padx=10, columnspan=9, sticky=W)  # Надпись аксиомы 1 расположение1.
-
+    first_theorem_triangle_label.bind('<Button-1>', visible_dano_window_func)
     second_theorem_triangle_label = Label(theorems_triangle_window, text='2.В треугольнике: \n  1) против большей стороны лежит больший угол; \n  2) обратно, против большего угла лежит большая сторона.',
                                           font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
     second_theorem_triangle_label.grid(row=2, column=0, padx=10, columnspan=9, sticky=W, pady=15)  # Надпись аксиомы 1 расположение
@@ -145,6 +145,7 @@ def visible_theorems_triangle_window_func():  # Показ окна с теор�
     back_triangle_theorems_button.place(x=10, y=460)  # Кнопка назад
     # Всё, что скрываем:
     choose_figure_window.withdraw()
+    dano_window.withdraw()
 
 
 def visible_axioms_window_func():  # Показ окна с аксиомами треугольника
@@ -181,9 +182,14 @@ def visible_triangle_formuls_func():
     back_button.place(x=10, y=460)  # Кнопка назад
 
 
-def visible_first_thorem_triangle_func():
-    pass
-
+def visible_dano_window_func(event):
+    # Всё, что показываем:
+    dano_window.deiconify()
+    # Всё, что скрываем:
+    theorems_triangle_window.withdraw()
+    # Всё что создаём
+    back_button = Button(dano_window, text='Назад', command=visible_theorems_triangle_window_func, bg=first_color, fg=fourth_color, width=32, font='Oswald 10')  # Кнопка назад
+    back_button.grid(row=6, column=1)  # Кнопка назад расположение
 
 def visible_triangle_window_event_func(event):  # Открытие окна с треугольником через event
     # Всё, что показываем:
@@ -198,7 +204,7 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
                                       bg=first_color,
                                       fg=third_color, width=42)  # Надпись определение треугольника
     definition_label_triangle.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
-    definition_label_triangle.bind('<Button-1>', visible_first_thorem_triangle_func)
+
 
     calculations_for_triangle_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
                                               font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
@@ -733,7 +739,11 @@ def reset_func():
 
 
 # Окно дано начинается тут(10 окно)
+dano_window = Tk()
+dano_window.title('Дано')
+dano_window['bg'] = first_color
 
+dano_window.withdraw()
 # Окно дано заканчивается тут(10)
 # Окно формул начинается тут(9 окно)
 formuls_window = Tk()  # Окно треугольника
@@ -994,16 +1004,16 @@ name_project_label = Label(greet_window, text='мой друг!', font='Oswald 1
 name_project_label.grid(row=3, column=3, pady=10)  # Надпись pump your brain расположение
 
 continue_button = Button(greet_window, text='Перейти к выбору предмета', font='Oswald 15', command=visible_choose_subject_func, bg=first_color, fg=fourth_color, width=25)  # Кнопка продолжения
-continue_button.grid(row=4, column=3, pady=25)  # Кнопка продолжения расположение
+continue_button.grid(row=4, column=3, pady=15)  # Кнопка продолжения расположение
 
-change_theme_button = Button(greet_window, text='Создать тему', font='Oswald 15', command=write_change_theme_func, bg=first_color, fg=fourth_color, width=25)
-change_theme_button.grid(row=5, column=3)
+create_theme_button = Button(greet_window, text='Создать тему', font='Oswald 15', command=write_change_theme_func, bg=first_color, fg=fourth_color, width=25)
+create_theme_button.grid(row=8, column=3)
 
-change_theme_button = Button(greet_window, text='Удалить тему', font='Oswald 15', command=delete_custom_theme_func, bg=first_color, fg=fourth_color, width=25)
-change_theme_button.grid(row=6, column=3, pady=25)
+delete_theme_button = Button(greet_window, text='Удалить тему', font='Oswald 15', command=delete_custom_theme_func, bg=first_color, fg=fourth_color, width=25)
+delete_theme_button.grid(row=9, column=3, pady=15)
 
 exit_button = Button(greet_window, text='Выход', font='Oswald 15', command=exit_project_func, bg=first_color, fg=fourth_color, width=25)
-exit_button.grid(row=7, column=3)
+exit_button.grid(row=10, column=3)
 
 # Окно приветсвия заканчивается тут(1 окно)
 
@@ -1023,6 +1033,7 @@ calculate_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, heig
 aksioma_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 theorems_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+dano_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, 300, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
