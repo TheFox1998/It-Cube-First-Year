@@ -1033,7 +1033,7 @@ calculate_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, heig
 aksioma_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 theorems_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
-dano_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, 300, y_window_large))
+dano_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
