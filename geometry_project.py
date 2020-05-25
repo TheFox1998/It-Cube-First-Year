@@ -985,11 +985,11 @@ greet_window['bg'] = first_color
 greet_label = Label(greet_window, text='Добро пожаловать', font='Oswald 20', bg=first_color, fg=second_color)  # Надпись добро пожаловать
 greet_label.grid(row=1, column=3, padx=230, pady=10)  # Надпись Добро пожаловать расположение
 
-greet_label2 = Label(greet_window, text='в наше приложение', font='Oswald 15', bg=first_color,
+greet_label2 = Label(greet_window, text='в наше приложение,', font='Oswald 15', bg=first_color,
                      fg=third_color)  # Надпись в наше приложение
 greet_label2.grid(row=2, column=3)  # Надпись в наше приложение расположение
 
-name_project_label = Label(greet_window, text='pump your brain', font='Oswald 15', bg=first_color,
+name_project_label = Label(greet_window, text='мой друг!', font='Oswald 15', bg=first_color,
                            fg=third_color)  # Надпись pump your brain
 name_project_label.grid(row=3, column=3, pady=10)  # Надпись pump your brain расположение
 
