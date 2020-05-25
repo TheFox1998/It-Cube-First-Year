@@ -1009,5 +1009,3 @@ figure_window.geometry('{}x{}+{}+{}'.format(width_window_small, height_window_sm
 
 # Запуск главного окна
 greet_window.mainloop()
-
-print('Больше в проекте не материмся')
