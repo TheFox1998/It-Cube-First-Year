@@ -643,7 +643,7 @@ def calculate_triangle_2_func():
         gamma = c / a * math.sin(b)
         print(f'Gamma = {gamma}')
     else:
-        print('Pizdec')
+        print('Chest')
 
 
 def reset_func():
