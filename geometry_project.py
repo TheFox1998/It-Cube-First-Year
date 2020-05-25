@@ -7,7 +7,7 @@ from tkinter import messagebox as mb
 # import key_base
 
 
-version = 'v0.1.5'
+version = 'v0.1.7'
 
 try:
     file = open('File_Setting.txt', 'r')
@@ -57,6 +57,7 @@ def visible_choose_subject_func():  # Показ окна с выбором пр
     choose_subject_window.deiconify()
     # Всё, что скрываем:
     greet_window.withdraw()
+    choose_geometry_window.withdraw()
 
 
 def visible_geometry_window_func():  # Показ окна с геометрией
@@ -64,6 +65,7 @@ def visible_geometry_window_func():  # Показ окна с геометрие
     choose_geometry_window.deiconify()
     # Всё, что скрываем:
     choose_subject_window.withdraw()
+    choose_figure_window.withdraw()
 
 
 def visible_choose_figure_window_func():  # Показ окна с выбором фигур
@@ -164,19 +166,23 @@ def visible_axioms_window_func():  # Показ окна с аксиомами �
 
 def visible_triangle_formuls_func():
     # Всё, что показываем
-    formul_window.deiconify()
+    formuls_window.deiconify()
     # Всё, что скрываем
     choose_figure_window.withdraw()
     # Всё что создаём
-    title_formul_triangle_label = Label(formul_window, text='Формулы треугольника: ', font='Oswald 15', bg=first_color, fg=second_color, justify=LEFT)  # Надпись аксиомы треугольника
+    title_formul_triangle_label = Label(formuls_window, text='Формулы треугольника: ', font='Oswald 15', bg=first_color, fg=second_color, justify=LEFT)  # Надпись аксиомы треугольника
     title_formul_triangle_label.grid(row=0, column=0, padx=10, sticky=W, pady=15)  # Надпись аксиомы треугольника расположение
 
-    first_formul_triangle_label = Label(formul_window, text='Формулы для нахождения площади: \n а)S=½bh, \n б)S=½ab⋅sin(α) \n в)S=√(p·(p-a)·(p-b)·(p-c))',
+    first_formul_triangle_label = Label(formuls_window, text='Формулы для нахождения площади: \n а)S=½bh, \n б)S=½ab⋅sin(α) \n в)S=√(p·(p-a)·(p-b)·(p-c))',
                                         font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
     first_formul_triangle_label.grid(row=1, column=0, columnspan=9, padx=10, sticky=W)  # Надпись аксиомы 1 расположение
 
     back_button = Button(aksioma_triangle_window, text='Назад', command=visible_triangle_window_func, bg=first_color, fg=fourth_color)  # Кнопка назад
     back_button.place(x=10, y=460)  # Кнопка назад
+
+
+def visible_first_thorem_triangle_func():
+    pass
 
 
 def visible_triangle_window_event_func(event):  # Открытие окна с треугольником через event
@@ -188,10 +194,11 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
     # Всё что создаём
     figure_window.title('Треугольник')
 
-    definition_label = Label(figure_window, text='Треугольник - это геометрическая фигура, \n образованная тремя пересекающимися прямыми, \n образующими ''три внутренних угла', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_label_triangle = Label(figure_window, text='Треугольник - это геометрическая фигура, \n образованная тремя пересекающимися прямыми, \n образующими ''три внутренних угла', font='Oswald 10',
+                                      bg=first_color,
+                                      fg=third_color, width=42)  # Надпись определение треугольника
+    definition_label_triangle.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_label_triangle.bind('<Button-1>', visible_first_thorem_triangle_func)
 
     calculations_for_triangle_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
                                               font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
@@ -725,12 +732,15 @@ def reset_func():
     y_corner_entry['state'] = NORMAL
 
 
-# Окно формул начинается тут(9 окно)
-formul_window = Tk()  # Окно треугольника
-formul_window.title('Формулы')  # Заголовок окна треугольника
-formul_window['bg'] = first_color
+# Окно дано начинается тут(10 окно)
 
-formul_window.withdraw()  # Скрытие окна треугольника
+# Окно дано заканчивается тут(10)
+# Окно формул начинается тут(9 окно)
+formuls_window = Tk()  # Окно треугольника
+formuls_window.title('Формулы')  # Заголовок окна треугольника
+formuls_window['bg'] = first_color
+
+formuls_window.withdraw()  # Скрытие окна треугольника
 # Окно формул заканчивается тут(9 окно)
 
 # Окно калькулятора начинается тут(8 окно)
@@ -1012,7 +1022,7 @@ greet_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_lar
 calculate_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 aksioma_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 theorems_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
-formul_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -1027,11 +1037,11 @@ aksioma_triangle_window.after_idle(aksioma_triangle_window.attributes, '-topmost
 aksioma_triangle_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 aksioma_triangle_window.resizable(False, False)
 
-formul_window.lift()
-formul_window.attributes('-topmost', True)
-formul_window.after_idle(formul_window.attributes, '-topmost', True)
-formul_window.protocol('WM_DELETE_WINDOW', exit_error_func)
-formul_window.resizable(False, False)
+formuls_window.lift()
+formuls_window.attributes('-topmost', True)
+formuls_window.after_idle(formuls_window.attributes, '-topmost', True)
+formuls_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+formuls_window.resizable(False, False)
 # Главный экран не изменяет размер
 greet_window.resizable(False, False)
 # Окно с калькулятором сторон не изменяет размер
