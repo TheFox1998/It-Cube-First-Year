@@ -71,7 +71,6 @@ def visible_choose_figure_window_func():  # Показ окна с выборо�
     choose_figure_window.deiconify()
     # Всё, что скрываем:
     choose_geometry_window.withdraw()
-
     aksioma_triangle_window.withdraw()
     theorems_triangle_window.withdraw()
     figure_window.withdraw()
@@ -1012,3 +1011,6 @@ figure_window.geometry('{}x{}+{}+{}'.format(width_window_small, height_window_sm
 
 # Запуск главного окна
 greet_window.mainloop()
+
+# TODO Алексей заполняет: ромб, круг, квадрат, четырёхугольник;
+# TODO Никита заполняет: параллелограмм, эллипс, трапецию, овал. Нужно заполнить аксиомы, теоремы, формулы. Всё по анологии с треугольником. В коммите пишет, что сделали.
