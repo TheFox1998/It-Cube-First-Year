@@ -686,7 +686,27 @@ def calculate_triangle_func():
 
 
 def calculate_triangle_2_func():
-    pass
+    if a_entry.get() != '' and c_entry.get() != '' and b_corner_entry.get() != '':
+        a = float(a_entry.get())  # b
+        c = float(c_entry.get())  # c
+        betta = float(b_corner_entry.get())  # betta
+
+        D = c / a * (math.sin(math.radians(betta)))
+        print(f'D = {D}')
+        if D < 1:
+            if a < c:
+                gamma = math.asin(D)
+            elif a >= c:
+                pass
+
+        elif D == 1:
+            print(f'Gamma = 90')
+        elif (D > 1) or (betta >= 90 and a <= c):
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+
+
+    else:
+        print('Error')
 
 
 def reset_func():
