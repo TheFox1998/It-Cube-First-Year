@@ -67,6 +67,7 @@ def visible_geometry_window_func():  # Показ окна с геометрие
     # Всё, что скрываем:
     choose_subject_window.withdraw()
     choose_figure_window.withdraw()
+    figure_window.withdraw()
 
 
 def visible_choose_figure_window_func():  # Показ окна с выбором фигур
@@ -171,12 +172,14 @@ def visible_formuls_triangle_func():
     back_formulas_triangle_button.place(x=10, y=460)  # Кнопка назад
     back_formulas_triangle_button.bind('<Button-1>', visible_triangle_window_event_func)
 
+
 def visible_calculate_triangle_window_func():  # Открытие окна c вычислением треугольника
     # Всё, что показываем:
     calculate_triangle_window.deiconify()
     figure_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
+
 
 def visible_proof_window_first_triangle_event_func(event):
     # Всё, что показываем:
@@ -204,7 +207,7 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
     definition_triangle_label = Label(figure_window, text='Треугольник - это геометрическая фигура, \n образованная тремя пересекающимися прямыми, \n образующими ''три внутренних угла', font='Oswald 10',
                                       bg=first_color,
                                       fg=third_color, width=42)  # Надпись определение треугольника
-    definition_triangle_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_triangle_label.grid(row=1, column=1, pady=15, sticky=N + S + W + E)  # Надпись определение треугольника расположение
 
     calculations_for_triangle_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
                                               font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
@@ -232,17 +235,18 @@ def visible_square_window_event_func(event):  # Открытие окна с п�
     theorems_window.withdraw()
     # Всё что создаём
     figure_window.title('Четырёхугольник')
-    definition_square_label = Label(figure_window, text='Четырёхугольник', font='Oswald 10',
+    definition_square_label = Label(figure_window, text='Четырёхугольник - это геометрическая фигура,\n состоящая из четырёх точек, никакие три из которых \nне лежат на одной прямой, и четырёх отрезков, '
+                                                        '\nпоследовательно соединяющих эти точки', font='Oswald 10',
                                     bg=first_color,
                                     fg=third_color, width=42)  # Надпись определение треугольника
-    definition_square_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_square_label.grid(row=1, column=1, pady=15, sticky=N + S + W + E)  # Надпись определение треугольника расположение
 
     calculations_for_square_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                            font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_square_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_square_button = Button(figure_window, text='Аксиомы четырёхугольника', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                  font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_square_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_square_button = Button(figure_window, text='Теоремы четырёхугольника', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -264,17 +268,17 @@ def visible_rectangle_window_event_func(event):  # Открытие окна с 
     # Всё, что создаём
     figure_window.title('Квадрат')
 
-    definition_rectangle_label= Label(figure_window, text='Квадрат', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_rectangle_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_rectangle_label = Label(figure_window, text='Квадрат - правильный четырёхугольник, \nто есть четырёхугольник, у которого все \nуглы равны и все стороны равны', font='Oswald 10',
+                                       bg=first_color,
+                                       fg=third_color, width=42)  # Надпись определение треугольника
+    definition_rectangle_label.grid(row=1, column=1, pady=15, sticky=N + S + W + E)  # Надпись определение треугольника расположение
 
     calculations_for_rectangle_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                               font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_rectangle_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_rectangle_button = Button(figure_window, text='Аксиомы квадрата', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                     font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_rectangle_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_rectangle_button = Button(figure_window, text='Теоремы квадрата', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -296,17 +300,17 @@ def visible_rhombus_window_event_func(event):  # Открытие окна с р
     # Всё что создаём
     figure_window.title('Ромб')
 
-    definition_rhombus_label = Label(figure_window, text='Ромб', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_rhombus_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_rhombus_label = Label(figure_window, text='Ромб - это параллелограмм,\n у которого все стороны равны', font='Oswald 10',
+                                     bg=first_color,
+                                     fg=third_color, width=42)  # Надпись определение треугольника
+    definition_rhombus_label.grid(row=1, column=1, sticky=N + S + W + E, pady=15)  # Надпись определение треугольника расположение
 
     calculations_for_rhombus_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                             font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_rhombus_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_rhombus_button = Button(figure_window, text='Аксиомы ромба', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                   font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_rhombus_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_rhombus_button = Button(figure_window, text='Теоремы ромба', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -328,17 +332,18 @@ def visible_parallelogram_window_event_func(event):  # Открытие окна
     # Всё, что создаём
     figure_window.title('Параллелограмм')
 
-    definition_parallelogram_label = Label(figure_window, text='Параллелограмм', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_parallelogram_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_parallelogram_label = Label(figure_window, text='Параллелограмм - это четырёхугольник, \nу которого противоположные стороны \nпопарно параллельны, то есть \nлежат на параллельных прямых',
+                                           font='Oswald 10',
+                                           bg=first_color,
+                                           fg=third_color, width=42)  # Надпись определение треугольника
+    definition_parallelogram_label.grid(row=1, column=1, sticky=N + S + W + E, pady=15)  # Надпись определение треугольника расположение
 
     calculations_for_parallelogram_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                                   font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_parallelogram_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_parallelogram_button = Button(figure_window, text='Аксиомы параллелограмма', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                         font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_parallelogram_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_parallelogram_button = Button(figure_window, text='Теоремы параллелограмма', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -360,17 +365,17 @@ def visible_trapezium_window_event_func(event):  # Открытие окна с 
     # Всё, что создаём
     figure_window.title('Трапеция')
 
-    definition_trapezium_label = Label(figure_window, text='Трапеция', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_trapezium_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_trapezium_label = Label(figure_window, text='Трапеция — четырехугольник, у которого \nдве стороны параллельны, а две \nстороны не параллельны', font='Oswald 10',
+                                       bg=first_color,
+                                       fg=third_color, width=42)  # Надпись определение треугольника
+    definition_trapezium_label.grid(row=1, column=1, sticky=N + S + W + E, pady=15)  # Надпись определение треугольника расположение
 
     calculations_for_trapezium_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                               font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_trapezium_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_trapezium_button = Button(figure_window, text='Аксиомы трапеции', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                     font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_trapezium_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_trapezium_button = Button(figure_window, text='Теоремы трапеции', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -392,17 +397,17 @@ def visible_circle_window_event_func(event):  # Открытие окна с к�
     # Всё, что создаём
     figure_window.title('Круг')
 
-    definition_circle_label = Label(figure_window, text='Круг', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_circle_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_circle_label = Label(figure_window, text='Круг - часть плоскости,\n лежащая внутри окружности', font='Oswald 10',
+                                    bg=first_color,
+                                    fg=third_color, width=42)  # Надпись определение треугольника
+    definition_circle_label.grid(row=1, column=1, sticky=N + S + W + E, pady=15)  # Надпись определение треугольника расположение
 
     calculations_for_circle_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                            font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_circle_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_circle_button = Button(figure_window, text='Аксиомы круга', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                  font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_circle_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_circle_button = Button(figure_window, text='Теоремы круга', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -424,17 +429,17 @@ def visible_oval_window_event_func(event):  # Открытие окна с ов�
     # Всё, что создаём
     figure_window.title('Овал')
 
-    definition_oval_label = Label(figure_window, text='Овал', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_oval_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_oval_label = Label(figure_window, text='Овал - плоская замкнутая строго \nвыпуклая гладкая кривая; \nследовательно имеющая с любой \nпрямой не более двух общих точек', font='Oswald 10',
+                                  bg=first_color,
+                                  fg=third_color, width=42)  # Надпись определение треугольника
+    definition_oval_label.grid(row=1, column=1, sticky=N + S + W + E, pady=15)  # Надпись определение треугольника расположение
 
     calculations_for_oval_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                          font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_oval_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_oval_button = Button(figure_window, text='Аксиомы овала', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_oval_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_oval_button = Button(figure_window, text='Теоремы овала', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -456,17 +461,18 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
     # Всё, что создаём
     figure_window.title('Эллипс')
 
-    definition_ellipse_label = Label(figure_window, text='Эллипс', font='Oswald 10',
-                             bg=first_color,
-                             fg=third_color, width=42)  # Надпись определение треугольника
-    definition_ellipse_label.grid(row=1, column=1, sticky=S, pady=15)  # Надпись определение треугольника расположение
+    definition_ellipse_label = Label(figure_window, text='Эллипс — это замкнутая плоская кривая, \nсумма расстояний от каждой точки \nкоторой до двух точек F1 и F2 \nравна постоянной величине',
+                                     font='Oswald 10',
+                                     bg=first_color,
+                                     fg=third_color, width=42)  # Надпись определение треугольника
+    definition_ellipse_label.grid(row=1, column=1, sticky=N + S + W + E, pady=15)  # Надпись определение треугольника расположение
 
     calculations_for_ellipse_button = Button(figure_window, text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                              font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
+                                             font='Oswald 10')  # Кнопка перехода на окно с расчётами треугольника
     calculations_for_ellipse_button.grid(row=2, column=1)  # Кнопка перехода на окно с расчётами треугольника расположение
 
     axioms_ellipse_button = Button(figure_window, text='Аксиомы эллипса', command=visible_axioms_triangle_window_func, bg=first_color, fg=fourth_color, width=32,
-                                    font='Oswald 10')  # Кнопка аксиомы треугольника
+                                   font='Oswald 10')  # Кнопка аксиомы треугольника
     axioms_ellipse_button.grid(row=3, column=1, pady=15)  # Кнопка аксиомы треугольника расположение
 
     theorems_ellipse_button = Button(figure_window, text='Теоремы эллипса', font='Oswald 10', bg=first_color, fg=fourth_color, width=32, command=visible_theorems_triangle_window_func)
@@ -477,9 +483,6 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
 
     back_ellipse_button = Button(figure_window, text='Назад', command=visible_choose_figure_window_func, bg=first_color, fg=fourth_color, width=32, font='Oswald 10')  # Кнопка назад
     back_ellipse_button.grid(row=6, column=1)  # Кнопка назад расположение
-
-
-
 
 
 def exit_error_func():  # Показываение ошибки при попытки закрытия важных окон
@@ -1290,7 +1293,7 @@ greet_label2 = Label(greet_window, text='в наше приложение', font
                      fg=third_color)  # Надпись в наше приложение
 greet_label2.grid(row=2, column=3)  # Надпись в наше приложение расположение
 
-name_project_label = Label(greet_window, text='pump your brain', font='Oswald 20', bg=first_color,
+name_project_label = Label(greet_window, text='Study Assistant', font='Oswald 20', bg=first_color,
                            fg=third_color)  # Надпись pump your brain
 name_project_label.grid(row=3, column=3, pady=10)  # Надпись pump your brain расположение
 
