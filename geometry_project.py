@@ -40,7 +40,8 @@ try:
         fifth_color = color_text[4]  # Цвет фигур
 
     file.close()
-except FileNotFoundError:
+except FileNotFoundError as ex:
+    print(ex.strerror)
     first_color = '#60493C'
 
     second_color = '#B2A7A0'
@@ -548,7 +549,7 @@ def calculate_triangle_func():
 
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '':
+    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':
         b_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -576,7 +577,7 @@ def calculate_triangle_func():
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
 
-    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90':
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
@@ -603,7 +604,7 @@ def calculate_triangle_func():
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
-    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':
         a_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -631,7 +632,7 @@ def calculate_triangle_func():
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
-    elif c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':
         a_triangle_entry['state'] = DISABLED
         b_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -660,7 +661,7 @@ def calculate_triangle_func():
             print(f'S = {s}')
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+    elif a_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and gamma_corner_triangle_entry.get() != '90':
         b_triangle_entry['state'] = DISABLED
         c_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
@@ -688,7 +689,7 @@ def calculate_triangle_func():
             print(f'S = {s}')
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':
         a_triangle_entry['state'] = DISABLED
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
@@ -715,7 +716,7 @@ def calculate_triangle_func():
             print(f'S = {s}')
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':
         b_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -742,7 +743,7 @@ def calculate_triangle_func():
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
-    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '':
+    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':
 
         a_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
@@ -771,7 +772,7 @@ def calculate_triangle_func():
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
 
-    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -798,12 +799,217 @@ def calculate_triangle_func():
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
+    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and c_triangle_entry.get() != '':
+        a = float(a_triangle_entry.get())
+        c = float(c_triangle_entry.get())
+        alpha = float(90)
+
+        b = round(math.sqrt(a ** 2 + c ** 2), 2)
+        print(f'A = {a}')
+        print(f'B = {b}')
+        print(f'C = {c}')
+
+        betta = round(math.degrees(math.asin(a / b)), 2)
+        gamma = round(math.degrees(math.asin(c / b)), 2)
+
+        print(f'Alpha = {alpha}')
+        print(f'Betta = {betta}')
+        print(f'Gamma = {gamma}')
+
+        p = round(a + c + b, 2)
+        print(f'P = {p}')
+
+        p_polu = (a + b + c) / 2  # Полупериметр
+        s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+        print(f'S = {s}')
+    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':
+        b = float(b_triangle_entry.get())
+        c = float(c_triangle_entry.get())
+        alpha = float(90)
+
+        a = round(math.sqrt(b ** 2 - c ** 2), 2)
+        print(f'A = {a}')
+        print(f'B = {b}')
+        print(f'C = {c}')
+
+        betta = round(math.degrees(math.asin(a / b)), 2)
+        gamma = round(math.degrees(math.asin(c / b)), 2)
+
+        print(f'Alpha = {alpha}')
+        print(f'Betta = {betta}')
+        print(f'Gamma = {gamma}')
+
+        p = round(a + c + b, 2)
+        print(f'P = {p}')
+
+        p_polu = (a + b + c) / 2  # Полупериметр
+        s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+        print(f'S = {s}')
+    elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        if float(betta_corner_triangle_entry.get()) < 90:
+            c = float(c_triangle_entry.get())  # b
+            betta = float(betta_corner_triangle_entry.get())  # alpha
+            alpha = float(90)  # gamma
+
+            b = round(c / math.cos(math.radians(betta)), 2)  # c
+
+            a = round(c * math.tan(math.radians(betta)), 2)
+            print(f'A = {a}')
+            print(f'B = {b}')
+            print(f'C = {c}')
+
+            gamma = round(90 - betta, 2)
+            print(f'Alpha = {alpha}')
+            print(f'Betta = {betta}')
+            print(f'Gamma = {gamma}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
+        else:
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+
+
+
+    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+        if float(gamma_corner_triangle_entry.get()) < 90:
+            a = float(a_triangle_entry.get())  # b
+            gamma = float(gamma_corner_triangle_entry.get())  # alpha
+            alpha = float(90)  # gamma
+
+            b = round(a / math.cos(math.radians(gamma)), 2)  # c
+
+            c = round(a * math.tan(math.radians(gamma)), 2)
+            print(f'A = {a}')
+            print(f'B = {b}')
+            print(f'C = {c}')
+
+            betta = round(90 - gamma, 2)
+            print(f'Alpha = {alpha}')
+            print(f'Betta = {betta}')
+            print(f'Gamma = {gamma}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
+        else:
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+
+    elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+        if float(gamma_corner_triangle_entry.get()) < 90:
+            alpha = float(90)  # gamma
+            c = float(c_triangle_entry.get())  # b
+            gamma = float(gamma_corner_triangle_entry.get())  # betta
+
+            b = round(c / math.sin(math.radians(gamma)), 2)
+
+            a = round(math.sqrt(b ** 2 - c ** 2), 2)
+            print(f'A = {a}')
+            print(f'B = {b}')
+            print(f'C = {c}')
+
+            betta = round(90 - gamma, 2)
+            print(f'Alpha = {alpha}')
+            print(f'Betta = {betta}')
+            print(f'Gamma = {gamma}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
+        else:
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+
+    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        if float(betta_corner_triangle_entry.get()) < 90:
+            gamma_corner_triangle_entry['state'] = DISABLED
+
+            alpha = float(90)
+            a = float(a_triangle_entry.get())
+            betta = float(betta_corner_triangle_entry.get())
+
+            gamma = round(90 - betta, 2)
+
+            b = round(a / math.sin(math.radians(betta)), 2)
+
+            c = round(b * math.sin(math.radians(gamma)), 2)
+
+            print(f'A = {a}')
+            print(f'B = {b}')
+            print(f'C = {c}')
+            print(f'Alpha = {alpha}')
+            print(f'Betta = {betta}')
+            print(f'Gamma = {gamma}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
+        else:
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        if float(betta_corner_triangle_entry.get()) < 90:
+            alpha = float(90)
+            b = float(b_triangle_entry.get())
+            betta = float(betta_corner_triangle_entry.get())
+
+            gamma = round(90 - betta, 2)
+
+            a = round(b * math.sin(math.radians(betta)), 2)
+            c = round(b * math.sin(math.radians(gamma)), 2)
+            print(f'A = {a}')
+            print(f'B = {b}')
+            print(f'C = {c}')
+            print(f'Alpha = {alpha}')
+            print(f'Betta = {betta}')
+            print(f'Gamma = {gamma}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
+        else:
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+        if float(gamma_corner_triangle_entry.get()) < 90:
+            alpha = float(90)
+            b = float(b_triangle_entry.get())
+            gamma = float(gamma_corner_triangle_entry.get())
+
+            betta = round(90 - gamma, 2)
+
+            c = round(b * math.sin(math.radians(gamma)), 2)
+            a = round(b * math.cos(math.radians(gamma)), 2)
+
+            print(f'A = {a}')
+            print(f'B = {b}')
+            print(f'C = {c}')
+            print(f'Alpha = {alpha}')
+            print(f'Betta = {betta}')
+            print(f'Gamma = {gamma}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
+        else:
+            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     else:
         print('Error')
-
-
-def calculate_triangle_2_func():
-    pass
 
 
 def reset_triangle_calculate_func():
@@ -898,8 +1104,6 @@ triangle_canvas.place(x=350, y=80)
 
 calculate_triangle_button = Button(calculate_triangle_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_triangle_func)
 calculate_triangle_button.grid(row=9, column=8, padx=15)
-calculate_triangle_button = Button(calculate_triangle_window, text='Расчитать треугольник 2 стороны и угол', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_triangle_2_func)
-calculate_triangle_button.grid(row=9, column=9, padx=15)
 
 back_triangle_button = Button(calculate_triangle_window, text='Сбросить', command=reset_triangle_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
 back_triangle_button.grid(row=9, column=3, pady=15, padx=15)  # Кнопка назад расположение
