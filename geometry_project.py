@@ -181,6 +181,7 @@ def visible_proof_window_first_triangle_event_func(event):
     back_proof_triangle_button.grid(row=0, column=0)  # Кнопка назад расположение
     back_proof_triangle_button.bind('<Button-1>', visible_triangle_window_event_func)
 
+
 def visible_triangle_window_event_func(event):  # Открытие окна с треугольником через event
     # Всё, что показываем:
     figure_window.deiconify()
@@ -215,6 +216,7 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
     back_triangle_button = Button(figure_window, text='Назад', bg=first_color, fg=fourth_color, width=32, font='Oswald 10', command=visible_choose_figure_window_func)  # Кнопка назад
     back_triangle_button.grid(row=6, column=1)  # Кнопка назад расположение
 
+
 def visible_square_window_event_func(event):  # Открытие окна с прямоугольником через event
     # Всё, что показываем
     figure_window.deiconify()
@@ -244,6 +246,7 @@ def visible_square_window_event_func(event):  # Открытие окна с п�
 
     back_button = Button(figure_window, text='Назад', command=visible_choose_figure_window_func, bg=first_color, fg=fourth_color, width=32, font='Oswald 10')  # Кнопка назад
     back_button.grid(row=6, column=1)  # Кнопка назад расположение
+
 
 def visible_rectangle_window_event_func(event):  # Открытие окна с квадратом через event
     # Всё, что показываем:
@@ -514,20 +517,20 @@ def delete_custom_theme_func():
 
 
 def calculate_triangle_func():
-    if a_entry.get() != '' and b_entry.get() != '' and c_entry.get() != '':
-        a = float(a_entry.get())
-        b = float(b_entry.get())
-        c = float(c_entry.get())
-        a_corner_entry['state'] = DISABLED
-        b_corner_entry['state'] = DISABLED
-        y_corner_entry['state'] = DISABLED
+    if a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':
+        a = float(a_triangle_entry.get())
+        b = float(b_triangle_entry.get())
+        c = float(c_triangle_entry.get())
+        alpha_corner_triangle_entry['state'] = DISABLED
+        betta_corner_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
         if (a + b > c) and (a + c > b) and (b + c > a):
 
-            a = float(a_entry.get())
+            a = float(a_triangle_entry.get())
             print(a)
-            b = float(b_entry.get())
+            b = float(b_triangle_entry.get())
             print(b)
-            c = float(c_entry.get())
+            c = float(c_triangle_entry.get())
             print(c)
 
             print(a, b, c)
@@ -545,13 +548,13 @@ def calculate_triangle_func():
 
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_entry.get() != '' and c_entry.get() != '' and a_corner_entry.get() != '':
-        b_entry['state'] = DISABLED
-        b_corner_entry['state'] = DISABLED
-        y_corner_entry['state'] = DISABLED
-        a = float(a_entry.get())  # a
-        c = float(c_entry.get())  # b
-        alpha = float(a_corner_entry.get())  # y
+    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '':
+        b_triangle_entry['state'] = DISABLED
+        betta_corner_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
+        a = float(a_triangle_entry.get())  # a
+        c = float(c_triangle_entry.get())  # b
+        alpha = float(alpha_corner_triangle_entry.get())  # y
 
         print(f'A = {a}')
         print(f'C = {c}')
@@ -573,13 +576,13 @@ def calculate_triangle_func():
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
 
-    elif a_entry.get() != '' and b_entry.get() != '' and y_corner_entry.get() != '':
-        c_entry['state'] = DISABLED
-        a_corner_entry['state'] = DISABLED
-        b_corner_entry['state'] = DISABLED
-        a = float(a_entry.get())  # a
-        b = float(b_entry.get())  # b
-        gamma = float(y_corner_entry.get())  # y
+    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+        c_triangle_entry['state'] = DISABLED
+        alpha_corner_triangle_entry['state'] = DISABLED
+        betta_corner_triangle_entry['state'] = DISABLED
+        a = float(a_triangle_entry.get())  # a
+        b = float(b_triangle_entry.get())  # b
+        gamma = float(gamma_corner_triangle_entry.get())  # y
 
         print(f'A = {a}')
         print(f'B = {b}')
@@ -600,14 +603,14 @@ def calculate_triangle_func():
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
-    elif b_entry.get() != '' and c_entry.get() != '' and b_corner_entry.get() != '':
-        a_entry['state'] = DISABLED
-        a_corner_entry['state'] = DISABLED
-        y_corner_entry['state'] = DISABLED
+    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        a_triangle_entry['state'] = DISABLED
+        alpha_corner_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
 
-        b = float(b_entry.get())  # a
-        c = float(c_entry.get())  # b
-        betta = float(b_corner_entry.get())  # y
+        b = float(b_triangle_entry.get())  # a
+        c = float(c_triangle_entry.get())  # b
+        betta = float(betta_corner_triangle_entry.get())  # y
 
         print(f'B = {b}')
         print(f'C = {c}')
@@ -628,10 +631,13 @@ def calculate_triangle_func():
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
         print(f'S = {s}')
-    elif c_entry.get() != '' and a_corner_entry.get() != '' and b_corner_entry.get() != '':
-        c = float(c_entry.get())
-        alpha = float(a_corner_entry.get())
-        betta = float(b_corner_entry.get())
+    elif c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        a_triangle_entry['state'] = DISABLED
+        b_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
+        c = float(c_triangle_entry.get())
+        alpha = float(alpha_corner_triangle_entry.get())
+        betta = float(betta_corner_triangle_entry.get())
 
         if (alpha + betta) < 180:
 
@@ -645,12 +651,22 @@ def calculate_triangle_func():
             print(f'A = {a}')
             print(f'B = {b}')
             print(f'C = {c}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_entry.get() != '' and a_corner_entry.get() != '' and y_corner_entry.get() != '':
-        a = float(a_entry.get())
-        alpha = float(a_corner_entry.get())
-        gamma = float(y_corner_entry.get())
+    elif a_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+        b_triangle_entry['state'] = DISABLED
+        c_triangle_entry['state'] = DISABLED
+        betta_corner_triangle_entry['state'] = DISABLED
+        a = float(a_triangle_entry.get())
+        alpha = float(alpha_corner_triangle_entry.get())
+        gamma = float(gamma_corner_triangle_entry.get())
         if (alpha + gamma) < 180:
 
             betta = 180 - alpha - gamma
@@ -663,12 +679,22 @@ def calculate_triangle_func():
             print(f'A = {a}')
             print(f'B = {b}')
             print(f'C = {c}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif b_entry.get() != '' and y_corner_entry.get() != '' and b_corner_entry.get() != '':
-        b = float(b_entry.get())
-        gamma = float(y_corner_entry.get())
-        betta = float(b_corner_entry.get())
+    elif b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        a_triangle_entry['state'] = DISABLED
+        c_triangle_entry['state'] = DISABLED
+        alpha_corner_triangle_entry['state'] = DISABLED
+        b = float(b_triangle_entry.get())
+        gamma = float(gamma_corner_triangle_entry.get())
+        betta = float(betta_corner_triangle_entry.get())
         if (gamma + betta) < 180:
 
             alpha = 180 - gamma - betta
@@ -680,50 +706,120 @@ def calculate_triangle_func():
             print(f'A = {a}')
             print(f'B = {b}')
             print(f'C = {c}')
+
+            p = round(a + c + b, 2)
+            print(f'P = {p}')
+
+            p_polu = (a + b + c) / 2  # Полупериметр
+            s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+            print(f'S = {s}')
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    else:
-        print('bullshit')
+    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        b_triangle_entry['state'] = DISABLED
+        alpha_corner_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
 
+        a = float(a_triangle_entry.get())  # b
+        c = float(c_triangle_entry.get())  # c
+        betta = float(betta_corner_triangle_entry.get())  # betta
 
-def calculate_triangle_2_func():
-    if a_entry.get() != '' and c_entry.get() != '' and b_corner_entry.get() != '':
-        a = float(a_entry.get())  # b
-        c = float(c_entry.get())  # c
-        betta = float(b_corner_entry.get())  # betta
+        gamma = round(math.degrees(math.asin(c / a * (math.sin(math.radians(betta))))), 2)
 
-        D = c / a * (math.sin(math.radians(betta)))
-        print(f'D = {D}')
-        if D < 1:
-            if a < c:
-                gamma = math.asin(D)
-            elif a >= c:
-                pass
+        alpha = round(180 - betta - gamma, 2)
+        print(f'Alpha = {alpha}')
+        print(f'Betta = {betta}')
+        print(f'Gamma = {gamma}')
 
-        elif D == 1:
-            print(f'Gamma = 90')
-        elif (D > 1) or (betta >= 90 and a <= c):
-            mb.showerror(title='Ошибка', message='Такого треугольника не существует')
+        b = round(a * (math.sin(math.radians(alpha)) / math.sin(math.radians(betta))), 2)
+        print(f'A = {a}')
+        print(f'B = {b}')
+        print(f'C = {c}')
 
+        p = round(a + c + b, 2)
+        print(f'P = {p}')
 
+        p_polu = (a + b + c) / 2  # Полупериметр
+        s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+        print(f'S = {s}')
+    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '':
+
+        a_triangle_entry['state'] = DISABLED
+        betta_corner_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
+
+        b = float(b_triangle_entry.get())
+        c = float(c_triangle_entry.get())
+        alpha = float(alpha_corner_triangle_entry.get())
+
+        gamma = round(math.degrees(math.asin(c / b * (math.sin(math.radians(alpha))))), 2)
+
+        betta = round(180 - alpha - gamma, 2)
+        print(f'Alpha = {alpha}')
+        print(f'Betta = {betta}')
+        print(f'Gamma = {gamma}')
+
+        a = round(b * (math.sin(math.radians(betta)) / math.sin(math.radians(alpha))), 2)
+        print(f'A = {a}')
+        print(f'B = {b}')
+        print(f'C = {c}')
+
+        p = round(a + c + b, 2)
+        print(f'P = {p}')
+
+        p_polu = (a + b + c) / 2  # Полупериметр
+        s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+        print(f'S = {s}')
+
+    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+        c_triangle_entry['state'] = DISABLED
+        alpha_corner_triangle_entry['state'] = DISABLED
+        gamma_corner_triangle_entry['state'] = DISABLED
+
+        a = float(a_triangle_entry.get())
+        b = float(b_triangle_entry.get())
+        betta = float(betta_corner_triangle_entry.get())
+
+        alpha = round(math.degrees(math.asin(b / a * (math.sin(math.radians(betta))))), 2)
+
+        gamma = round(180 - betta - alpha, 2)
+        print(f'Alpha = {alpha}')
+        print(f'Betta = {betta}')
+        print(f'Gamma = {gamma}')
+
+        c = round(a * (math.sin(math.radians(gamma)) / math.sin(math.radians(betta))), 2)
+        print(f'A = {a}')
+        print(f'B = {b}')
+        print(f'C = {c}')
+
+        p = round(a + c + b, 2)
+        print(f'P = {p}')
+
+        p_polu = (a + b + c) / 2  # Полупериметр
+        s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
+        print(f'S = {s}')
     else:
         print('Error')
 
 
-def reset_triangle_calculate_func():
-    a_entry.delete(0, END)
-    b_entry.delete(0, END)
-    c_entry.delete(0, END)
-    a_corner_entry.delete(0, END)
-    b_corner_entry.delete(0, END)
-    y_corner_entry.delete(0, END)
+def calculate_triangle_2_func():
+    pass
 
-    a_entry['state'] = NORMAL
-    b_entry['state'] = NORMAL
-    c_entry['state'] = NORMAL
-    a_corner_entry['state'] = NORMAL
-    b_corner_entry['state'] = NORMAL
-    y_corner_entry['state'] = NORMAL
+
+def reset_triangle_calculate_func():
+    a_triangle_entry.delete(0, END)
+    b_triangle_entry.delete(0, END)
+    c_triangle_entry.delete(0, END)
+    alpha_corner_triangle_entry.delete(0, END)
+    betta_corner_triangle_entry.delete(0, END)
+    gamma_corner_triangle_entry.delete(0, END)
+
+    a_triangle_entry['state'] = NORMAL
+    b_triangle_entry['state'] = NORMAL
+    c_triangle_entry['state'] = NORMAL
+    alpha_corner_triangle_entry['state'] = NORMAL
+    betta_corner_triangle_entry['state'] = NORMAL
+    gamma_corner_triangle_entry['state'] = NORMAL
 
 
 # Окно доказательства начинается тут(10 окно)
@@ -757,38 +853,38 @@ definition_label.grid(row=1, column=8, pady=15, padx=15)  # Надпись оп�
 a_label = Label(calculate_triangle_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
 a_label.grid(row=2, column=1, padx=15, pady=15)
 
-a_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-a_entry.grid(row=2, column=2)
+a_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
+a_triangle_entry.grid(row=2, column=2)
 
 b_label = Label(calculate_triangle_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
 b_label.grid(row=3, column=1, padx=15)
 
-b_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-b_entry.grid(row=3, column=2)
+b_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
+b_triangle_entry.grid(row=3, column=2)
 
 c_label = Label(calculate_triangle_window, text='C = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
 c_label.grid(row=4, column=1, padx=15, pady=15)
 
-c_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-c_entry.grid(row=4, column=2)
+c_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
+c_triangle_entry.grid(row=4, column=2)
 
 a_corner_label = Label(calculate_triangle_window, text='⦟α = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
 a_corner_label.grid(row=5, column=1, padx=15)
 
-a_corner_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-a_corner_entry.grid(row=5, column=2)
+alpha_corner_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
+alpha_corner_triangle_entry.grid(row=5, column=2)
 
 b_corner_label = Label(calculate_triangle_window, text='⦟β = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
 b_corner_label.grid(row=6, column=1, padx=15, pady=15)
 
-b_corner_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-b_corner_entry.grid(row=6, column=2)
+betta_corner_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
+betta_corner_triangle_entry.grid(row=6, column=2)
 
 y_corner_label = Label(calculate_triangle_window, text='⦟γ = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
 y_corner_label.grid(row=7, column=1, padx=15)
 
-y_corner_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-y_corner_entry.grid(row=7, column=2)
+gamma_corner_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
+gamma_corner_triangle_entry.grid(row=7, column=2)
 
 triangle_canvas = Canvas(calculate_triangle_window, width=180, height=160, bg=first_color, highlightthickness=0)
 create_figure = triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color)
@@ -805,15 +901,15 @@ calculate_triangle_button.grid(row=9, column=8, padx=15)
 calculate_triangle_button = Button(calculate_triangle_window, text='Расчитать треугольник 2 стороны и угол', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_triangle_2_func)
 calculate_triangle_button.grid(row=9, column=9, padx=15)
 
-back_button = Button(calculate_triangle_window, text='Сбросить', command=reset_triangle_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-back_button.grid(row=9, column=3, pady=15, padx=15)  # Кнопка назад расположение
+back_triangle_button = Button(calculate_triangle_window, text='Сбросить', command=reset_triangle_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_triangle_button.grid(row=9, column=3, pady=15, padx=15)  # Кнопка назад расположение
 
-back_button = Button(calculate_triangle_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-back_button.grid(row=9, column=2, pady=15, padx=15)  # Кнопка назад расположение
-back_button.bind('<Button-1>', visible_triangle_window_event_func)
+back_triangle_button = Button(calculate_triangle_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_triangle_button.grid(row=9, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_triangle_button.bind('<Button-1>', visible_triangle_window_event_func)
 
-exit_button = Button(calculate_triangle_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-exit_button.grid(row=9, column=1, pady=15, padx=15)  # Кнопка назад расположение
+exit_triangle_button = Button(calculate_triangle_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_triangle_button.grid(row=9, column=1, pady=15, padx=15)  # Кнопка назад расположение
 # Окно расчётов треугольника заканчивается тут(8 окно)
 
 
@@ -909,8 +1005,8 @@ ellipse_canvas.tag_bind(create_figure, '<Button-1>', visible_ellipse_window_even
 ellipse_canvas.create_text(24, 10, text="Эллипс", font="Oswald 10", fill=third_color)
 ellipse_canvas.grid(row=4, column=3)
 
-back_button = Button(choose_figure_window, text='Назад', fg=fourth_color, bg=first_color, command=visible_geometry_window_func)  # Кнопка назад
-back_button.grid(row=1, column=3)  # Кнопка назад расположение
+back_triangle_button = Button(choose_figure_window, text='Назад', fg=fourth_color, bg=first_color, command=visible_geometry_window_func)  # Кнопка назад
+back_triangle_button.grid(row=1, column=3)  # Кнопка назад расположение
 # Окно выбора фигур заканчивается тут(4 окно)
 # Окно раздела геометрии начинается тут(3 окно)
 choose_geometry_window = Tk()  # Окно разделов геометрии
@@ -928,9 +1024,9 @@ figures_button.grid(row=4, column=5, padx=200, pady=25)  # Кнопка фигу
 add_material_button = Button(choose_geometry_window, text='Дополнительный материал', font='Oswald 15', bg=first_color, fg=fourth_color, width=25)  # Кнопка перехода на доп. материал
 add_material_button.grid(row=5, column=5)  # Кнопка доп. материал расположение
 
-back_button = Button(choose_geometry_window, text='Назад', command=visible_choose_subject_func, bg=first_color, fg=fourth_color, width=25,
-                     font='Oswald 15')  # Кнопка назад, процедура используется такая же как и у смены главного на геометрию
-back_button.grid(row=6, column=5, pady=25)  # Кнопка назад расположение
+back_triangle_button = Button(choose_geometry_window, text='Назад', command=visible_choose_subject_func, bg=first_color, fg=fourth_color, width=25,
+                              font='Oswald 15')  # Кнопка назад, процедура используется такая же как и у смены главного на геометрию
+back_triangle_button.grid(row=6, column=5, pady=25)  # Кнопка назад расположение
 # Окно раздела геометрии заканчивается тут(3 окно)
 
 
@@ -971,8 +1067,8 @@ stuff_chemistry_button.grid(row=3, column=5, sticky=W, padx=30)  # Кнопка 
 stuff_history_button = Button(choose_subject_window, text='История', font='Oswald 15', state=DISABLED, bg=first_color, fg=fourth_color, width=15)  # Кнопка Истории
 stuff_history_button.grid(row=4, column=5, sticky=W, padx=30)  # Кнопка Истории расположение
 
-back_button = Button(choose_subject_window, text='Назад', font='Oswald 12', command=visible_greet_window_func, bg=first_color, fg=fourth_color, width=12)
-back_button.grid(row=5, column=3, sticky=W, padx=60)
+back_triangle_button = Button(choose_subject_window, text='Назад', font='Oswald 12', command=visible_greet_window_func, bg=first_color, fg=fourth_color, width=12)
+back_triangle_button.grid(row=5, column=3, sticky=W, padx=60)
 # Окно выбора предмета заканчивается тут(2 окно)
 
 # Окно приветсвия начинается тут(1 окно)
@@ -1002,8 +1098,8 @@ create_theme_button.grid(row=8, column=3)
 delete_theme_button = Button(greet_window, text='Удалить тему', font='Oswald 15', command=delete_custom_theme_func, bg=first_color, fg=fourth_color, width=25)
 delete_theme_button.grid(row=9, column=3, pady=15)
 
-exit_button = Button(greet_window, text='Выход', font='Oswald 15', command=exit_project_func, bg=first_color, fg=fourth_color, width=25)
-exit_button.grid(row=10, column=3)
+exit_triangle_button = Button(greet_window, text='Выход', font='Oswald 15', command=exit_project_func, bg=first_color, fg=fourth_color, width=25)
+exit_triangle_button.grid(row=10, column=3)
 
 # Окно приветсвия заканчивается тут(1 окно)
 
