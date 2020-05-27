@@ -715,7 +715,7 @@ def delete_custom_theme_func():
 
 
 def calculate_triangle_func():
-    if a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':
+    if a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         a = float(a_triangle_entry.get())
         b = float(b_triangle_entry.get())
         c = float(c_triangle_entry.get())
@@ -725,28 +725,33 @@ def calculate_triangle_func():
         if (a + b > c) and (a + c > b) and (b + c > a):
 
             a = float(a_triangle_entry.get())
-            print(a)
-            b = float(b_triangle_entry.get())
-            print(b)
-            c = float(c_triangle_entry.get())
-            print(c)
 
-            print(a, b, c)
+            b = float(b_triangle_entry.get())
+
+            c = float(c_triangle_entry.get())
+
             alpha = round(math.degrees(math.acos((b ** 2 + c ** 2 - a ** 2) / (2 * b * c))))
-            print(f'Альфа = {alpha} гр')
+
             betta = round(math.degrees(math.acos((a ** 2 + c ** 2 - b ** 2) / (2 * a * c))))
-            print(f'Бетта = {betta} гр')
+
             gamma = round(180 - (alpha + betta))
-            print(f'Гамма = {gamma} гр')
+
             p = round(a + b + c, 2)  # Периметр
-            print(f'P = {p}')
+
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)  # Площадь
-            print(f'S = {s}')
 
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':
+    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':  # проверено работает
         b_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -754,27 +759,27 @@ def calculate_triangle_func():
         c = float(c_triangle_entry.get())  # b
         alpha = float(alpha_corner_triangle_entry.get())  # y
 
-        print(f'A = {a}')
-        print(f'C = {c}')
-        print(f'Alpha = {alpha}')
-
         b = round(math.sqrt((a ** 2 + c ** 2) - (2 * a * c * (math.cos(math.radians(alpha))))), 2)  # c
-        print(f'Сторона B = {b}')
 
         betta = round(math.degrees(math.acos((c ** 2 + b ** 2 - a ** 2) / (2 * c * b))))  # a
-        print(f'Betta = {betta}')
 
         gamma = round(180 - betta - alpha)
-        print(f'Gamma = {gamma}')
 
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
 
-    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90':
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+
+    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90':  # проверено работает
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
@@ -782,26 +787,26 @@ def calculate_triangle_func():
         b = float(b_triangle_entry.get())  # b
         gamma = float(gamma_corner_triangle_entry.get())  # y
 
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'Gamma = {gamma}')
-
         c = round(math.sqrt((a ** 2 + b ** 2) - (2 * a * b * (math.cos(math.radians(gamma))))), 2)  # c
-        print(f'Сторона C = {c}')
 
         betta = round(math.degrees(math.acos((c ** 2 + b ** 2 - a ** 2) / (2 * c * b))))  # a
-        print(f'Betta = {betta}')
 
-        betta = round(180 - gamma - betta)
-        print(f'Alpha = {betta}')
+        alpha = round(180 - gamma - betta)
 
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
-    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':
+
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         a_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -810,26 +815,26 @@ def calculate_triangle_func():
         c = float(c_triangle_entry.get())  # b
         betta = float(betta_corner_triangle_entry.get())  # y
 
-        print(f'B = {b}')
-        print(f'C = {c}')
-        print(f'Betta = {betta}')
-
         a = round(math.sqrt((b ** 2 + c ** 2) - (2 * b * c * (math.cos(math.radians(betta))))), 2)  # c
-        print(f'Сторона A = {a}')
 
         alpha = round(math.degrees(math.acos((c ** 2 + a ** 2 - b ** 2) / (2 * c * a))))
-        print(f'Alpha = {alpha}')
 
         gamma = round(180 - alpha - betta)
-        print(f'Gamma = {gamma}')
 
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
-    elif c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':
+
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+    elif c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         a_triangle_entry['state'] = DISABLED
         b_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -840,25 +845,26 @@ def calculate_triangle_func():
         if (alpha + betta) < 180:
 
             gamma = 180 - alpha - betta
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
+
             a = round(c * (math.sin(math.radians(betta)) / math.sin(math.radians(gamma))), 2)
             b = round(c * (math.sin(math.radians(alpha)) / math.sin(math.radians(gamma))), 2)
 
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
-
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and gamma_corner_triangle_entry.get() != '90':
+    elif a_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and gamma_corner_triangle_entry.get() != '90':  # проверено работает
         b_triangle_entry['state'] = DISABLED
         c_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
@@ -868,25 +874,26 @@ def calculate_triangle_func():
         if (alpha + gamma) < 180:
 
             betta = 180 - alpha - gamma
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
 
             b = round(a * (math.sin(math.radians(alpha)) / math.sin(math.radians(betta))), 2)
             c = round(a * (math.sin(math.radians(gamma)) / math.sin(math.radians(betta))), 2)
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
 
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':
+    elif b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         a_triangle_entry['state'] = DISABLED
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
@@ -911,9 +918,18 @@ def calculate_triangle_func():
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
             print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':
+    elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         b_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -925,22 +941,23 @@ def calculate_triangle_func():
         gamma = round(math.degrees(math.asin(c / a * (math.sin(math.radians(betta))))), 2)
 
         alpha = round(180 - betta - gamma, 2)
-        print(f'Alpha = {alpha}')
-        print(f'Betta = {betta}')
-        print(f'Gamma = {gamma}')
 
         b = round(a * (math.sin(math.radians(alpha)) / math.sin(math.radians(betta))), 2)
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'C = {c}')
 
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
-    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':
+
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+    elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':  # проверено работает
 
         a_triangle_entry['state'] = DISABLED
         betta_corner_triangle_entry['state'] = DISABLED
@@ -953,23 +970,24 @@ def calculate_triangle_func():
         gamma = round(math.degrees(math.asin(c / b * (math.sin(math.radians(alpha))))), 2)
 
         betta = round(180 - alpha - gamma, 2)
-        print(f'Alpha = {alpha}')
-        print(f'Betta = {betta}')
-        print(f'Gamma = {gamma}')
 
         a = round(b * (math.sin(math.radians(betta)) / math.sin(math.radians(alpha))), 2)
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'C = {c}')
 
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
 
-    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+
+    elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
         gamma_corner_triangle_entry['state'] = DISABLED
@@ -981,69 +999,73 @@ def calculate_triangle_func():
         alpha = round(math.degrees(math.asin(b / a * (math.sin(math.radians(betta))))), 2)
 
         gamma = round(180 - betta - alpha, 2)
-        print(f'Alpha = {alpha}')
-        print(f'Betta = {betta}')
-        print(f'Gamma = {gamma}')
 
+        print('1')
         c = round(a * (math.sin(math.radians(gamma)) / math.sin(math.radians(betta))), 2)
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'C = {c}')
 
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
-    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and c_triangle_entry.get() != '':
+
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         a = float(a_triangle_entry.get())
         c = float(c_triangle_entry.get())
         alpha = float(90)
-
         b = round(math.sqrt(a ** 2 + c ** 2), 2)
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'C = {c}')
 
         betta = round(math.degrees(math.asin(a / b)), 2)
         gamma = round(math.degrees(math.asin(c / b)), 2)
 
-        print(f'Alpha = {alpha}')
-        print(f'Betta = {betta}')
-        print(f'Gamma = {gamma}')
-
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
-    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':
+
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         b = float(b_triangle_entry.get())
         c = float(c_triangle_entry.get())
         alpha = float(90)
 
         a = round(math.sqrt(b ** 2 - c ** 2), 2)
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'C = {c}')
 
         betta = round(math.degrees(math.asin(a / b)), 2)
         gamma = round(math.degrees(math.asin(c / b)), 2)
 
-        print(f'Alpha = {alpha}')
-        print(f'Betta = {betta}')
-        print(f'Gamma = {gamma}')
-
         p = round(a + c + b, 2)
-        print(f'P = {p}')
 
         p_polu = (a + b + c) / 2  # Полупериметр
         s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-        print(f'S = {s}')
-    elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+
+        a_result_triangle_label.config(text=a)
+        b_result_triangle_label.config(text=b)
+        c_result_triangle_label.config(text=c)
+        alpha_result_triangle_label.config(text=alpha)
+        betta_result_triangle_label.config(text=betta)
+        gamma_result_triangle_label.config(text=gamma)
+        p_result_triangle_label.config(text=p)
+        s_result_triangle_label.config(text=s)
+    elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':  # проверено работает
         if float(betta_corner_triangle_entry.get()) < 90:
+            gamma_corner_triangle_entry['state'] = DISABLED
+            b_triangle_entry['state'] = DISABLED
+            a_triangle_entry['state'] = DISABLED
             c = float(c_triangle_entry.get())  # b
             betta = float(betta_corner_triangle_entry.get())  # alpha
             alpha = float(90)  # gamma
@@ -1051,25 +1073,30 @@ def calculate_triangle_func():
             b = round(c / math.cos(math.radians(betta)), 2)  # c
 
             a = round(c * math.tan(math.radians(betta)), 2)
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
 
             gamma = round(90 - betta, 2)
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
 
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':  # проверено работает
         if float(gamma_corner_triangle_entry.get()) < 90:
+            b_triangle_entry['state'] = DISABLED
+            c_triangle_entry['state'] = DISABLED
+            betta_corner_triangle_entry['state'] = DISABLED
+
             a = float(a_triangle_entry.get())  # b
             gamma = float(gamma_corner_triangle_entry.get())  # alpha
             alpha = float(90)  # gamma
@@ -1077,26 +1104,31 @@ def calculate_triangle_func():
             b = round(a / math.cos(math.radians(gamma)), 2)  # c
 
             c = round(a * math.tan(math.radians(gamma)), 2)
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
 
             betta = round(90 - gamma, 2)
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
 
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
 
-    elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+    elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':  # проверено работает
         if float(gamma_corner_triangle_entry.get()) < 90:
+            betta_corner_triangle_entry['state'] = DISABLED
+            a_triangle_entry['state'] = DISABLED
+            b_triangle_entry['state'] = DISABLED
+
             alpha = float(90)  # gamma
             c = float(c_triangle_entry.get())  # b
             gamma = float(gamma_corner_triangle_entry.get())  # betta
@@ -1104,27 +1136,30 @@ def calculate_triangle_func():
             b = round(c / math.sin(math.radians(gamma)), 2)
 
             a = round(math.sqrt(b ** 2 - c ** 2), 2)
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
 
             betta = round(90 - gamma, 2)
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
 
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
 
-    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':  # проверено работает
         if float(betta_corner_triangle_entry.get()) < 90:
             gamma_corner_triangle_entry['state'] = DISABLED
+            b_triangle_entry['state'] = DISABLED
+            c_triangle_entry['state'] = DISABLED
 
             alpha = float(90)
             a = float(a_triangle_entry.get())
@@ -1136,23 +1171,27 @@ def calculate_triangle_func():
 
             c = round(b * math.sin(math.radians(gamma)), 2)
 
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
-
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':
+    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':  # проверено работает
         if float(betta_corner_triangle_entry.get()) < 90:
+            gamma_corner_triangle_entry['state'] = DISABLED
+            a_triangle_entry['state'] = DISABLED
+            c_triangle_entry['state'] = DISABLED
+
             alpha = float(90)
             b = float(b_triangle_entry.get())
             betta = float(betta_corner_triangle_entry.get())
@@ -1161,23 +1200,28 @@ def calculate_triangle_func():
 
             a = round(b * math.sin(math.radians(betta)), 2)
             c = round(b * math.sin(math.radians(gamma)), 2)
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
 
             p = round(a + c + b, 2)
-            print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
-    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':
+    elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':  # проверено работает
         if float(gamma_corner_triangle_entry.get()) < 90:
+            a_triangle_entry['state'] = DISABLED
+            c_triangle_entry['state'] = DISABLED
+            betta_corner_triangle_entry['state'] = DISABLED
+
             alpha = float(90)
             b = float(b_triangle_entry.get())
             gamma = float(gamma_corner_triangle_entry.get())
@@ -1187,23 +1231,24 @@ def calculate_triangle_func():
             c = round(b * math.sin(math.radians(gamma)), 2)
             a = round(b * math.cos(math.radians(gamma)), 2)
 
-            print(f'A = {a}')
-            print(f'B = {b}')
-            print(f'C = {c}')
-            print(f'Alpha = {alpha}')
-            print(f'Betta = {betta}')
-            print(f'Gamma = {gamma}')
-
             p = round(a + c + b, 2)
             print(f'P = {p}')
 
             p_polu = (a + b + c) / 2  # Полупериметр
             s = round(math.sqrt(p_polu * (p_polu - a) * (p_polu - b) * (p_polu - c)), 2)
-            print(f'S = {s}')
+
+            a_result_triangle_label.config(text=a)
+            b_result_triangle_label.config(text=b)
+            c_result_triangle_label.config(text=c)
+            alpha_result_triangle_label.config(text=alpha)
+            betta_result_triangle_label.config(text=betta)
+            gamma_result_triangle_label.config(text=gamma)
+            p_result_triangle_label.config(text=p)
+            s_result_triangle_label.config(text=s)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     else:
-        print('Error')
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
 
 
 def reset_triangle_calculate_func():
@@ -1220,6 +1265,15 @@ def reset_triangle_calculate_func():
     alpha_corner_triangle_entry['state'] = NORMAL
     betta_corner_triangle_entry['state'] = NORMAL
     gamma_corner_triangle_entry['state'] = NORMAL
+
+    a_result_triangle_label.config(text='')
+    b_result_triangle_label.config(text='')
+    c_result_triangle_label.config(text='')
+    alpha_result_triangle_label.config(text='')
+    betta_result_triangle_label.config(text='')
+    gamma_result_triangle_label.config(text='')
+    p_result_triangle_label.config(text='')
+    s_result_triangle_label.config(text='')
 
 
 # Окно доказательства начинается тут(10 окно)
@@ -1256,49 +1310,74 @@ calculate_triangle_window.withdraw()  # Скрытие окна треуголь
 definition_label = Label(calculate_triangle_window, text='Калькулятор', font='Oswald 15',
                          bg=first_color,
                          fg=third_color)  # Надпись определение треугольника
-definition_label.grid(row=1, column=8, pady=15, padx=15)  # Надпись определение треугольника расположение
+definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
 
-a_label = Label(calculate_triangle_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+a_label = Label(calculate_triangle_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 a_label.grid(row=2, column=1, padx=15, pady=15)
 
-a_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-a_triangle_entry.grid(row=2, column=2)
+a_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
+a_triangle_entry.grid(row=2, column=2, padx=15)
 
-b_label = Label(calculate_triangle_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+b_label = Label(calculate_triangle_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 b_label.grid(row=3, column=1, padx=15)
 
-b_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-b_triangle_entry.grid(row=3, column=2)
+b_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
+b_triangle_entry.grid(row=3, column=2, padx=15)
 
-c_label = Label(calculate_triangle_window, text='C = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+c_label = Label(calculate_triangle_window, text='C = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 c_label.grid(row=4, column=1, padx=15, pady=15)
 
-c_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-c_triangle_entry.grid(row=4, column=2)
+c_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
+c_triangle_entry.grid(row=4, column=2, padx=15)
 
-a_corner_label = Label(calculate_triangle_window, text='⦟α = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+a_corner_label = Label(calculate_triangle_window, text='⦟α = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 a_corner_label.grid(row=5, column=1, padx=15)
 
-alpha_corner_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-alpha_corner_triangle_entry.grid(row=5, column=2)
+alpha_corner_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
+alpha_corner_triangle_entry.grid(row=5, column=2, padx=15)
 
-b_corner_label = Label(calculate_triangle_window, text='⦟β = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+b_corner_label = Label(calculate_triangle_window, text='⦟β = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 b_corner_label.grid(row=6, column=1, padx=15, pady=15)
 
-betta_corner_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-betta_corner_triangle_entry.grid(row=6, column=2)
+betta_corner_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
+betta_corner_triangle_entry.grid(row=6, column=2, padx=15)
 
-y_corner_label = Label(calculate_triangle_window, text='⦟γ = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+y_corner_label = Label(calculate_triangle_window, text='⦟γ = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 y_corner_label.grid(row=7, column=1, padx=15)
 
-gamma_corner_triangle_entry = Entry(calculate_triangle_window, width=5, font='Oswald 10', bg=fifth_color)
-gamma_corner_triangle_entry.grid(row=7, column=2)
+gamma_corner_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
+gamma_corner_triangle_entry.grid(row=7, column=2, padx=15)
 
-y_corner_label = Label(calculate_triangle_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+y_corner_label = Label(calculate_triangle_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 y_corner_label.grid(row=8, column=1, pady=15)
 
-y_corner_label = Label(calculate_triangle_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=5)
+y_corner_label = Label(calculate_triangle_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
 y_corner_label.grid(row=9, column=1)
+
+# Виджеты для вывода данных
+a_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_triangle_label.place(x=60, y=75)
+
+b_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+b_result_triangle_label.place(x=60, y=117)
+
+c_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+c_result_triangle_label.place(x=60, y=162)
+
+alpha_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+alpha_result_triangle_label.place(x=60, y=206)
+
+betta_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+betta_result_triangle_label.place(x=60, y=250)
+
+gamma_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+gamma_result_triangle_label.place(x=60, y=294)
+
+p_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+p_result_triangle_label.place(x=60, y=338)
+
+s_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+s_result_triangle_label.place(x=60, y=381)
 
 triangle_canvas = Canvas(calculate_triangle_window, width=180, height=160, bg=first_color, highlightthickness=0)
 create_figure = triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color)
