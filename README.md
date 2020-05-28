@@ -81,7 +81,7 @@
 
 1. visible_choose_subject_func - переход с главного окна на выбор предмета
 
-2. visible_gometry_window_func - переход с окна выбора предмета на окно геометрии
+2. visible_geometry_window_func - переход с окна выбора предмета на окно геометрии
 
 3. visible_choose_figure_window_func - переход с окна геометрии на окно с фигурами
 
@@ -126,6 +126,12 @@
 23. calculate_triangle_func - полный просчёт треугольника
 
 24. reset_triangle_calculate_func - сброс entry на окне с расчётом треугольника
+
+25. visible_calculate_square_window - показ окна с расчётами прямоугольника
+
+26. calculate_square_func - расчёт прямоугольника
+
+27. reset_square_calculate_func -  сброс всех entry на экране с расчётами прямоугольника
 
 ### Про кастомную тему:
 **Кастомная тема принимает 5 цветов:**
