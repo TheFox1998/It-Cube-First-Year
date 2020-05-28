@@ -89,13 +89,21 @@ def visible_greet_window_func():  # Показ главного окна
     choose_geometry_window.withdraw()
 
 
+def visible_calculate_square_window():
+    # Всё, что показываем:
+    calculate_square_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
 def visible_triangle_window_event_func(event):  # Открытие окна с треугольником через event
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
     theorems_window.withdraw()
     axioms_window.withdraw()
-    proof_window.withdraw()
+
     formuls_window.withdraw()
     calculate_triangle_window.withdraw()
     # Всё что создаём
@@ -104,8 +112,11 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
     definition_figure_label.config(text='Треугольник - это геометрическая фигура, \n образованная тремя пересекающимися прямыми, \n образующими три внутренних угла')
 
     calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+
     axioms_figure_button.config(text='Аксиомы треугольника', command=visible_axioms_triangle_window_func)
+
     theorems_figure_button.config(text='Теоремы треугольника', command=visible_theorems_triangle_window_first_func)
+
     formulas_figure_button.config(text='Формулы треугольника', command=visible_formuls_triangle_func)
 
 
@@ -114,7 +125,7 @@ def visible_theorems_triangle_window_first_func():  # 1 стр аксиом тр
     theorems_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
-    proof_window.withdraw()
+
     # Всё, что создаём
     title_theorem_label.config(text='Теоремы треугольника: 1 стр.')
 
@@ -152,7 +163,7 @@ def visible_theorems_triangle_window_second_func():  # 2 стр аксиом т�
     theorems_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
-    proof_window.withdraw()
+
     # Всё, что создаём
     title_theorem_label.config(text='Теоремы треугольника: 2 стр.')
 
@@ -232,17 +243,6 @@ def visible_calculate_triangle_window_func():  # Открытие окна c в�
     choose_figure_window.withdraw()
 
 
-def visible_proof_window_first_triangle_event_func(event):  # Показ окна с докозательствами первой теоремы треугольника
-    # Всё, что показываем:
-    proof_window.deiconify()
-    # Всё, что скрываем:
-    theorems_window.withdraw()
-    # Всё что создаём
-    back_proof_triangle_button = Button(proof_window, text='Назад', bg=first_color, fg=fourth_color, width=32, font='Oswald 10')  # Кнопка назад
-    back_proof_triangle_button.grid(row=0, column=0)  # Кнопка назад расположение
-    back_proof_triangle_button.bind('<Button-1>', visible_triangle_window_event_func)
-
-
 def visible_square_window_event_func(event):  # Открытие окна с прямоугольником через event
     # Всё, что показываем
     figure_window.deiconify()
@@ -250,20 +250,19 @@ def visible_square_window_event_func(event):  # Открытие окна с п�
     axioms_window.withdraw()
     theorems_window.withdraw()
     formuls_window.withdraw()
-    calculate_triangle_window.withdraw()
-    proof_window.withdraw()
+    calculate_square_window.withdraw()
+
     # Всё что создаём
-    figure_window.title('Четырёхугольник')
+    figure_window.title('Прямоугольник')
 
-    definition_figure_label.config(text='Четырёхугольник - это геометрическая фигура,\n состоящая из четырёх точек, никакие три из которых \nне лежат на одной прямой, и четырёх отрезков, \nпоследовательно '
-                                        'соединяющих эти точки')
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов')
+    definition_figure_label.config(text='Прямоугольник — четырехугольник, \nу которого все углы прямые (равны 90 градусам)')
+    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_square_window)
 
-    axioms_figure_button.config(text='Аксиомы четырёхугольника', command=visible_axioms_square_window_func)
+    axioms_figure_button.config(text='Аксиомы прямоугольника', command=visible_axioms_square_window_func)
 
-    theorems_figure_button.config(text='Теоремы четырёхугольника', command=visible_theorems_square_window_first_func)
+    theorems_figure_button.config(text='Теоремы прямоугольника', command=visible_theorems_square_window_first_func)
 
-    formulas_figure_button.config(text='Формулы четырёхугольника', command=visible_formuls_square_func)
+    formulas_figure_button.config(text='Формулы прямоугольника', command=visible_formuls_square_func)
 
 
 def visible_theorems_square_window_first_func():
@@ -271,7 +270,7 @@ def visible_theorems_square_window_first_func():
     theorems_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
-    proof_window.withdraw()
+
     # Всё, что создаём
 
     title_theorem_label.config(text='Теоремы четырёхугольника: ')
@@ -340,7 +339,6 @@ def visible_theorems_rectangle_window_func():
     theorems_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
-    proof_window.withdraw()
     # Всё, что создаём
     title_theorem_label.config(text='Теоремы квадрата: ')
 
@@ -1093,6 +1091,8 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':  # проверено работает
@@ -1155,13 +1155,95 @@ def reset_triangle_calculate_func():
     s_result_triangle_label.config(text='')
 
 
-# Окно доказательства начинается тут(10 окно)
-proof_window = Tk()
-proof_window.title('Дано')
-proof_window['bg'] = first_color
+def calculate_square_func():
+    pass
 
-proof_window.withdraw()
-# Окно доказательства заканчивается тут(10)
+
+def calculate_square_test_func():
+    pass
+
+
+def reset_square_calculate_func():
+    pass
+
+
+# Окно расчётов прямоугольника начинается тут(10 окно)
+calculate_square_window = Tk()
+calculate_square_window['bg'] = first_color
+calculate_square_window.title('Калькулатор прямоугольника')
+
+calculate_square_window.withdraw()
+
+definition_label = Label(calculate_square_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+a_label = Label(calculate_square_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_label.grid(row=2, column=1, padx=15, pady=15)
+
+a_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
+a_square_entry.grid(row=2, column=2, padx=15)
+
+b_label = Label(calculate_square_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+b_label.grid(row=3, column=1, padx=15)
+
+b_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
+b_square_entry.grid(row=3, column=2, padx=15)
+
+a_corner_label = Label(calculate_square_window, text='⦟α = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_corner_label.grid(row=4, column=1, padx=15, pady=15)
+
+alpha_corner_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
+alpha_corner_square_entry.grid(row=4, column=2, padx=15)
+alpha_corner_square_entry.insert(0, '90')
+
+p_corner_label = Label(calculate_square_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_corner_label.grid(row=5, column=1)
+
+s_corner_label = Label(calculate_square_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_corner_label.grid(row=6, column=1, pady=15)
+
+# Виджеты для вывода данных
+a_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_square_label.place(x=60, y=75)
+
+b_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+b_result_square_label.place(x=60, y=117)
+
+alpha_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+alpha_result_square_label.place(x=60, y=162)
+
+p_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+p_result_square_label.place(x=60, y=206)
+
+s_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+s_result_square_label.place(x=60, y=250)
+
+square_canvas = Canvas(calculate_square_window, width=160, height=150, bg=first_color, highlightthickness=0)
+create_figure = square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=first_color)
+square_canvas.create_text(6, 80, text="A", font="Oswald 15", fill=third_color)
+square_canvas.create_text(153, 80, text="A", font="Oswald 15", fill=third_color)
+square_canvas.create_text(80, 20, text="B", font="Oswald 15", fill=third_color)
+square_canvas.create_text(80, 130, text="B", font="Oswald 15", fill=third_color)
+square_canvas.place(x=350, y=80)
+
+calculate_triangle_button = Button(calculate_square_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_func)
+calculate_triangle_button.grid(row=10, column=8, padx=15)
+
+calculate_triangle_button = Button(calculate_square_window, text='Произвести расчёты(тест)', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_test_func)
+calculate_triangle_button.grid(row=10, column=9, padx=15)
+
+back_figure_button = Button(calculate_square_window, text='Сбросить', command=reset_square_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=10, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_square_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=10, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_square_window_event_func)
+
+exit_triangle_button = Button(calculate_square_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_triangle_button.grid(row=10, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов прямоугольника заканчивается тут(10 окно)
 
 # Окно формул начинается тут(9 окно)
 formuls_window = Tk()  # Окно треугольника
@@ -1238,11 +1320,11 @@ y_corner_label.grid(row=7, column=1, padx=15)
 gamma_corner_triangle_entry = Entry(calculate_triangle_window, width=4, font='Oswald 10', bg=fifth_color)
 gamma_corner_triangle_entry.grid(row=7, column=2, padx=15)
 
-y_corner_label = Label(calculate_triangle_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
-y_corner_label.grid(row=8, column=1, pady=15)
+p_corner_label = Label(calculate_triangle_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_corner_label.grid(row=8, column=1, pady=15)
 
-y_corner_label = Label(calculate_triangle_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
-y_corner_label.grid(row=9, column=1)
+s_corner_label = Label(calculate_triangle_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_corner_label.grid(row=9, column=1)
 
 # Виджеты для вывода данных
 a_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
@@ -1269,15 +1351,15 @@ p_result_triangle_label.place(x=60, y=338)
 s_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
 s_result_triangle_label.place(x=60, y=381)
 
-triangle_canvas = Canvas(calculate_triangle_window, width=180, height=160, bg=first_color, highlightthickness=0)
-create_figure = triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color, outline='red')
-triangle_canvas.create_text(155, 140, text="β", font="Oswald 15", fill=third_color)
-triangle_canvas.create_text(5, 140, text="α", font="Oswald 15", fill=third_color)
-triangle_canvas.create_text(40, 15, text="γ", font="Oswald 15", fill=third_color)
-triangle_canvas.create_text(10, 80, text="A", font="Oswald 15", fill=third_color)
-triangle_canvas.create_text(80, 152, text="C", font="Oswald 15", fill=third_color)
-triangle_canvas.create_text(110, 80, text="B", font="Oswald 15", fill=third_color)
-triangle_canvas.place(x=350, y=80)
+calculate_triangle_canvas = Canvas(calculate_triangle_window, width=180, height=160, bg=first_color, highlightthickness=0)
+main_triangle = calculate_triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color, outline='red')
+calculate_triangle_canvas.create_text(155, 140, text="β", font="Oswald 15", fill=third_color)
+calculate_triangle_canvas.create_text(5, 140, text="α", font="Oswald 15", fill=third_color)
+calculate_triangle_canvas.create_text(40, 15, text="γ", font="Oswald 15", fill=third_color)
+calculate_triangle_canvas.create_text(10, 80, text="A", font="Oswald 15", fill=third_color)
+calculate_triangle_canvas.create_text(80, 152, text="C", font="Oswald 15", fill=third_color)
+calculate_triangle_canvas.create_text(110, 80, text="B", font="Oswald 15", fill=third_color)
+calculate_triangle_canvas.place(x=350, y=80)
 
 calculate_triangle_button = Button(calculate_triangle_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_triangle_func)
 calculate_triangle_button.grid(row=10, column=8, padx=15)
@@ -1307,7 +1389,6 @@ title_theorem_label.grid(row=0, column=0, padx=10, sticky=W, pady=15)  # Над�
 first_theorem_label = Label(theorems_window, text='',
                             font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
 first_theorem_label.grid(row=1, column=0, padx=10, columnspan=9, sticky=W)  # Надпись аксиомы 1 расположение
-first_theorem_label.bind('<Button-1>', visible_proof_window_first_triangle_event_func)
 
 second_theorem_label = Label(theorems_window, text='',
                              font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
@@ -1399,11 +1480,11 @@ create_figure = triangle_canvas.create_polygon((80, 20), (10, 140), (150, 140), 
 triangle_canvas.create_text(40, 10, text="Треугольник", font="Oswald 10", fill=third_color)
 triangle_canvas.tag_bind(create_figure, '<Button-1>', visible_triangle_window_event_func)
 triangle_canvas.grid(row=2, column=1)
-# Рисование четырёхугольника
+# Рисование прямоугольника
 square_canvas = Canvas(choose_figure_window, width=160, height=150, bg=first_color, highlightthickness=0)
 create_figure = square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=first_color)
 square_canvas.tag_bind(create_figure, '<Button-1>', visible_square_window_event_func)
-square_canvas.create_text(60, 10, text="Четырёхугольник", font="Oswald 10", fill=third_color)
+square_canvas.create_text(60, 10, text="Прямоугольник", font="Oswald 10", fill=third_color)
 square_canvas.grid(row=3, column=1)
 # Рисование квадрата
 rectangle_canvas = Canvas(choose_figure_window, width=160, height=150, bg=first_color, highlightthickness=0)
@@ -1562,7 +1643,7 @@ calculate_triangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, heig
 axioms_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 theorems_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
-proof_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_square_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -1623,6 +1704,11 @@ y_window_small = (figure_window.winfo_screenheight() // 2) - (height_window_smal
 # Сделать левее вертикальные окна
 figure_window.geometry('{}x{}+{}+{}'.format(width_window_small, height_window_small, 200, y_window_small))
 
+calculate_square_window.lift()
+calculate_square_window.attributes('-topmost', True)
+calculate_square_window.after_idle(calculate_square_window.attributes, '-topmost', True)
+calculate_square_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_square_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
