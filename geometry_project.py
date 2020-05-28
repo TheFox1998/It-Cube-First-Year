@@ -1156,15 +1156,231 @@ def reset_triangle_calculate_func():
 
 
 def calculate_square_func():
-    pass
+    if a_square_entry.get() != '' and b_square_entry.get() != '':
+        d_square_entry['state'] = DISABLED
+        alpha_corner_square_entry['state'] = DISABLED
+        betta_corner_square_entry['state'] = DISABLED
+        s_square_entry['state'] = DISABLED
 
+        a = float(a_square_entry.get())
+        b = float(b_square_entry.get())
 
-def calculate_square_test_func():
-    pass
+        p = round(2 * (a + b), 2)
+
+        s = round(a * b, 2)
+
+        d = round(math.sqrt(a ** 2 + b ** 2), 2)
+
+        gamma = round(math.degrees(math.atan(b / a)), 2)
+
+        delta = round(math.degrees(math.atan(a / b)), 2)
+
+        betta = round(2 * gamma, 2)
+
+        alpha = round(2 * delta, 2)
+
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+
+    elif s_square_entry.get() != '' and a_square_entry.get() != '':
+        b_square_entry['state'] = DISABLED
+        d_square_entry['state'] = DISABLED
+        alpha_corner_square_entry['state'] = DISABLED
+        betta_corner_square_entry['state'] = DISABLED
+
+        s = float(s_square_entry.get())
+        a = float(a_square_entry.get())
+
+        b = round(s / a, 2)
+
+        p = round(2 * (a + b), 2)
+
+        d = round(math.sqrt(a ** 2 + b ** 2), 2)
+
+        gamma = round(math.degrees(math.atan(b / a)), 2)
+
+        delta = round(math.degrees(math.atan(a / b)), 2)
+
+        betta = round(2 * gamma, 2)
+
+        alpha = round(2 * delta, 2)
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+    elif s_square_entry.get() != '' and b_square_entry.get() != '':
+        a_square_entry['state'] = DISABLED
+        d_square_entry['state'] = DISABLED
+        alpha_corner_square_entry['state'] = DISABLED
+        betta_corner_square_entry['state'] = DISABLED
+
+        s = float(s_square_entry.get())
+        b = float(b_square_entry.get())
+
+        a = round(s / b, 2)
+
+        p = round(2 * (a + b), 2)
+
+        d = round(math.sqrt(a ** 2 + b ** 2), 2)
+
+        gamma = round(math.degrees(math.atan(b / a)), 2)
+
+        delta = round(math.degrees(math.atan(a / b)), 2)
+
+        betta = round(2 * gamma, 2)
+
+        alpha = round(2 * delta, 2)
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+    elif d_square_entry.get() != '' and a_square_entry.get() != '':
+        b_square_entry['state'] = DISABLED
+        alpha_corner_square_entry['state'] = DISABLED
+        betta_corner_square_entry['state'] = DISABLED
+        s_square_entry['state'] = DISABLED
+
+        d = float(d_square_entry.get())
+        a = float(a_square_entry.get())
+
+        b = round(math.sqrt(d ** 2 - a ** 2), 2)
+
+        p = round(2 * (a + b), 2)
+
+        s = round(a * b, 2)
+
+        gamma = round(math.degrees(math.atan(b / a)), 2)
+
+        delta = round(math.degrees(math.atan(a / b)), 2)
+
+        betta = round(2 * gamma, 2)
+
+        alpha = round(2 * delta, 2)
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+    elif d_square_entry.get() != '' and b_square_entry.get() != '':
+        a_square_entry['state'] = DISABLED
+        alpha_corner_square_entry['state'] = DISABLED
+        betta_corner_square_entry['state'] = DISABLED
+        s_square_entry['state'] = DISABLED
+
+        d = float(d_square_entry.get())
+        b = float(b_square_entry.get())
+
+        a = round(math.sqrt(d ** 2 - b ** 2), 2)
+
+        p = round(2 * (a + b), 2)
+
+        s = round(a * b, 2)
+
+        gamma = round(math.degrees(math.atan(b / a)), 2)
+
+        delta = round(math.degrees(math.atan(a / b)), 2)
+
+        betta = round(2 * gamma, 2)
+
+        alpha = round(2 * delta, 2)
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+    elif d_square_entry.get() != '' and alpha_corner_square_entry.get() != '':
+        a_square_entry['state'] = DISABLED
+        b_square_entry['state'] = DISABLED
+        betta_corner_square_entry['state'] = DISABLED
+        s_square_entry['state'] = DISABLED
+
+        d = float(d_square_entry.get())
+        alpha = float(alpha_corner_square_entry.get())
+
+        b = round(d * math.cos(math.radians(alpha) / 2), 2)
+        a = round(d * math.sin(math.radians(alpha) / 2), 2)
+        betta = round((360 - alpha - alpha) / 2, 2)
+        gamma = round(betta / 2, 2)
+        delta = round(alpha / 2, 2)
+        p = round(2 * (a + b), 2)
+        s = round(a * b, 2)
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+    elif d_square_entry.get() != '' and betta_corner_square_entry.get() != '':
+        a_square_entry['state'] = DISABLED
+        b_square_entry['state'] = DISABLED
+        alpha_corner_square_entry['state'] = DISABLED
+        s_square_entry['state'] = DISABLED
+
+        d = float(d_square_entry.get())
+        betta = float(betta_corner_square_entry.get())
+
+        b = round(d * math.cos(math.radians(betta) / 2), 2)
+        a = round(d * math.sin(math.radians(betta) / 2), 2)
+        alpha = round((360 - betta - betta) / 2, 2)
+        gamma = round(alpha / 2, 2)
+        delta = round(betta / 2, 2)
+        p = round(2 * (a + b), 2)
+        s = round(a * b, 2)
+        a_result_square_label.config(text=a)
+        b_result_square_label.config(text=b)
+        d_result_square_label.config(text=d)
+        alpha_result_square_label.config(text=alpha)
+        betta_result_square_label.config(text=betta)
+        gamma_result_square_label.config(text=gamma)
+        delta_result_square_label.config(text=delta)
+        p_result_square_label.config(text=p)
+        s_result_square_label.config(text=s)
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
 
 
 def reset_square_calculate_func():
-    pass
+    a_square_entry.delete(0, END)
+    b_square_entry.delete(0, END)
+    d_square_entry.delete(0, END)
+    alpha_corner_square_entry.delete(0, END)
+    betta_corner_square_entry.delete(0, END)
+    s_square_entry.delete(0, END)
+
+    a_square_entry['state'] = NORMAL
+    b_square_entry['state'] = NORMAL
+    d_square_entry['state'] = NORMAL
+    alpha_corner_square_entry['state'] = NORMAL
+    betta_corner_square_entry['state'] = NORMAL
+    s_square_entry['state'] = NORMAL
 
 
 # Окно расчётов прямоугольника начинается тут(10 окно)
@@ -1180,7 +1396,7 @@ definition_label = Label(calculate_square_window, text='Калькулятор',
 definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
 
 a_label = Label(calculate_square_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
-a_label.grid(row=2, column=1, padx=15, pady=15)
+a_label.grid(row=2, column=1, padx=15, pady=10)
 
 a_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
 a_square_entry.grid(row=2, column=2, padx=15)
@@ -1192,57 +1408,93 @@ b_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fi
 b_square_entry.grid(row=3, column=2, padx=15)
 
 a_corner_label = Label(calculate_square_window, text='⦟α = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
-a_corner_label.grid(row=4, column=1, padx=15, pady=15)
+a_corner_label.grid(row=4, column=1, padx=15, pady=10)
 
 alpha_corner_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
 alpha_corner_square_entry.grid(row=4, column=2, padx=15)
-alpha_corner_square_entry.insert(0, '90')
+
+b_corner_label = Label(calculate_square_window, text='⦟β = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+b_corner_label.grid(row=5, column=1, padx=15)
+
+betta_corner_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
+betta_corner_square_entry.grid(row=5, column=2, padx=15)
+
+y_corner_label = Label(calculate_square_window, text='⦟γ = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+y_corner_label.grid(row=6, column=1, padx=15, pady=10)
+
+d_corner_label = Label(calculate_square_window, text='⦟δ = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_corner_label.grid(row=7, column=1, padx=15)
+
+d_square_label = Label(calculate_square_window, text='D = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_square_label.grid(row=8, column=1, padx=15, pady=10)
+
+d_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
+d_square_entry.grid(row=8, column=2, padx=15)
 
 p_corner_label = Label(calculate_square_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
-p_corner_label.grid(row=5, column=1)
+p_corner_label.grid(row=9, column=1)
 
 s_corner_label = Label(calculate_square_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
-s_corner_label.grid(row=6, column=1, pady=15)
+s_corner_label.grid(row=10, column=1, pady=10)
+
+s_square_entry = Entry(calculate_square_window, width=4, font='Oswald 10', bg=fifth_color)
+s_square_entry.grid(row=10, column=2, padx=15)
 
 # Виджеты для вывода данных
 a_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
-a_result_square_label.place(x=60, y=75)
+a_result_square_label.place(x=60, y=68)
 
 b_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
-b_result_square_label.place(x=60, y=117)
+b_result_square_label.place(x=60, y=107)
 
 alpha_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
-alpha_result_square_label.place(x=60, y=162)
+alpha_result_square_label.place(x=60, y=146)
+
+betta_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+betta_result_square_label.place(x=60, y=185)
+
+gamma_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+gamma_result_square_label.place(x=60, y=224)
+
+delta_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+delta_result_square_label.place(x=60, y=263)
+
+d_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_result_square_label.place(x=60, y=302)
 
 p_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
-p_result_square_label.place(x=60, y=206)
+p_result_square_label.place(x=60, y=341)
 
 s_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
-s_result_square_label.place(x=60, y=250)
+s_result_square_label.place(x=60, y=380)
 
 square_canvas = Canvas(calculate_square_window, width=160, height=150, bg=first_color, highlightthickness=0)
-create_figure = square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=first_color)
+create_figure = square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=second_color)
+square_canvas.create_line(10, 30, 150, 120, fill=third_color)
+square_canvas.create_line(150, 30, 10, 120, fill=third_color)
 square_canvas.create_text(6, 80, text="A", font="Oswald 15", fill=third_color)
 square_canvas.create_text(153, 80, text="A", font="Oswald 15", fill=third_color)
 square_canvas.create_text(80, 20, text="B", font="Oswald 15", fill=third_color)
 square_canvas.create_text(80, 130, text="B", font="Oswald 15", fill=third_color)
+square_canvas.create_text(125, 65, text="D", font="Oswald 15", fill=third_color)
+square_canvas.create_text(55, 73, text="α", font="Oswald 15", fill=third_color)
+square_canvas.create_text(82, 57, text="β", font="Oswald 15", fill=third_color)
+square_canvas.create_text(18, 96, text="γ", font="Oswald 15", fill=third_color)
+square_canvas.create_text(40, 112, text="δ", font="Oswald 15", fill=third_color)
 square_canvas.place(x=350, y=80)
 
 calculate_triangle_button = Button(calculate_square_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_func)
-calculate_triangle_button.grid(row=10, column=8, padx=15)
-
-calculate_triangle_button = Button(calculate_square_window, text='Произвести расчёты(тест)', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_test_func)
-calculate_triangle_button.grid(row=10, column=9, padx=15)
+calculate_triangle_button.grid(row=11, column=8, padx=15)
 
 back_figure_button = Button(calculate_square_window, text='Сбросить', command=reset_square_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-back_figure_button.grid(row=10, column=3, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
 
 back_figure_button = Button(calculate_square_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-back_figure_button.grid(row=10, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
 back_figure_button.bind('<Button-1>', visible_square_window_event_func)
 
 exit_triangle_button = Button(calculate_square_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-exit_triangle_button.grid(row=10, column=1, pady=15, padx=15)  # Кнопка назад расположение
+exit_triangle_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
 # Окно расчётов прямоугольника заканчивается тут(10 окно)
 
 # Окно формул начинается тут(9 окно)
@@ -1279,7 +1531,7 @@ calculate_triangle_window['bg'] = first_color
 
 calculate_triangle_window.withdraw()  # Скрытие окна треугольника
 
-definition_label = Label(calculate_triangle_window, text='Калькулятор', font='Oswald 15',
+definition_label = Label(calculate_triangle_window, text='Калькулятор треугольника', font='Oswald 15',
                          bg=first_color,
                          fg=third_color)  # Надпись определение треугольника
 definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
