@@ -68,6 +68,7 @@ def visible_geometry_window_func():  # Показ окна с геометрие
     choose_subject_window.withdraw()
     choose_figure_window.withdraw()
     figure_window.withdraw()
+    perevod_ed_window.withdraw()
 
 
 def visible_choose_figure_window_func():  # Показ окна с выбором фигур
@@ -86,6 +87,13 @@ def visible_greet_window_func():  # Показ главного окна
     greet_window.deiconify()
     # Всё, что скрываем:
     choose_subject_window.withdraw()
+    choose_geometry_window.withdraw()
+
+
+def visible_perevod_ed_window_func():
+    # Всё, что показываем:
+    perevod_ed_window.deiconify()
+    # Всё, что скрываем:
     choose_geometry_window.withdraw()
 
 
@@ -338,6 +346,7 @@ def visible_rectangle_window_event_func(event):  # Открытие окна с 
     axioms_window.withdraw()
     theorems_window.withdraw()
     formuls_window.withdraw()
+    calculate_rectangle_window.withdraw()
     # Всё, что создаём
     figure_window.title('Квадрат')
 
@@ -1083,6 +1092,7 @@ def calculate_triangle_func():
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':  # проверено работает
         if float(betta_corner_triangle_entry.get()) < 90:
+
             gamma_corner_triangle_entry['state'] = DISABLED
             a_triangle_entry['state'] = DISABLED
             c_triangle_entry['state'] = DISABLED
@@ -1109,7 +1119,6 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
-
 
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
@@ -1238,6 +1247,7 @@ def calculate_square_func():
         delta_result_square_label.config(text=delta)
         p_result_square_label.config(text=p)
         s_result_square_label.config(text=s)
+
     elif s_square_entry.get() != '' and b_square_entry.get() != '':
         a_square_entry['state'] = DISABLED
         d_square_entry['state'] = DISABLED
@@ -1269,6 +1279,7 @@ def calculate_square_func():
         delta_result_square_label.config(text=delta)
         p_result_square_label.config(text=p)
         s_result_square_label.config(text=s)
+
     elif d_square_entry.get() != '' and a_square_entry.get() != '':
         b_square_entry['state'] = DISABLED
         alpha_corner_square_entry['state'] = DISABLED
@@ -1300,6 +1311,7 @@ def calculate_square_func():
         delta_result_square_label.config(text=delta)
         p_result_square_label.config(text=p)
         s_result_square_label.config(text=s)
+
     elif d_square_entry.get() != '' and b_square_entry.get() != '':
         a_square_entry['state'] = DISABLED
         alpha_corner_square_entry['state'] = DISABLED
@@ -1331,6 +1343,7 @@ def calculate_square_func():
         delta_result_square_label.config(text=delta)
         p_result_square_label.config(text=p)
         s_result_square_label.config(text=s)
+
     elif d_square_entry.get() != '' and alpha_corner_square_entry.get() != '':
         a_square_entry['state'] = DISABLED
         b_square_entry['state'] = DISABLED
@@ -1356,6 +1369,7 @@ def calculate_square_func():
         delta_result_square_label.config(text=delta)
         p_result_square_label.config(text=p)
         s_result_square_label.config(text=s)
+
     elif d_square_entry.get() != '' and betta_corner_square_entry.get() != '':
         a_square_entry['state'] = DISABLED
         b_square_entry['state'] = DISABLED
@@ -1381,6 +1395,7 @@ def calculate_square_func():
         delta_result_square_label.config(text=delta)
         p_result_square_label.config(text=p)
         s_result_square_label.config(text=s)
+
     else:
         mb.showerror(title='Ошибка', message='Что-то пошло не так')
 
@@ -1434,7 +1449,7 @@ def calculate_rectangle_func():
         p_rectangle_entry['state'] = DISABLED
         s = float(s_rectangle_entry.get())
 
-        a = math.sqrt(s)
+        a = round(math.sqrt(s), 2)
 
         p = round(4 * a, 2)
 
@@ -1497,13 +1512,130 @@ def reset_rectangle_calculate_func():
     s_result_rectangle_label.config(text='')
 
 
+def perevod_func():
+    if mm_entry.get() != '' and sm_entry.get() == '' and m_entry.get() == '':
+        mm = float(mm_entry.get())
+
+        sm = round(mm / 10, 2)
+
+        m = round(mm / 1000, 4)
+
+        sm_entry.insert(0, sm)
+        m_entry.insert(0, m)
+
+    elif sm_entry.get() != '' and mm_entry.get() == '' and m_entry.get() == '':
+        sm = float(sm_entry.get())
+
+        mm = round(sm * 10, 2)
+
+        m = round(sm / 100, 2)
+
+        mm_entry.insert(0, mm)
+        m_entry.insert(0, m)
+
+    elif m_entry.get() != '' and sm_entry.get() == '' and mm_entry.get() == '':
+        m = float(m_entry.get())
+
+        sm = round(m * 100, 2)
+
+        mm = round(m * 1000, 2)
+
+        mm_entry.insert(0, mm)
+        sm_entry.insert(0, sm)
+
+    elif min_entry.get()!='' and degres_entry.get()=='' and rad_entry.get()=='':
+        min = float(min_entry.get())
+
+        degres = round(min/60,2)
+
+        rad = round(min*(math.pi/(60*180)),4)
+
+        degres_entry.insert(0,degres)
+        rad_entry.insert(0,rad)
+
+    elif degres_entry.get()!='' and min_entry=='' and rad_entry.get()=='':
+        degres = float(degres_entry.get())
+
+        min = round(degres*60,2)
+        rad = round(degres*(math.pi/180),2)
+
+        min_entry.insert(0,min)
+        rad_entry.insert(0, rad)
+
+    elif rad_entry.get()!='' and min_entry.get()=='' and degres_entry.get()=='':
+        rad = float(rad_entry.get())
+
+        min = round(rad * ((60*180)/math.pi),2)
+        degres = round(rad * (180/math.pi),2)
+
+        min_entry.insert(0,min)
+        rad_entry.insert(0,rad)
+
+    else:
+        mb.showerror(title = 'Ошибка',message='Что-то пошло не так')
+
+
+
+
 # Окно переводов начинается тут(12 окно)
 perevod_ed_window = Tk()
 perevod_ed_window['bg'] = first_color
 perevod_ed_window.title('Переводчик')
 
 perevod_ed_window.withdraw()
+empty_label = Label(perevod_ed_window, fg=first_color, bg=first_color)
+empty_label.grid(row=1, column=0, padx=5)
 
+main_label = Label(perevod_ed_window, text='Переводчик', fg=third_color, bg=first_color, font='Oswald 15')
+main_label.grid(row=0, column=1, sticky=W, padx=5, columnspan=3, pady=15)
+
+mm_label = Label(perevod_ed_window, text='Мм = ', fg=second_color, bg=first_color, font='Oswald 15')
+mm_label.grid(row=1, column=1, sticky=W, padx=5, pady=15)
+
+mm_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+mm_entry.grid(row=1, column=2, sticky=W)
+
+sm_label = Label(perevod_ed_window, text='См = ', fg=second_color, bg=first_color, font='Oswald 15')
+sm_label.grid(row=1, column=3, sticky=W, padx=5)
+
+sm_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+sm_entry.grid(row=1, column=4, sticky=W)
+
+m_label = Label(perevod_ed_window, text='М = ', fg=second_color, bg=first_color, font='Oswald 15')
+m_label.grid(row=1, column=5, sticky=W, padx=5)
+
+m_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+m_entry.grid(row=1, column=6, sticky=W)
+
+min_label = Label(perevod_ed_window, text='Мин = ', fg=second_color, bg=first_color, font='Oswald 15')
+min_label.grid(row=2, column=1, sticky=W, padx=5, pady=15)
+
+min_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+min_entry.grid(row=2, column=2, sticky=W)
+
+degres_label = Label(perevod_ed_window, text='Гр° = ', fg=second_color, bg=first_color, font='Oswald 15')
+degres_label.grid(row=2, column=3, sticky=W, padx=5)
+
+degres_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+degres_entry.grid(row=2, column=4, sticky=W)
+
+rad_label = Label(perevod_ed_window, text='Рад = ', fg=second_color, bg=first_color, font='Oswald 15')
+rad_label.grid(row=2, column=5, sticky=W, padx=5)
+
+rad_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+rad_entry.grid(row=2, column=6, sticky=W)
+
+result_button = Button(perevod_ed_window, text='Перевести', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
+result_button.grid(row=3, column=1, sticky=W, padx=5, pady=15, columnspan=2)
+
+reset_button = Button(perevod_ed_window, text='Очистить', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
+reset_button.grid(row=3, column=2, sticky=W, padx=15, pady=15, columnspan=2)
+
+result_test_button = Button(perevod_ed_window, text='Перевести test', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_test_func)
+result_test_button.grid(row=4, column=1, sticky=W, padx=5, pady=15, columnspan=2)
+
+back_button = Button(perevod_ed_window, text='Назад', bg=first_color, fg=fourth_color, command=visible_geometry_window_func)  # Кнопка назад
+back_button.place(x=15, y=460)  # Кнопка назад
 # Окно переводов заканчивается тут(12 окно)
 # Окно расчётов квадрата начинается тут(11 окно)
 calculate_rectangle_window = Tk()
@@ -1990,18 +2122,21 @@ choose_geometry_window['bg'] = first_color
 
 choose_geometry_window.withdraw()  # Скрытие окна разделов геометрии
 
-empty_label = Label(choose_geometry_window, bg=first_color)
-empty_label.grid(row=3, column=5, pady=53)
+empty_label = Label(choose_geometry_window, fg=first_color, bg=first_color)
+empty_label.grid(column=0, pady=45)
 
 figures_button = Button(choose_geometry_window, text='Фигуры', font='Oswald 15', command=visible_choose_figure_window_func, bg=first_color, fg=fourth_color, width=25)  # Кнопка перехода на выбор фигур
-figures_button.grid(row=4, column=5, padx=200, pady=25)  # Кнопка фигур расположение
+figures_button.grid(row=4, column=0, pady=25, padx=200)  # Кнопка фигур расположение
 
 add_material_button = Button(choose_geometry_window, text='Дополнительный материал', font='Oswald 15', bg=first_color, fg=fourth_color, width=25)  # Кнопка перехода на доп. материал
-add_material_button.grid(row=5, column=5)  # Кнопка доп. материал расположение
+add_material_button.grid(row=5, column=0)  # Кнопка доп. материал расположение
+
+perevodchik_button = Button(choose_geometry_window, text='Переводчик', font='Oswald 15', bg=first_color, fg=fourth_color, width=25, command=visible_perevod_ed_window_func)  # Кнопка перехода на доп. материал
+perevodchik_button.grid(row=6, column=0, pady=25)  # Кнопка доп. материал расположение
 
 back_figure_button = Button(choose_geometry_window, text='Назад', command=visible_choose_subject_func, bg=first_color, fg=fourth_color, width=25,
                             font='Oswald 15')  # Кнопка назад, процедура используется такая же как и у смены главного на геометрию
-back_figure_button.grid(row=6, column=5, pady=25)  # Кнопка назад расположение
+back_figure_button.grid(row=7, column=0)  # Кнопка назад расположение
 # Окно раздела геометрии заканчивается тут(3 окно)
 
 
@@ -2096,6 +2231,7 @@ theorems_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_
 formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_square_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_rectangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+perevod_ed_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -2167,6 +2303,12 @@ calculate_rectangle_window.attributes('-topmost', True)
 calculate_rectangle_window.after_idle(calculate_rectangle_window.attributes, '-topmost', True)
 calculate_rectangle_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 calculate_rectangle_window.resizable(False, False)
+
+perevod_ed_window.lift()
+perevod_ed_window.attributes('-topmost', True)
+perevod_ed_window.after_idle(perevod_ed_window.attributes, '-topmost', True)
+perevod_ed_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+perevod_ed_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
