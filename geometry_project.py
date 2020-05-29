@@ -89,9 +89,25 @@ def visible_greet_window_func():  # Показ главного окна
     choose_geometry_window.withdraw()
 
 
-def visible_calculate_square_window():
+def visible_calculate_triangle_window_func():  # Открытие окна c расётами треугольника
+    # Всё, что показываем:
+    calculate_triangle_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
+def visible_calculate_square_window():  # показ окна с расчётами прямоугольника
     # Всё, что показываем:
     calculate_square_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
+def visible_calculate_rectangle_window_func():  # показ окна с расчётами квадрата
+    # Всё, что показываем
+    calculate_rectangle_window.deiconify()
     figure_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
@@ -226,14 +242,6 @@ def visible_formuls_triangle_func():  # Показ окна с формулам�
     back_formulas_triangle_button.bind('<Button-1>', visible_triangle_window_event_func)
 
 
-def visible_calculate_triangle_window_func():  # Открытие окна c вычислением треугольника
-    # Всё, что показываем:
-    calculate_triangle_window.deiconify()
-    figure_window.deiconify()
-    # Всё, что скрываем:
-    choose_figure_window.withdraw()
-
-
 def visible_square_window_event_func(event):  # Открытие окна с прямоугольником через event
     # Всё, что показываем
     figure_window.deiconify()
@@ -321,14 +329,6 @@ def visible_formuls_square_func():
     back_formulas_square_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_formulas_square_button.place(x=10, y=460)  # Кнопка назад
     back_formulas_square_button.bind('<Button-1>', visible_square_window_event_func)
-
-
-def visible_calculate_rectangle_window_func():
-    # Всё, что показываем
-    calculate_rectangle_window.deiconify()
-    figure_window.deiconify()
-    # Всё, что скрываем:
-    choose_figure_window.withdraw()
 
 
 def visible_rectangle_window_event_func(event):  # Открытие окна с квадратом через event
@@ -1497,6 +1497,14 @@ def reset_rectangle_calculate_func():
     s_result_rectangle_label.config(text='')
 
 
+# Окно переводов начинается тут(12 окно)
+perevod_ed_window = Tk()
+perevod_ed_window['bg'] = first_color
+perevod_ed_window.title('Переводчик')
+
+perevod_ed_window.withdraw()
+
+# Окно переводов заканчивается тут(12 окно)
 # Окно расчётов квадрата начинается тут(11 окно)
 calculate_rectangle_window = Tk()
 calculate_rectangle_window['bg'] = first_color
@@ -2162,5 +2170,5 @@ calculate_rectangle_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
-# TODO Алексей заполняет: ромб, круг, квадрат, четырёхугольник;
-# TODO Никита заполняет: параллелограмм, эллипс, трапецию, овал. Нужно заполнить аксиомы, теоремы, формулы. Всё по анологии с треугольником. В коммите пишет, что сделали.
+# TODO Алексей заполняет: ромб, круг, квадрат, трапецию;
+# TODO Никита заполняет: параллелограмм, эллипс, овал. Нужно заполнить аксиомы, теоремы, формулы. Всё по анологии с треугольником. В коммите пишет, что сделали.
