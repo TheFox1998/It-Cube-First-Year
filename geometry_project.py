@@ -804,6 +804,7 @@ def visible_circle_window_event_func(event):  # Открытие окна с к�
     # Всё, что скрываем:
     axioms_window.withdraw()
     theorems_window.withdraw()
+    formuls_window.withdraw()
     # Всё, что создаём
     figure_window.title('Круг')
     definition_figure_label.config(text='Круг - часть плоскости,\n лежащая внутри окружности')
@@ -818,6 +819,23 @@ def visible_circle_window_event_func(event):  # Открытие окна с к�
 
 
 def visible_theorems_circle_window_func():
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё, что создаём
+    title_theorem_label.config(text='Теоремы круга: 1 стр.')
+
+    first_theorem_label.config(text='1.Перпендикуляр, опущенный на хорду из центра окружности, делит эту хорду пополам.')
+    second_theorem_label.config(text='2.Угол, вписанный в окружность, равен половине соответствующего центрального угла.')
+    third_theorem_label.config(text='3.Вписанные углы, опирающиеся на равные дуги, равны.')
+    fourth_theorem_label.config(text='4.Величина угла с вершиной внутри круга равна полусумме угловых величин дуг, \nзаключенных между его сторонами и их продолжениями.')
+    fifth_theorem_label.config(
+        text='5.Величина угла, образованного двумя секущими с вершиной вне круга, стороны \nкоторого пересекают этот круг, равна полуразности угловых величин большей и меньшей дуг, \nзаключенных между его сторонами.')
+    sixth_theorem_label.config(text='6.При пересечении хорды делятся на отрезки, произведения которых равны.')
+    seventh_theorem_label.config(text='7.Радиус, проведенный в точку касания окружности, перпендикулярен касательной.')
+    eight_theorem_label.config(text='8.Хорда, имеющая те же концевые точки, что и дуга, называется хордой, \nстягивающей эту дугу.')
+
     first_theorem_label.grid()
     second_theorem_label.grid()
     third_theorem_label.grid()
@@ -826,65 +844,51 @@ def visible_theorems_circle_window_func():
     sixth_theorem_label.grid()
     seventh_theorem_label.grid()
     eight_theorem_label.grid()
+
+    first_theorems_page_button.config(command=visible_theorems_circle_window_func)
+    second_theorems_page_button.place_forget()
+
     back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
-    back_rectangle_theorems_button.bind('<Button-1>', visible_rectangle_window_event_func)
+    back_rectangle_theorems_button.bind('<Button-1>', visible_circle_window_event_func)
 
 
 def visible_axioms_circle_window_func():
-    pass
+    # Всё, что показываем:
+    axioms_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_axioms_label.config(text='Аксиомы круга: ')
+
+    first_axioms_label.config(text='Отсутствуют')
+
+    back_rectangle_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_axioms_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_axioms_button.bind('<Button-1>', visible_circle_window_event_func)
 
 
 def visible_formuls_circle_func():
+    # Всё, что показываем
+    formuls_window.deiconify()
+    # Всё, что скрываем
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_formulas_label.config(text='Формулы трапеции: ')
+
+    first_formulas_label.config(text='Формулы определения площади круга:\n    S = pi * r²')
+    second_formulas_label.config(text='Формулы определения периметра круга:\n    P = 2 * pi * r')
+    third_formulas_label.config(text='Длину окружности можно вычислить по формуле:\n    l = 2 * pi * r')
+
     first_formulas_label.grid()
     second_formulas_label.grid()
-    third_formulas_label.grid()
-    fourth_formulas_label.grid()
-    fifth_formulas_label.grid()
 
+    fourth_formulas_label.grid_remove()
+    fifth_formulas_label.grid_remove()
 
-def visible_oval_window_event_func(event):  # Открытие окна с овалом через event
-    # Всё, что показываем:
-    figure_window.deiconify()
-    # Всё, что скрываем:
-    axioms_window.withdraw()
-    theorems_window.withdraw()
-    # Всё, что создаём
-    figure_window.title('Овал')
-    definition_figure_label.config(text='Овал - плоская замкнутая строго \nвыпуклая гладкая кривая; \nследовательно имеющая с любой \nпрямой не более двух общих точек')
-    calculations_figure_button.config(text='Калькулятор овала', command=development_func)
-
-    axioms_figure_button.config(text='Аксиомы овала', command=visible_axioms_oval_window_func)
-
-    theorems_figure_button.config(text='Теоремы овала', command=visible_theorems_oval_window_func)
-
-    formulas_figure_button.config(text='Формулы овала', command=visible_formuls_oval_func)
-
-
-def visible_theorems_oval_window_func():
-    first_theorem_label.grid()
-    second_theorem_label.grid()
-    third_theorem_label.grid()
-    fourth_theorem_label.grid()
-    fifth_theorem_label.grid()
-    sixth_theorem_label.grid()
-    seventh_theorem_label.grid()
-    eight_theorem_label.grid()
-    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
-    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
-    back_rectangle_theorems_button.bind('<Button-1>', visible_rectangle_window_event_func)
-
-
-def visible_axioms_oval_window_func():
-    pass
-
-
-def visible_formuls_oval_func():
-    first_formulas_label.grid()
-    second_formulas_label.grid()
-    third_formulas_label.grid()
-    fourth_formulas_label.grid()
-    fifth_formulas_label.grid()
+    back_formulas_rectangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_formulas_rectangle_button.place(x=10, y=460)  # Кнопка назад
+    back_formulas_rectangle_button.bind('<Button-1>', visible_trapezium_window_event_func)
 
 
 def visible_ellipse_window_event_func(event):  # Открытие окна с эллипсом через event
@@ -893,6 +897,7 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
     # Всё, что скрываем:
     theorems_window.withdraw()
     axioms_window.withdraw()
+    formuls_window.withdraw()
     # Всё, что создаём
     figure_window.title('Эллипс')
     definition_figure_label.config(text='Эллипс — это замкнутая плоская кривая, \nсумма расстояний от каждой точки \nкоторой до двух точек F1 и F2 \nравна постоянной величине')
@@ -905,29 +910,72 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
 
 
 def visible_theorems_ellipse_window_func():
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё, что создаём
+    title_theorem_label.config(text='Теоремы эллипса: 1 стр.')
+
+    first_theorem_label.config(text='1.Угол между касательной к эллипсу и фокальным радиусом r₁ равен углу между \nкасательной и фокальным радиусом r₂')
+    second_theorem_label.config(
+        text='2.Если эллипс пересекается двумя параллельными прямыми, то отрезок, соединяющий \nсередины отрезков образовавшихся при пересечении прямых и эллипса, всегда \nбудет проходить '
+             'через центр эллипсa. \n(Это свойство дает возможность построением с помощью циркуля и линейки \nполучить центр эллипса.)')
+    third_theorem_label.config(text='3.Эволютой эллипсa есть астероида, что растянута вдоль короткой оси.')
+
     first_theorem_label.grid()
     second_theorem_label.grid()
     third_theorem_label.grid()
-    fourth_theorem_label.grid()
-    fifth_theorem_label.grid()
-    sixth_theorem_label.grid()
-    seventh_theorem_label.grid()
-    eight_theorem_label.grid()
+
+    fourth_formulas_label.grid_remove()
+    fifth_formulas_label.grid_remove()
+    sixth_theorem_label.grid_remove()
+    seventh_theorem_label.grid_remove()
+    eight_theorem_label.grid_remove()
+
+    first_theorems_page_button.config(command=visible_theorems_ellipse_window_func)
+    second_theorems_page_button.place_forget()
+
     back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
-    back_rectangle_theorems_button.bind('<Button-1>', visible_rectangle_window_event_func)
+    back_rectangle_theorems_button.bind('<Button-1>', visible_ellipse_window_event_func)
 
 
 def visible_axioms_ellipse_window_func():
-    pass
+    # Всё, что показываем:
+    axioms_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_axioms_label.config(text='Аксиомы эллипса: ')
+
+    first_axioms_label.config(text='Отсутствуют')
+
+    back_rectangle_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_axioms_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_axioms_button.bind('<Button-1>', visible_ellipse_window_event_func)
 
 
 def visible_formuls_ellipse_func():
+    # Всё, что показываем
+    formuls_window.deiconify()
+    # Всё, что скрываем
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_formulas_label.config(text='Формулы эллипса: ')
+
+    first_formulas_label.config(text='Формула определение площади эллипсa:\n    S = pi * a * b')
+
     first_formulas_label.grid()
-    second_formulas_label.grid()
-    third_formulas_label.grid()
-    fourth_formulas_label.grid()
-    fifth_formulas_label.grid()
+
+    second_formulas_label.grid_remove()
+    third_formulas_label.grid_remove()
+    fourth_formulas_label.grid_remove()
+    fifth_formulas_label.grid_remove()
+
+    back_formulas_rectangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_formulas_rectangle_button.place(x=10, y=460)  # Кнопка назад
+    back_formulas_rectangle_button.bind('<Button-1>', visible_ellipse_window_event_func)
 
 
 def exit_error_func():  # Показываение ошибки при попытки закрытия важных окон
@@ -2446,18 +2494,12 @@ create_figure = circle_canvas.create_oval(15, 10, 150, 140, fill=fifth_color, ou
 circle_canvas.tag_bind(create_figure, '<Button-1>', visible_circle_window_event_func)
 circle_canvas.create_text(18, 10, text="Круг", font="Oswald 10", fill=third_color)
 circle_canvas.grid(row=2, column=3)
-# Рисование овала
-oval_canvas = Canvas(choose_figure_window, width=160, height=150, bg=first_color, highlightthickness=0)
-create_figure = oval_canvas.create_oval(15, 30, 150, 140, fill=fifth_color, outline=first_color)
-oval_canvas.tag_bind(create_figure, '<Button-1>', visible_oval_window_event_func)
-oval_canvas.create_text(18, 10, text="Овал", font="Oswald 10", fill=third_color)
-oval_canvas.grid(row=3, column=3)
 # Рисование эллипса
 ellipse_canvas = Canvas(choose_figure_window, width=160, height=150, bg=first_color, highlightthickness=0)
 create_figure = ellipse_canvas.create_oval(10, 50, 150, 110, fill=fifth_color, outline=first_color)
 ellipse_canvas.tag_bind(create_figure, '<Button-1>', visible_ellipse_window_event_func)
 ellipse_canvas.create_text(24, 10, text="Эллипс", font="Oswald 10", fill=third_color)
-ellipse_canvas.grid(row=4, column=3)
+ellipse_canvas.grid(row=3, column=3)
 
 back_figure_button = Button(choose_figure_window, text='Назад', fg=fourth_color, bg=first_color, command=visible_geometry_window_func)  # Кнопка назад
 back_figure_button.grid(row=1, column=3)  # Кнопка назад расположение
