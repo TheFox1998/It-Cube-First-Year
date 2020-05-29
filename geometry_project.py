@@ -144,14 +144,13 @@ def visible_theorems_triangle_window_first_func():  # 1 стр аксиом тр
     seventh_theorem_label.config(text='7.Стороны треугольника пропорциональны синусам противолежащих углов.')
 
     eight_theorem_label.config(text='8.Квадрат стороны треугольника равен сумме квадратов двух других сторон минус \n   удвоенное произведение этих сторон, умноженное на косинус угла между ними.')
-    eight_theorem_label.grid()
-    back_page_triangle_button = Button(theorems_window, text='☚', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3,
-                                       command=visible_theorems_triangle_window_first_func)  # Надпись аксиомы 1
-    back_page_triangle_button.place(x=280, y=460)  # Надпись аксиомы 1 расположение
 
-    next_page_triangle_button = Button(theorems_window, text='☛', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3,
-                                       command=visible_theorems_triangle_window_second_func)  # Надпись аксиомы 1
-    next_page_triangle_button.place(x=320, y=460)  # Надпись аксиомы 1 расположение
+    first_theorems_page_button.config(command=visible_theorems_triangle_window_first_func)
+    second_theorems_page_button.config(command=visible_theorems_triangle_window_second_func)
+    second_theorems_page_button.place(x=320, y=460)
+
+    seventh_theorem_label.grid()
+    eight_theorem_label.grid()
 
     back_triangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_triangle_theorems_button.place(x=10, y=460)  # Кнопка назад
@@ -182,14 +181,6 @@ def visible_theorems_triangle_window_second_func():  # 2 стр аксиом т�
     seventh_theorem_label.config(text='15.Если в треугольнике высота является медианой или биссектрисой, то треугольник \n   равнобедренный.')
 
     eight_theorem_label.grid_remove()
-
-    back_page_triangle_button = Button(theorems_window, text='☚', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3,
-                                       command=visible_theorems_triangle_window_first_func)  # Надпись аксиомы 1
-    back_page_triangle_button.place(x=280, y=460)  # Надпись аксиомы 1 расположение
-
-    next_page_triangle_button = Button(theorems_window, text='☛', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3,
-                                       command=visible_theorems_triangle_window_second_func)  # Надпись аксиомы 1
-    next_page_triangle_button.place(x=320, y=460)  # Надпись аксиомы 1 расположение
 
     back_triangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_triangle_theorems_button.place(x=10, y=460)  # Кнопка назад
@@ -273,14 +264,21 @@ def visible_theorems_square_window_first_func():
 
     # Всё, что создаём
 
-    title_theorem_label.config(text='Теоремы четырёхугольника: ')
+    title_theorem_label.config(text='Теоремы прямоугольника: ')
 
-    back_page_square_button = Button(theorems_window, text='☚', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3)  # Надпись аксиомы 1
-    back_page_square_button.place(x=280, y=460)  # Надпись аксиомы 1 расположение
+    first_theorem_label.config(text='1.Прямоугольник является параллелограммом — его противоположные стороны \n   попарно параллельны.')
+    second_theorem_label.config(text='2.Стороны прямоугольника являются его высотами.')
+    third_theorem_label.config(text='3.Квадрат диагонали прямоугольника равен сумме квадратов двух его смежных сторон.')
+    fourth_theorem_label.config(text='4.Около любого прямоугольника можно описать окружность, причём диагональ \n   прямоугольника равна диаметру описанной окружности (радиус равен полудиагонали).')
+    fifth_theorem_label.config(text='5.Длины диагоналей прямоугольника равны.')
+    sixth_theorem_label.config(text='6.Диагонали прямоугольника делятся точкой пересечения пополам.')
 
-    next_page_square_button = Button(theorems_window, text='☛', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3)  # Надпись аксиомы 1
+    seventh_theorem_label.grid_remove()
+    eight_theorem_label.grid_remove()
 
-    next_page_square_button.place(x=320, y=460)  # Надпись аксиомы 1 расположение
+    first_theorems_page_button.config(command=visible_theorems_square_window_first_func)
+    second_theorems_page_button.place_forget()
+
     back_square_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_square_theorems_button.place(x=10, y=460)  # Кнопка назад
     back_square_theorems_button.bind('<Button-1>', visible_square_window_event_func)
@@ -1670,6 +1668,12 @@ eight_theorem_label = Label(theorems_window,
                             text='',
                             font='Oswald 12', bg=first_color, fg=third_color, justify=LEFT)  # Надпись аксиомы 1
 eight_theorem_label.grid(row=8, column=0, padx=10, columnspan=9, sticky=W, pady=15)  # Надпись аксиомы 1 расположение
+
+first_theorems_page_button = Button(theorems_window, text='1', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3)
+first_theorems_page_button.place(x=280, y=460)
+
+second_theorems_page_button = Button(theorems_window, text='2', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3)
+second_theorems_page_button.place(x=320, y=460)
 # Окно теорем треугольника заканчивается тут(7 окно)
 
 
