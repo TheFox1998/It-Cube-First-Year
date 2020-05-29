@@ -1543,38 +1543,36 @@ def perevod_func():
         mm_entry.insert(0, mm)
         sm_entry.insert(0, sm)
 
-    elif min_entry.get()!='' and degres_entry.get()=='' and rad_entry.get()=='':
+    elif min_entry.get() != '' and degres_entry.get() == '' and rad_entry.get() == '':
         min = float(min_entry.get())
 
-        degres = round(min/60,2)
+        degres = round(min / 60, 2)
 
-        rad = round(min*(math.pi/(60*180)),4)
+        rad = round(min * (math.pi / (60 * 180)), 4)
 
-        degres_entry.insert(0,degres)
-        rad_entry.insert(0,rad)
-
-    elif degres_entry.get()!='' and min_entry=='' and rad_entry.get()=='':
-        degres = float(degres_entry.get())
-
-        min = round(degres*60,2)
-        rad = round(degres*(math.pi/180),2)
-
-        min_entry.insert(0,min)
+        degres_entry.insert(0, degres)
         rad_entry.insert(0, rad)
 
-    elif rad_entry.get()!='' and min_entry.get()=='' and degres_entry.get()=='':
+    elif degres_entry.get() != '' and min_entry == '' and rad_entry.get() == '':
+        degres = float(degres_entry.get())
+
+        min = round(degres * 60, 2)
+        rad = round(degres * (math.pi / 180), 2)
+
+        min_entry.insert(0, min)
+        rad_entry.insert(0, rad)
+
+    elif rad_entry.get() != '' and min_entry.get() == '' and degres_entry.get() == '':
         rad = float(rad_entry.get())
 
-        min = round(rad * ((60*180)/math.pi),2)
-        degres = round(rad * (180/math.pi),2)
+        min = round(rad * ((60 * 180) / math.pi), 2)
+        degres = round(rad * (180 / math.pi), 2)
 
-        min_entry.insert(0,min)
-        rad_entry.insert(0,rad)
+        min_entry.insert(0, min)
+        rad_entry.insert(0, rad)
 
     else:
-        mb.showerror(title = 'Ошибка',message='Что-то пошло не так')
-
-
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
 
 
 # Окно переводов начинается тут(12 окно)
@@ -1630,9 +1628,6 @@ result_button.grid(row=3, column=1, sticky=W, padx=5, pady=15, columnspan=2)
 
 reset_button = Button(perevod_ed_window, text='Очистить', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
 reset_button.grid(row=3, column=2, sticky=W, padx=15, pady=15, columnspan=2)
-
-result_test_button = Button(perevod_ed_window, text='Перевести test', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_test_func)
-result_test_button.grid(row=4, column=1, sticky=W, padx=5, pady=15, columnspan=2)
 
 back_button = Button(perevod_ed_window, text='Назад', bg=first_color, fg=fourth_color, command=visible_geometry_window_func)  # Кнопка назад
 back_button.place(x=15, y=460)  # Кнопка назад
