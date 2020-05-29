@@ -211,7 +211,7 @@ def visible_formuls_triangle_func():  # Показ окна с формулам�
 
     title_formulas_label.config(text='Формулы треугольника: ')
 
-    first_formulas_label.config(text='Формулы для нахождения площади: \n  S=½bh, \n  S=½ab⋅sin(α) \n  S=√(p·(p-a)·(p-b)·(p-c))')
+    first_formulas_label.config(text='Формулы для нахождения площади: \n  S = ½bh, \n  S = ½ab ⋅ sin(α) \n  S=√(p·(p-a)·(p-b)·(p-c))')
 
     second_formulas_label.config(text='Формула для нахождения суммы углов:\n   α + β + γ = 180°')
 
@@ -291,7 +291,9 @@ def visible_axioms_square_window_func():
     choose_figure_window.withdraw()
     # Всё что создаём
 
-    title_axioms_label.config(text='Аксиомы четырёхугольника: ')
+    title_axioms_label.config(text='Аксиомы прямоугольника: ')
+
+    first_axioms_label.config(text='Отсутствуют')
 
     back_square_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_square_axioms_button.place(x=10, y=460)  # Кнопка назад
@@ -304,7 +306,17 @@ def visible_formuls_square_func():
     # Всё, что скрываем
     choose_figure_window.withdraw()
     # Всё что создаём
-    title_formulas_label.config(text='Формулы четырёхугольника: ')
+    title_formulas_label.config(text='Формулы прямоугольника: ')
+
+    first_formulas_label.config(text=' Формула стороны прямоугольника через диагональ и другую сторону:\n    a = √d² - b²\n    b = √d² - a²')
+
+    second_formulas_label.config(text='Формула стороны прямоугольника через площадь и другую сторону:\n    a = S / b\n    b = S / a')
+
+    third_formulas_label.config(text='Формула стороны прямоугольника через периметр и другую сторону:\n    a = (P-2b) / 2\n    b = (P-2a) / 2')
+
+    fourth_formulas_label.config(text='Формула стороны прямоугольника через диаметр и угол α:\n    a = d * sin(a)\n    b = d * cos(a)')
+
+    fifth_formulas_label.config(text='Формула стороны прямоугольника через диаметр и угол β:\n    a = d * sin(β / 2)\n    b = d * cos(β / 2)')
 
     back_formulas_square_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_formulas_square_button.place(x=10, y=460)  # Кнопка назад
