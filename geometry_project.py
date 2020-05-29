@@ -323,6 +323,14 @@ def visible_formuls_square_func():
     back_formulas_square_button.bind('<Button-1>', visible_square_window_event_func)
 
 
+def visible_calculate_rectangle_window_func():
+    # Всё, что показываем
+    calculate_rectangle_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
 def visible_rectangle_window_event_func(event):  # Открытие окна с квадратом через event
     # Всё, что показываем:
     figure_window.deiconify()
@@ -335,7 +343,7 @@ def visible_rectangle_window_event_func(event):  # Открытие окна с 
 
     definition_figure_label.config(text='Квадрат - правильный четырёхугольник, \nто есть четырёхугольник, у которого все \nуглы равны и все стороны равны')
 
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_rectangle_window_func)
 
     axioms_figure_button.config(text='Аксиомы квадрата', command=visible_axioms_rectangle_window_func)
 
@@ -1392,6 +1400,173 @@ def reset_square_calculate_func():
     betta_corner_square_entry['state'] = NORMAL
     s_square_entry['state'] = NORMAL
 
+    a_result_square_label.config(text='')
+    b_result_square_label.config(text='')
+    d_result_square_label.config(text='')
+    alpha_result_square_label.config(text='')
+    betta_result_square_label.config(text='')
+    gamma_result_square_label.config(text='')
+    delta_result_square_label.config(text='')
+    p_result_square_label.config(text='')
+    s_result_square_label.config(text='')
+
+
+def calculate_rectangle_func():
+    if a_rectangle_entry.get() != '':
+        d_rectangle_entry['state'] = DISABLED
+        p_rectangle_entry['state'] = DISABLED
+        s_rectangle_entry['state'] = DISABLED
+
+        a = float(a_rectangle_entry.get())
+
+        d = round(math.sqrt(2) * a, 2)
+        p = round(4 * a, 2)
+        s = round(a ** 2, 2)
+
+        a_result_rectangle_label.config(text=a)
+        d_result_rectangle_label.config(text=d)
+        p_result_rectangle_label.config(text=p)
+        s_result_rectangle_label.config(text=s)
+
+    elif s_rectangle_entry.get() != '':
+        a_rectangle_entry['state'] = DISABLED
+        d_rectangle_entry['state'] = DISABLED
+        p_rectangle_entry['state'] = DISABLED
+        s = float(s_rectangle_entry.get())
+
+        a = math.sqrt(s)
+
+        p = round(4 * a, 2)
+
+        d = round(math.sqrt(2) * a, 2)
+
+        a_result_rectangle_label.config(text=a)
+        d_result_rectangle_label.config(text=d)
+        p_result_rectangle_label.config(text=p)
+        s_result_rectangle_label.config(text=s)
+    elif d_rectangle_entry.get() != '':
+        a_rectangle_entry['state'] = DISABLED
+        p_rectangle_entry['state'] = DISABLED
+        s_rectangle_entry['state'] = DISABLED
+        d = float(d_rectangle_entry.get())
+
+        a = round(d / math.sqrt(2), 2)
+
+        p = round(4 * a, 2)
+
+        s = round(a ** 2, 2)
+
+        a_result_rectangle_label.config(text=a)
+        d_result_rectangle_label.config(text=d)
+        p_result_rectangle_label.config(text=p)
+        s_result_rectangle_label.config(text=s)
+    elif p_rectangle_entry.get() != '':
+        a_rectangle_entry['state'] = DISABLED
+        d_rectangle_entry['state'] = DISABLED
+        s_rectangle_entry['state'] = DISABLED
+        p = float(p_rectangle_entry.get())
+
+        a = round(p / 4, 2)
+
+        s = round(a ** 2, 2)
+
+        d = round(math.sqrt(2) * a, 2)
+
+        a_result_rectangle_label.config(text=a)
+        d_result_rectangle_label.config(text=d)
+        p_result_rectangle_label.config(text=p)
+        s_result_rectangle_label.config(text=s)
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
+def reset_rectangle_calculate_func():
+    a_rectangle_entry.delete(0, END)
+    d_rectangle_entry.delete(0, END)
+    p_rectangle_entry.delete(0, END)
+    s_rectangle_entry.delete(0, END)
+
+    a_rectangle_entry['state'] = NORMAL
+    d_rectangle_entry['state'] = NORMAL
+    p_rectangle_entry['state'] = NORMAL
+    s_rectangle_entry['state'] = NORMAL
+
+    a_result_rectangle_label.config(text='')
+    d_result_rectangle_label.config(text='')
+    p_result_rectangle_label.config(text='')
+    s_result_rectangle_label.config(text='')
+
+
+# Окно расчётов квадрата начинается тут(11 окно)
+calculate_rectangle_window = Tk()
+calculate_rectangle_window['bg'] = first_color
+calculate_rectangle_window.title('Калькулатор квадрата')
+
+calculate_rectangle_window.withdraw()
+
+definition_label = Label(calculate_rectangle_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+a_label = Label(calculate_rectangle_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_label.grid(row=2, column=1, padx=15, pady=20)
+
+a_rectangle_entry = Entry(calculate_rectangle_window, width=4, font='Oswald 10', bg=fifth_color)
+a_rectangle_entry.grid(row=2, column=2, padx=15)
+
+d_square_label = Label(calculate_rectangle_window, text='D = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_square_label.grid(row=3, column=1, padx=15)
+
+d_rectangle_entry = Entry(calculate_rectangle_window, width=4, font='Oswald 10', bg=fifth_color)
+d_rectangle_entry.grid(row=3, column=2, padx=15)
+
+p_corner_label = Label(calculate_rectangle_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_corner_label.grid(row=4, column=1, pady=20)
+
+p_rectangle_entry = Entry(calculate_rectangle_window, width=4, font='Oswald 10', bg=fifth_color)
+p_rectangle_entry.grid(row=4, column=2, padx=15)
+
+s_corner_label = Label(calculate_rectangle_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_corner_label.grid(row=5, column=1)
+
+s_rectangle_entry = Entry(calculate_rectangle_window, width=4, font='Oswald 10', bg=fifth_color)
+s_rectangle_entry.grid(row=5, column=2, padx=15)
+
+# Виджеты для вывода данных
+a_result_rectangle_label = Label(calculate_rectangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_rectangle_label.place(x=60, y=78)
+
+d_result_rectangle_label = Label(calculate_rectangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_result_rectangle_label.place(x=60, y=128)
+
+p_result_rectangle_label = Label(calculate_rectangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+p_result_rectangle_label.place(x=60, y=175)
+
+s_result_rectangle_label = Label(calculate_rectangle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+s_result_rectangle_label.place(x=60, y=225)
+
+rectangle_canvas = Canvas(calculate_rectangle_window, width=160, height=150, bg=first_color, highlightthickness=0)
+create_figure = rectangle_canvas.create_rectangle((20, 30), (140, 140), fill=fifth_color, outline=second_color)
+rectangle_canvas.create_line(20, 30, 140, 140, fill=third_color)
+rectangle_canvas.create_text(80, 20, text='A', font='Oswald 15', fill=third_color)
+rectangle_canvas.create_text(80, 68, text='D', font='Oswald 15', fill=third_color)
+rectangle_canvas.place(x=350, y=80)
+
+calculate_rectangle_button = Button(calculate_rectangle_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_rectangle_func)
+calculate_rectangle_button.grid(row=11, column=8, padx=15)
+
+back_figure_button = Button(calculate_rectangle_window, text='Сбросить', command=reset_rectangle_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_rectangle_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_rectangle_window_event_func)
+
+exit_button = Button(calculate_rectangle_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов квадрата заканчивается тут(11 окно)
+
 
 # Окно расчётов прямоугольника начинается тут(10 окно)
 calculate_square_window = Tk()
@@ -1493,8 +1668,8 @@ square_canvas.create_text(18, 96, text="γ", font="Oswald 15", fill=third_color)
 square_canvas.create_text(40, 112, text="δ", font="Oswald 15", fill=third_color)
 square_canvas.place(x=350, y=80)
 
-calculate_triangle_button = Button(calculate_square_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_func)
-calculate_triangle_button.grid(row=11, column=8, padx=15)
+calculate_square_button = Button(calculate_square_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_func)
+calculate_square_button.grid(row=11, column=8, padx=15)
 
 back_figure_button = Button(calculate_square_window, text='Сбросить', command=reset_square_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
 back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
@@ -1503,8 +1678,8 @@ back_figure_button = Button(calculate_square_window, text='Назад', bg=first
 back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
 back_figure_button.bind('<Button-1>', visible_square_window_event_func)
 
-exit_triangle_button = Button(calculate_square_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-exit_triangle_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+exit_button = Button(calculate_square_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
 # Окно расчётов прямоугольника заканчивается тут(10 окно)
 
 # Окно формул начинается тут(9 окно)
@@ -1614,7 +1789,7 @@ s_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald
 s_result_triangle_label.place(x=60, y=381)
 
 calculate_triangle_canvas = Canvas(calculate_triangle_window, width=180, height=160, bg=first_color, highlightthickness=0)
-main_triangle = calculate_triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color, outline='red')
+main_triangle = calculate_triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color, outline=second_color)
 calculate_triangle_canvas.create_text(155, 140, text="β", font="Oswald 15", fill=third_color)
 calculate_triangle_canvas.create_text(5, 140, text="α", font="Oswald 15", fill=third_color)
 calculate_triangle_canvas.create_text(40, 15, text="γ", font="Oswald 15", fill=third_color)
@@ -1633,8 +1808,8 @@ back_figure_button = Button(calculate_triangle_window, text='Назад', bg=fir
 back_figure_button.grid(row=10, column=2, pady=15, padx=15)  # Кнопка назад расположение
 back_figure_button.bind('<Button-1>', visible_triangle_window_event_func)
 
-exit_triangle_button = Button(calculate_triangle_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
-exit_triangle_button.grid(row=10, column=1, pady=15, padx=15)  # Кнопка назад расположение
+exit_button = Button(calculate_triangle_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=10, column=1, pady=15, padx=15)  # Кнопка назад расположение
 # Окно расчётов треугольника заканчивается тут(8 окно)
 
 
@@ -1890,8 +2065,8 @@ create_theme_button.grid(row=8, column=3)
 delete_theme_button = Button(greet_window, text='Удалить тему', font='Oswald 15', command=delete_custom_theme_func, bg=first_color, fg=fourth_color, width=25)
 delete_theme_button.grid(row=9, column=3, pady=15)
 
-exit_triangle_button = Button(greet_window, text='Выход', font='Oswald 15', command=exit_project_func, bg=first_color, fg=fourth_color, width=25)
-exit_triangle_button.grid(row=10, column=3)
+exit_button = Button(greet_window, text='Выход', font='Oswald 15', command=exit_project_func, bg=first_color, fg=fourth_color, width=25)
+exit_button.grid(row=10, column=3)
 
 # Окно приветсвия заканчивается тут(1 окно)
 
@@ -1912,6 +2087,7 @@ axioms_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_la
 theorems_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_square_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_rectangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -1977,6 +2153,12 @@ calculate_square_window.attributes('-topmost', True)
 calculate_square_window.after_idle(calculate_square_window.attributes, '-topmost', True)
 calculate_square_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 calculate_square_window.resizable(False, False)
+
+calculate_rectangle_window.lift()
+calculate_rectangle_window.attributes('-topmost', True)
+calculate_rectangle_window.after_idle(calculate_rectangle_window.attributes, '-topmost', True)
+calculate_rectangle_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_rectangle_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
