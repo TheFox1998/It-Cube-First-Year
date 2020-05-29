@@ -88,60 +88,58 @@
 2. visible_geometry_window_func - переход с окна выбора предмета на окно геометрии
 
 3. visible_choose_figure_window_func - переход с окна геометрии на окно с фигурами
-
 4. visible_greet_window_func - переход с любого окна на главное окно
-
-5. visible_theorems_triangle_window_func - показ окна с теоремами треугольника, в этой функции показывается общее окно и полностю создаются новые виджеты
-
-6. visible_axioms_triangle_window_func - показ окна с аксиомами треугольника, всё также как и у 5
-
-7. visible_formuls_triangle_func - показ окна с формулами треугольника, всё также как и у 5
-
-8. visible_proof_window_first_triangle_event_func - показ окна доказательства для первой теоремы треугольника
-
-9. visible_triangle_window_event_func - показ окна треугольника
-
-10. visible_square_window_event_func - показ окна с четырёхугольником
-
-11. visible_rectangle_window_event_func - показ окна с квадратом 
-
-12. visible_rhombus_window_event_func - показ окна с ромбом
-
-13. visible_parallelogram_window_event_func - показ окна с параллелограммом
-
-14. visible_trapezium_window_event_func - показ окна с трапецией
-
-15. visible_circle_window_event_func - показ окна с кругом
-
-16. visible_oval_window_event_func - показ окна с овалом
-
-17. visible_ellipse_window_event_func - показ окна с эллипсом
-
-18. visible_calculate_triangle_window_func - показ окна с рачётами треугольника
-
-19. exit_error_func - показ ошибки при закрытии окон, которые нельзя закрывать
-
-20. exit_project_func - закрытие всего проекта
-
-21. write_change_theme_func - создания файла с темой приложения
-
-22. delete_custom_theme_func - удаление файла с кастомной темой
-
-23. calculate_triangle_func - полный просчёт треугольника
-
-24. reset_triangle_calculate_func - сброс entry на окне с расчётом треугольника
-
-25. visible_calculate_square_window - показ окна с расчётами прямоугольника
-
-26. calculate_square_func - расчёт прямоугольника
-
-27. reset_square_calculate_func -  сброс всех entry на экране с расчётами прямоугольника
-
-28. reset_rectangle_calculate_func - сброс всех entry на экрнае с расчётами квадрата
-
-29. calculate_rectangle_func -  расчёт квадрата
-
-30. visible_calculate_rectangle_window_func - показ окна с расчётами квадрата
+5. visible_perevod_ed_window_func  - показ окна с переводчиком
+6. visible_calculate_triangle_window_func -  показ окна с расчётами треугольника
+7. visible_calculate_square_window - показ окна с расчётами прямоугольника
+8. visible_calculate_rectangle_window_func -  показ окна с расчётами квадрата
+9. visible_triangle_window_event_func  -  показ окна треугольника
+10. visible_theorems_triangle_window_first_func - показ окна с теоремами треугольника(1 стр)
+11. visible_theorems_triangle_window_second_func - показ окна с теоремами треугольника(2 стр)
+12. visible_axioms_triangle_window_func - показ окна с аксиомами треугольника
+13. visible_formuls_triangle_func - показ окна с формулами треугольника
+14. visible_square_window_event_func - показ окна прямоугольника
+15. visible_theorems_square_window_first_func - показ окна с теоремами прямоугольника
+16. visible_axioms_square_window_func -  показ окна с аксиомами прямоугольника
+17. visible_formuls_square_func -  показ окна с формулами прямоугольника
+18. visible_rectangle_window_event_func -  показ окна с квадратом
+19. visible_theorems_rectangle_window_func -  показ окна с теоремами квадрата
+20. visible_axioms_rectangle_window_func -  показ окна с аксиомами квадрата
+21. visible_formuls_rectangle_func -  показ окна с формулами квадрата
+22. visible_rhombus_window_event_func -  показ окна с ромбом
+23. visible_theorems_rhombus_window_func -  показ окна с теоремами ромба
+24. visible_axioms_rhombus_window_func -  показ окна с аксиомами ромба
+25. visible_formuls_rhombus_func -  показ окна с формулами ромба
+26. visible_parallelogram_window_event_func -  показ окна с параллелограммом
+27. visible_theorems_parallelogram_window_first_func -  показ окна с теоремами параллелограмма(1 стр)
+28. visible_theorems_parallelogram_window_second_func -  показ окна с теоремами параллелограмма(2 стр)
+29. visible_axioms_parallelogram_window_func -  показ окна с аксиомами параллелограмма
+30. visible_formuls_parallelogram_func -  показ окна с формулами параллелограмма
+31. visible_trapezium_window_event_func - показ окна с трапецией
+32. visible_theorems_trapezium_window_first_func - показ окна с теоремами трапеции(1 стр)
+33. visible_theorems_trapezium_window_second_func - показ окна с теоремами трапеции(2 стр)
+34. visible_axioms_trapezium_window_func - показ окна с аксиомами трапеции
+35. visible_formuls_trapezium_func - показ окна с формулами трапеции
+36. visible_circle_window_event_func - показ окна круга
+37. visible_theorems_circle_window_func - показ окна с теоремами круга
+38. visible_axioms_circle_window_func - показ окна с аксиомами круга
+39. visible_formuls_circle_func - показ окна с формулами круга
+40. visible_ellipse_window_event_func - показ окна эллипса
+41. visible_theorems_ellipse_window_func - показ окна с теоремами эллипса
+42. visible_axioms_ellipse_window_func - показ окна с аксиомами эллипса
+43. visible_formuls_ellipse_func - показ окна с формулами эллипса
+44. exit_error_func -  показ ошибки при закрытия окна
+45. exit_project_func - полное закрытие программы
+46. development_func - показ уведомления с информацией о разработке
+47. write_change_theme_func - запись файла с кастомной темой
+48. delete_custom_theme_func - удаления файла с кастомной темой
+49. calculate_triangle_func - просчёт треугольника
+50. reset_triangle_calculate_func - сброс всех entry и label на окне с расчётами треугольника
+51. calculate_square_func - просчёт прямоугольника
+52. reset_square_calculate_func - сброс всех entry и label на окне с расчётами прямоугольника
+53. calculate_rectangle_func - просчёт квадрата
+54. reset_rectangle_calculate_func - сброс всех entry и label на окне с расчётами квадрата
+55. perevod_func - функция перевода единиц и последующий вывод их на экран
 
 ### Про кастомную тему:
 **Кастомная тема принимает 5 цветов:**
