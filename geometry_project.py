@@ -135,7 +135,7 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
 
     definition_figure_label.config(text='Треугольник - это геометрическая фигура, \n образованная тремя пересекающимися прямыми, \n образующими три внутренних угла')
 
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Калькулятор треугольника', command=visible_calculate_triangle_window_func)
 
     axioms_figure_button.config(text='Аксиомы треугольника', command=visible_axioms_triangle_window_func)
 
@@ -155,24 +155,30 @@ def visible_theorems_triangle_window_first_func():  # 1 стр аксиом тр
 
     first_theorem_label.config(text='1.Сумма углов треугольника равна 180 градусам.')
 
-    second_theorem_label.config(text='2.В треугольнике: \n  1) против большей стороны лежит больший угол; \n  2) обратно, против большего угла лежит большая сторона.')
+    second_theorem_label.config(text='2.В треугольнике: \n1) против большей стороны лежит больший угол; \n2) обратно, против большего угла лежит большая сторона.')
 
     third_theorem_label.config(text='3.В прямоугольном треугольнике квадрат гипотенузы равен сумме квадратов катетов.')
 
-    fourth_theorem_label.config(text='4.Если квадрат одной стороны треугольника равен сумме квадратов двух \n   других сторон, то треугольник прямоугольный.')
+    fourth_theorem_label.config(text='4.Если квадрат одной стороны треугольника равен сумме квадратов двух \nдругих сторон, то треугольник прямоугольный.')
 
     fifth_theorem_label.config(text='5.Высоты треугольника (или их продолжения) пересекаются в одной точке.')
 
-    sixth_theorem_label.config(text='6.Площадь треугольника равна половине произведения двух его сторон на синус угла \n    между ними.')
+    sixth_theorem_label.config(text='6.Площадь треугольника равна половине произведения двух его сторон на синус угла \nмежду ними.')
 
     seventh_theorem_label.config(text='7.Стороны треугольника пропорциональны синусам противолежащих углов.')
 
-    eight_theorem_label.config(text='8.Квадрат стороны треугольника равен сумме квадратов двух других сторон минус \n   удвоенное произведение этих сторон, умноженное на косинус угла между ними.')
+    eight_theorem_label.config(text='8.Квадрат стороны треугольника равен сумме квадратов двух других сторон минус \nудвоенное произведение этих сторон, умноженное на косинус угла между ними.')
 
     first_theorems_page_button.config(command=visible_theorems_triangle_window_first_func)
     second_theorems_page_button.config(command=visible_theorems_triangle_window_second_func)
     second_theorems_page_button.place(x=320, y=460)
 
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
     seventh_theorem_label.grid()
     eight_theorem_label.grid()
 
@@ -190,19 +196,19 @@ def visible_theorems_triangle_window_second_func():  # 2 стр аксиом т�
     # Всё, что создаём
     title_theorem_label.config(text='Теоремы треугольника: 2 стр.')
 
-    first_theorem_label.config(text='9.Если две стороны и угол между ними одного треугольника соответственно равны двум \n    сторонам и углу между ними другого треугольника, то такие треугольники равны.')
+    first_theorem_label.config(text='9.Если две стороны и угол между ними одного треугольника соответственно равны двум \nсторонам и углу между ними другого треугольника, то такие треугольники равны.')
 
-    second_theorem_label.config(text='10.Если сторона и два прилежащих угла одного треугольника соответственно равны стороне\n    и двум прилежащим углам другого треугольника, то такие треугольники равны.')
+    second_theorem_label.config(text='10.Если сторона и два прилежащих угла одного треугольника соответственно равны стороне\nи двум прилежащим углам другого треугольника, то такие треугольники равны.')
 
-    third_theorem_label.config(text='11.Если три стороны одного треугольника соответственно равны трем сторонам другого \n    треугольника, то такие треугольники равны.')
+    third_theorem_label.config(text='11.Если три стороны одного треугольника соответственно равны трем сторонам другого \nтреугольника, то такие треугольники равны.')
 
     fourth_theorem_label.config(text='12.Внешний угол треугольника равен сумме двух углов треугольника, не смежных с ним.')
 
-    fifth_theorem_label.config(text='13.В равнобедренном треугольнике биссектриса, проведённая к основанию,\n    является медианой и высотой.')
+    fifth_theorem_label.config(text='13.В равнобедренном треугольнике биссектриса, проведённая к основанию,\nявляется медианой и высотой.')
 
     sixth_theorem_label.config(text='14.Если в треугольнике два угла равны, то треугольник равнобедренный.')
 
-    seventh_theorem_label.config(text='15.Если в треугольнике высота является медианой или биссектрисой, то треугольник \n   равнобедренный.')
+    seventh_theorem_label.config(text='15.Если в треугольнике высота является медианой или биссектрисой, то треугольник \nравнобедренный.')
 
     eight_theorem_label.grid_remove()
 
@@ -235,15 +241,21 @@ def visible_formuls_triangle_func():  # Показ окна с формулам�
 
     title_formulas_label.config(text='Формулы треугольника: ')
 
-    first_formulas_label.config(text='Формулы для нахождения площади: \n  S = ½bh, \n  S = ½ab ⋅ sin(α) \n  S=√(p·(p-a)·(p-b)·(p-c))')
+    first_formulas_label.config(text='Формулы для нахождения площади:\n   S = ½bh, \n   S = ½ab ⋅ sin(α)\n   S=√(p·(p-a)·(p-b)·(p-c))')
 
     second_formulas_label.config(text='Формула для нахождения суммы углов:\n   α + β + γ = 180°')
 
-    third_formulas_label.config(text='Синусы:\n  a / sin α = b / sin β = c / sin γ = 2R')
+    third_formulas_label.config(text='Синусы:\n   a / sin α = b / sin β = c / sin γ = 2R')
 
-    fourth_formulas_label.config(text='Косинус:\n  a² = b² + с² - 2ab * cos α\n  b² = a² + c² - 2ac * cos β\n  c² = a² + b² - 2ab * cos γ')
+    fourth_formulas_label.config(text='Косинус:\n   a² = b² + с² - 2ab * cos α\n   b² = a² + c² - 2ac * cos β\n   c² = a² + b² - 2ab * cos γ')
 
     fifth_formulas_label.config(text='Формула для нахождения периметра:\n   P = a + b + c')
+
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
 
     back_formulas_triangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_formulas_triangle_button.place(x=10, y=460)  # Кнопка назад
@@ -263,7 +275,7 @@ def visible_square_window_event_func(event):  # Открытие окна с п�
     figure_window.title('Прямоугольник')
 
     definition_figure_label.config(text='Прямоугольник — четырехугольник, \nу которого все углы прямые (равны 90 градусам)')
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_square_window)
+    calculations_figure_button.config(text='Калькулятор прямоугольника', command=visible_calculate_square_window)
 
     axioms_figure_button.config(text='Аксиомы прямоугольника', command=visible_axioms_square_window_func)
 
@@ -282,13 +294,18 @@ def visible_theorems_square_window_first_func():
 
     title_theorem_label.config(text='Теоремы прямоугольника: ')
 
-    first_theorem_label.config(text='1.Прямоугольник является параллелограммом — его противоположные стороны \n   попарно параллельны.')
-    second_theorem_label.config(text='2.Стороны прямоугольника являются его высотами.')
-    third_theorem_label.config(text='3.Квадрат диагонали прямоугольника равен сумме квадратов двух его смежных сторон.')
-    fourth_theorem_label.config(text='4.Около любого прямоугольника можно описать окружность, причём диагональ \n   прямоугольника равна диаметру описанной окружности (радиус равен полудиагонали).')
-    fifth_theorem_label.config(text='5.Длины диагоналей прямоугольника равны.')
-    sixth_theorem_label.config(text='6.Диагонали прямоугольника делятся точкой пересечения пополам.')
+    first_theorem_label.config(text='1.Диагонали прямоугольника равны.')
+    second_theorem_label.config(text='2.Если в четырехугольнике диагонали равны и точкой пересечения делятся пополам, \nто такой четырехугольник является прямоугольником.')
+    third_theorem_label.config(text='3.Диаметр описанной около прямоугольника окружности равен его диагонали.\nПлощадь прямоугольника')
+    fourth_theorem_label.config(text='4.Площадь прямоугольника равна половине произведения квадрата диагонали и \nсинуса угла между диагоналями.')
 
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+
+    fifth_theorem_label.grid_remove()
+    sixth_theorem_label.grid_remove()
     seventh_theorem_label.grid_remove()
     eight_theorem_label.grid_remove()
 
@@ -334,6 +351,12 @@ def visible_formuls_square_func():
 
     fifth_formulas_label.config(text='Формула стороны прямоугольника через диаметр и угол β:\n    a = d * sin(β / 2)\n    b = d * cos(β / 2)')
 
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
+
     back_formulas_square_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_formulas_square_button.place(x=10, y=460)  # Кнопка назад
     back_formulas_square_button.bind('<Button-1>', visible_square_window_event_func)
@@ -352,7 +375,7 @@ def visible_rectangle_window_event_func(event):  # Открытие окна с 
 
     definition_figure_label.config(text='Квадрат - правильный четырёхугольник, \nто есть четырёхугольник, у которого все \nуглы равны и все стороны равны')
 
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_rectangle_window_func)
+    calculations_figure_button.config(text='Калькулятор квадрата', command=visible_calculate_rectangle_window_func)
 
     axioms_figure_button.config(text='Аксиомы квадрата', command=visible_axioms_rectangle_window_func)
 
@@ -369,11 +392,18 @@ def visible_theorems_rectangle_window_func():
     # Всё, что создаём
     title_theorem_label.config(text='Теоремы квадрата: ')
 
-    back_page_rectangle_button = Button(theorems_window, text='☚', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3)  # Надпись аксиомы 1
-    back_page_rectangle_button.place(x=280, y=460)  # Надпись аксиомы 1 расположение
+    first_theorem_label.config(text='1.Площадь квадрата равна квадрату стороны или половине квадрата его диагонали')
+    second_theorem_label.config(text='2.Если диагонали прямоугольника пересекаются под прямым углом, \nэтот прямоугольник - квадрат.')
+    third_theorem_label.config(text='3.Если один из углов ромба прямой, этот ромб - квадрат.')
 
-    next_page_rectangle_button = Button(theorems_window, text='☛', font='Oswald 12', bg=first_color, fg=fourth_color, justify=LEFT, width=3)  # Надпись аксиомы 1
-    next_page_rectangle_button.place(x=320, y=460)  # Надпись аксиомы 1 расположение
+    fourth_theorem_label.grid_remove()
+    fifth_theorem_label.grid_remove()
+    sixth_theorem_label.grid_remove()
+    seventh_theorem_label.grid_remove()
+    eight_theorem_label.grid_remove()
+
+    first_theorems_page_button.config(command=visible_theorems_rectangle_window_func)
+    second_theorems_page_button.place_forget()
 
     back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
@@ -388,6 +418,8 @@ def visible_axioms_rectangle_window_func():
     # Всё что создаём
     title_axioms_label.config(text='Аксиомы квадрата: ')
 
+    first_axioms_label.config(text='Отсутствуют')
+
     back_rectangle_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_rectangle_axioms_button.place(x=10, y=460)  # Кнопка назад
     back_rectangle_axioms_button.bind('<Button-1>', visible_rectangle_window_event_func)
@@ -401,6 +433,15 @@ def visible_formuls_rectangle_func():
     # Всё что создаём
     title_formulas_label.config(text='Формулы квадарата: ')
 
+    first_formulas_label.config(text='Формулы для нахождения площади:\n    S = a * a\n    S = P² / 16\n    S = D² / 2')
+
+    second_formulas_label.config(text='Формулы для нахождения периметра:\n    P = 4 * a\n    P = 2 * D * √2\n    P = 4 * √S')
+
+    third_formulas_label.config(text='Формулы для нахождения диагонали:\n    D = a * √2\n    D = √(2 * S)\n    D = P / 2 * √2')
+
+    fourth_formulas_label.grid_remove()
+    fifth_formulas_label.grid_remove()
+
     back_formulas_rectangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
     back_formulas_rectangle_button.place(x=10, y=460)  # Кнопка назад
     back_formulas_rectangle_button.bind('<Button-1>', visible_rectangle_window_event_func)
@@ -412,27 +453,92 @@ def visible_rhombus_window_event_func(event):  # Открытие окна с р
     # Всё, что скрываем:
     theorems_window.withdraw()
     axioms_window.withdraw()
+    formuls_window.withdraw()
     # Всё что создаём
     figure_window.title('Ромб')
     definition_figure_label.config(text='Ромб - это параллелограмм,\n у которого все стороны равны')
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Калькулятор ромба', command=development_func)
     axioms_figure_button.config(text='Аксиомы ромба', command=visible_axioms_rhombus_window_func)
 
     theorems_figure_button.config(text='Теоремы ромба', command=visible_theorems_rhombus_window_func)
 
-    formulas_figure_button.config(text='Формулы ромба', command=visible_theorems_rhombus_window_func)
+    formulas_figure_button.config(text='Формулы ромба', command=visible_formuls_rhombus_func)
 
 
 def visible_theorems_rhombus_window_func():
-    pass
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё, что создаём
+
+    title_theorem_label.config(text='Теоремы ромба: ')
+
+    first_theorem_label.config(text='1.Диагонали ромба пересекаются под прямым углом.')
+    second_theorem_label.config(text='2.Диагонали ромба являются биссектрисами его углов.')
+    third_theorem_label.config(text='3.Если диагонали параллелограмма перпендикулярны, то параллелограмм – ромб.')
+    fourth_theorem_label.config(text='4.Если диагональ параллелограмма является биссектрисой его угла, то \nпараллелограмм – ромб.')
+
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+
+    fifth_theorem_label.grid_remove()
+    sixth_theorem_label.grid_remove()
+    seventh_theorem_label.grid_remove()
+    eight_theorem_label.grid_remove()
+
+    first_theorems_page_button.config(command=visible_theorems_rhombus_window_func)
+    second_theorems_page_button.place_forget()
+
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_rhombus_window_event_func)
 
 
 def visible_axioms_rhombus_window_func():
-    pass
+    # Всё, что показываем:
+    axioms_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_axioms_label.config(text='Аксиомы ромба: ')
+
+    first_axioms_label.config(text='Отсутствуют')
+
+    back_rectangle_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_axioms_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_axioms_button.bind('<Button-1>', visible_rhombus_window_event_func)
 
 
 def visible_formuls_rhombus_func():
-    pass
+    # Всё, что показываем
+    formuls_window.deiconify()
+    # Всё, что скрываем
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_formulas_label.config(text='Формулы ромба: ')
+
+    first_formulas_label.config(text='Формулы определения длины стороны ромба:\n    a = S / h\n    a = √S / √sin(a)\n    a = S / 2 * r')
+
+    second_formulas_label.config(text='Формулы определения длины диагонали ромба:\n    D = a * √2 - 2 * cos(β)\n    D = a * √2 + 2 * cos(α)\n    D₁ = 2 * S / D₂')
+
+    third_formulas_label.config(text='Формула определения длины периметра ромба:\n    P = 4 * a')
+
+    fourth_theorem_label.config(text='Формулы определения площади ромба:\n    S = a * h\n    S = a² * sin(α)\n    S = 2 * a * r')
+
+    fifth_formulas_label.config(text='Формулы определения радиуса круга вписанного в ромб:\n    r = h/2\n    r = S / 2 * a\n    r = √(S * sin(α) / 2')
+
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
+
+    back_formulas_rectangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_formulas_rectangle_button.place(x=10, y=460)  # Кнопка назад
+    back_formulas_rectangle_button.bind('<Button-1>', visible_rhombus_window_event_func)
 
 
 def visible_parallelogram_window_event_func(event):  # Открытие окна с параллелограммом через event
@@ -440,29 +546,125 @@ def visible_parallelogram_window_event_func(event):  # Открытие окна
     figure_window.deiconify()
     # Всё, что скрываем:
     axioms_window.withdraw()
+    formuls_window.withdraw()
     theorems_window.withdraw()
     # Всё, что создаём
     figure_window.title('Параллелограмм')
     definition_figure_label.config(text='Параллелограмм - это четырёхугольник, \nу которого противоположные стороны \nпопарно параллельны, то есть \nлежат на параллельных прямых')
 
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Калькулятор параллелограмма', command=development_func)
 
     axioms_figure_button.config(text='Аксиомы параллелограмма', command=visible_axioms_parallelogram_window_func)
-    theorems_figure_button.config(text='Теоремы параллелограмма', command=visible_theorems_rhombus_window_func)
 
-    formulas_figure_button.config(text='Формулы параллелограмма', command=visible_formuls_rhombus_func)
+    theorems_figure_button.config(text='Теоремы параллелограмма', command=visible_theorems_parallelogram_window_first_func)
+
+    formulas_figure_button.config(text='Формулы параллелограмма', command=visible_formuls_parallelogram_func)
 
 
-def visible_theorems_parallelogram_window_func():
-    pass
+def visible_theorems_parallelogram_window_first_func():
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё, что создаём
+
+    title_theorem_label.config(text='Теоремы параллелограма: 1 стр.')
+
+    first_theorem_label.config(text='1.Противоположные стороны параллелограма равны.')
+    second_theorem_label.config(text='2.Противоположные углы параллелограмма равны.')
+    third_theorem_label.config(text='3.Соседние углы параллелограмма, т.е. углы, прилежащие к одной стороне, составляют \nв сумме 180 градусов.')
+    fourth_theorem_label.config(text='4.Диагонали параллелограмма делят друг друга в точке их пересечения пополам.')
+    fifth_theorem_label.config(text='5.Если противоположные стороны четырехугольника попарно равны, то он \nявляется параллелограммом.')
+    sixth_theorem_label.config(text='6.Если противоположные углы четырехугольника попарно равны, то он \nявляется параллелограммом.')
+    seventh_theorem_label.config(text='7.Если соседние углы четырехугольника, т.е. углы, прилежащие к одной стороне, \nсоставляют в сумме 180 градусов, то он является параллелограммом.')
+    eight_theorem_label.config(text='8.Если диагонали четырехугольника взаимно делятся в точке пересечения пополам, \nто четырехугольник - параллелограмм.')
+
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
+    seventh_theorem_label.grid()
+    eight_theorem_label.grid()
+
+    first_theorems_page_button.config(command=visible_theorems_parallelogram_window_first_func)
+    second_theorems_page_button.config(command=visible_theorems_parallelogram_window_second_func)
+    second_theorems_page_button.place(x=320, y=460)
+
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_parallelogram_window_event_func)
+
+
+def visible_theorems_parallelogram_window_second_func():
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+    # Всё, что создаём
+    title_theorem_label.config(text='Теоремы параллелограма: 2 стр.')
+
+    first_theorem_label.config(text='9.Если четырехугольник имеет пару равных, параллельных между собой сторон, то \nон является параллелограммом.')
+
+    second_theorem_label.config(text='10.Площадь параллелограмма равна произведению стоны и проведенную к ней высоту.')
+
+    third_theorem_label.config(text='11.Площадь параллелограмма равна произведению двух смежных сторон и синуса \nугла между ними.')
+
+    fourth_theorem_label.config(text='12.Площадь параллелограмма равна половине произведения диагоналей и синуса \nугла между ними.')
+
+    fifth_theorem_label.grid_remove()
+    sixth_theorem_label.grid_remove()
+    seventh_theorem_label.grid_remove()
+    eight_theorem_label.grid_remove()
+
+    back_triangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_triangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_triangle_theorems_button.bind('<Button-1>', visible_parallelogram_window_event_func)
 
 
 def visible_axioms_parallelogram_window_func():
-    pass
+    # Всё, что показываем:
+    axioms_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_axioms_label.config(text='Аксиомы параллелограмма: ')
+
+    first_axioms_label.config(text='Отсутствуют')
+
+    back_rectangle_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_axioms_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_axioms_button.bind('<Button-1>', visible_parallelogram_window_event_func)
 
 
 def visible_formuls_parallelogram_func():
-    pass
+    # Всё, что показываем
+    formuls_window.deiconify()
+    # Всё, что скрываем
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_formulas_label.config(text='Формулы параллелограмма: ')
+
+    first_formulas_label.config(text='Формулы определения длин сторон параллелограмма:\n    b = h₁ / sin(α)\n    a = h₂ / sin(α)\n    a = S / h₁\n    b = S / h₂')
+
+    second_formulas_label.config(text='Формулы определения длины диагонали параллелограмма:\n    D₁ = √(2 * a² + 2 * b² + 2 * a * b * cos(α))\n    D₂ = √(2 * a² + 2 * b² - 2 * a * b * cos(α))')
+
+    third_formulas_label.config(text='Формулы определения длины периметра параллелограмма:\n    P = 2 * a + 2 * b\n    P = 2 * a + √(2 * D₁² + 2 * D₂² - 4 * a²)\n    P = 2 * b + √(2 * D₁² + 2 * D₂² - 4 * b²)')
+
+    fourth_formulas_label.config(text='Формулы определения площади параллелограмма:\n    S = a * h₁\n    S = b * h₂\n    S = a * b * sin(α)')
+
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+
+    fifth_formulas_label.grid_remove()
+
+    back_formulas_rectangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_formulas_rectangle_button.place(x=10, y=460)  # Кнопка назад
+    back_formulas_rectangle_button.bind('<Button-1>', visible_parallelogram_window_event_func)
 
 
 def visible_trapezium_window_event_func(event):  # Открытие окна с трапецией через event
@@ -471,25 +673,129 @@ def visible_trapezium_window_event_func(event):  # Открытие окна с 
     # Всё, что скрываем:
     axioms_window.withdraw()
     theorems_window.withdraw()
+    formuls_window.withdraw()
     # Всё, что создаём
     figure_window.title('Трапеция')
     definition_figure_label.config(text='Трапеция — четырехугольник, у которого \nдве стороны параллельны, а две \nстороны не параллельны')
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=calculate_triangle_func)
+    calculations_figure_button.config(text='Калькулятор трапеции', command=development_func)
     axioms_figure_button.config(text='Аксиомы трапеции', command=visible_axioms_trapezium_window_func)
-    theorems_figure_button.config(text='Теоремы трапеции', command=visible_theorems_trapezium_window_func)
-    formulas_figure_button.config(text='Формулы трапеции', command=visible_theorems_rhombus_window_func)
+    theorems_figure_button.config(text='Теоремы трапеции', command=visible_theorems_trapezium_window_first_func)
+    formulas_figure_button.config(text='Формулы трапеции', command=visible_formuls_trapezium_func)
 
 
-def visible_theorems_trapezium_window_func():
-    pass
+def visible_theorems_trapezium_window_first_func():
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё, что создаём
+
+    title_theorem_label.config(text='Теоремы трапеции: 1 стр.')
+
+    first_theorem_label.config(text='1.Средняя линия трапеции параллельна основаниям и равна их полусумме.')
+    second_theorem_label.config(text='2.Диагонали делят трапецию на четыре части, две из которых, прилежащие к \nбоковым сторонам, равовелики.')
+    third_theorem_label.config(text='3.В трапеции середины оснований и точка пересечения диагоналей лежат на одной прямой.')
+    fourth_theorem_label.config(text='4.Углы, прилежащие к каждому из оснований равнобокой трапеции, равны.')
+    fifth_theorem_label.config(text='5.Диагонали равнобокой трапеции равны.')
+    sixth_theorem_label.config(text='6.Если продолжить стороны равнобочной трапеции до их пересечения, то вместе с \nбольшим основанием трапеции они образуют равнобедренный треугольник.')
+    seventh_theorem_label.config(text='7.Диагонали равнобедренной трапеции точкой пересечения делятся на \nсоответственно равные отрезки.')
+    eight_theorem_label.config(text='8.Ось сисмметрии равнобокой трапеции перпендикулярна её основаниям.')
+
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
+    seventh_theorem_label.grid()
+    eight_theorem_label.grid()
+
+    first_theorems_page_button.config(command=visible_theorems_trapezium_window_first_func)
+    second_theorems_page_button.config(command=visible_theorems_trapezium_window_second_func)
+    second_theorems_page_button.place(x=320, y=460)
+
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_trapezium_window_event_func)
+
+
+def visible_theorems_trapezium_window_second_func():
+    # Всё, что показываем:
+    theorems_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё, что создаём
+
+    title_theorem_label.config(text='Теоремы трапеции: 2 стр.')
+
+    first_theorem_label.config(text='9.Если углы, прилежищие к одному из оснований трапеции, равны, то трапеция равнобокая.')
+    second_theorem_label.config(text='10.Если диагонали трапеции равны, то трапеция равнобокая.')
+    third_theorem_label.config(text='11.Если продолженные до пересечения боковые стороны трапеции образуют вместе \nи её большим основанием равнобедренный треугольник, то трапеция равнобокая.')
+    fourth_theorem_label.config(text='12.Если трапецию можно вписать в окружность, то она равнобокая.')
+    fifth_theorem_label.config(text='13.Радиус вписанной в трапецию окружности равен половине высоты основания.')
+    sixth_theorem_label.config(text='14.Площадь трапеции равна произведению полусуммы оснований и высоты оснований.')
+
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
+
+    seventh_theorem_label.grid_remove()
+    eight_theorem_label.grid_remove()
+
+    first_theorems_page_button.config(command=visible_theorems_trapezium_window_first_func)
+    second_theorems_page_button.config(command=visible_theorems_trapezium_window_second_func)
+    second_theorems_page_button.place(x=320, y=460)
+
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_trapezium_window_event_func)
 
 
 def visible_axioms_trapezium_window_func():
-    pass
+    # Всё, что показываем:
+    axioms_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_axioms_label.config(text='Аксиомы трапеции: ')
+
+    first_axioms_label.config(text='Отсутствуют')
+
+    back_rectangle_axioms_button = Button(axioms_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_axioms_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_axioms_button.bind('<Button-1>', visible_trapezium_window_event_func)
 
 
 def visible_formuls_trapezium_func():
-    pass
+    # Всё, что показываем
+    formuls_window.deiconify()
+    # Всё, что скрываем
+    choose_figure_window.withdraw()
+    # Всё что создаём
+    title_formulas_label.config(text='Формулы трапеции: ')
+
+    first_formulas_label.config(text='Формулы определения длин сторон трапеции:\n    a = a * m - b\n    b = 2 * m - a\n    a = b + h * (ctg(α) + ctg(β))')
+
+    second_formulas_label.config(text='Формулы определения длины средней линии трапеции:\n    m = (a + b) / 2\n    m = S / h')
+
+    third_formulas_label.config(text='Формулы определения длины высоты трапеции:\n    h = c * sin(α)\n    α = D * sin(β)')
+
+    fourth_formulas_label.config(text='Формулы определения длины диагоналей трапеции:\n    D₁ = √(a² + D₂ - 2 * a * d * cos(β))\n    D₂ = √(a² + c² - 2 * a * c * cos(β))')
+
+    fifth_formulas_label.config(text='Формулы определения площади трапеции:\n    S = ((a + b)/2) / h\n    S = m * h')
+
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
+
+    back_formulas_rectangle_button = Button(formuls_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_formulas_rectangle_button.place(x=10, y=460)  # Кнопка назад
+    back_formulas_rectangle_button.bind('<Button-1>', visible_trapezium_window_event_func)
 
 
 def visible_circle_window_event_func(event):  # Открытие окна с кругом через event
@@ -502,7 +808,7 @@ def visible_circle_window_event_func(event):  # Открытие окна с к�
     figure_window.title('Круг')
     definition_figure_label.config(text='Круг - часть плоскости,\n лежащая внутри окружности')
 
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Калькулятор круга', command=development_func)
 
     axioms_figure_button.config(text='Аксиомы круга', command=visible_axioms_circle_window_func)
 
@@ -512,7 +818,17 @@ def visible_circle_window_event_func(event):  # Открытие окна с к�
 
 
 def visible_theorems_circle_window_func():
-    pass
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
+    seventh_theorem_label.grid()
+    eight_theorem_label.grid()
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_rectangle_window_event_func)
 
 
 def visible_axioms_circle_window_func():
@@ -520,7 +836,11 @@ def visible_axioms_circle_window_func():
 
 
 def visible_formuls_circle_func():
-    pass
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
 
 
 def visible_oval_window_event_func(event):  # Открытие окна с овалом через event
@@ -532,7 +852,7 @@ def visible_oval_window_event_func(event):  # Открытие окна с ов�
     # Всё, что создаём
     figure_window.title('Овал')
     definition_figure_label.config(text='Овал - плоская замкнутая строго \nвыпуклая гладкая кривая; \nследовательно имеющая с любой \nпрямой не более двух общих точек')
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Калькулятор овала', command=development_func)
 
     axioms_figure_button.config(text='Аксиомы овала', command=visible_axioms_oval_window_func)
 
@@ -542,7 +862,17 @@ def visible_oval_window_event_func(event):  # Открытие окна с ов�
 
 
 def visible_theorems_oval_window_func():
-    pass
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
+    seventh_theorem_label.grid()
+    eight_theorem_label.grid()
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_rectangle_window_event_func)
 
 
 def visible_axioms_oval_window_func():
@@ -550,7 +880,11 @@ def visible_axioms_oval_window_func():
 
 
 def visible_formuls_oval_func():
-    pass
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
 
 
 def visible_ellipse_window_event_func(event):  # Открытие окна с эллипсом через event
@@ -562,7 +896,7 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
     # Всё, что создаём
     figure_window.title('Эллипс')
     definition_figure_label.config(text='Эллипс — это замкнутая плоская кривая, \nсумма расстояний от каждой точки \nкоторой до двух точек F1 и F2 \nравна постоянной величине')
-    calculations_figure_button.config(text='Приложение для расчёта сторон и углов', command=visible_calculate_triangle_window_func)
+    calculations_figure_button.config(text='Калькулятор эллипса', command=visible_calculate_triangle_window_func)
     axioms_figure_button.config(text='Аксиомы эллипса', command=visible_axioms_ellipse_window_func)
 
     theorems_figure_button.config(text='Теоремы эллипса', command=visible_theorems_ellipse_window_func)
@@ -571,7 +905,17 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
 
 
 def visible_theorems_ellipse_window_func():
-    pass
+    first_theorem_label.grid()
+    second_theorem_label.grid()
+    third_theorem_label.grid()
+    fourth_theorem_label.grid()
+    fifth_theorem_label.grid()
+    sixth_theorem_label.grid()
+    seventh_theorem_label.grid()
+    eight_theorem_label.grid()
+    back_rectangle_theorems_button = Button(theorems_window, text='Назад', bg=first_color, fg=fourth_color)  # Кнопка назад
+    back_rectangle_theorems_button.place(x=10, y=460)  # Кнопка назад
+    back_rectangle_theorems_button.bind('<Button-1>', visible_rectangle_window_event_func)
 
 
 def visible_axioms_ellipse_window_func():
@@ -579,7 +923,11 @@ def visible_axioms_ellipse_window_func():
 
 
 def visible_formuls_ellipse_func():
-    pass
+    first_formulas_label.grid()
+    second_formulas_label.grid()
+    third_formulas_label.grid()
+    fourth_formulas_label.grid()
+    fifth_formulas_label.grid()
 
 
 def exit_error_func():  # Показываение ошибки при попытки закрытия важных окон
@@ -588,6 +936,10 @@ def exit_error_func():  # Показываение ошибки при попы�
 
 def exit_project_func():  # Полностью закрытие проекта
     sys.exit()
+
+
+def development_func():
+    mb.showinfo(title='Уведомление', message='На стадии разработки')
 
 
 def write_change_theme_func():  # Создание файла с темой
@@ -2123,7 +2475,7 @@ empty_label.grid(column=0, pady=45)
 figures_button = Button(choose_geometry_window, text='Фигуры', font='Oswald 15', command=visible_choose_figure_window_func, bg=first_color, fg=fourth_color, width=25)  # Кнопка перехода на выбор фигур
 figures_button.grid(row=4, column=0, pady=25, padx=200)  # Кнопка фигур расположение
 
-add_material_button = Button(choose_geometry_window, text='Дополнительный материал', font='Oswald 15', bg=first_color, fg=fourth_color, width=25)  # Кнопка перехода на доп. материал
+add_material_button = Button(choose_geometry_window, text='Дополнительный материал', font='Oswald 15', bg=first_color, fg=fourth_color, width=25, command=development_func)  # Кнопка перехода на доп. материал
 add_material_button.grid(row=5, column=0)  # Кнопка доп. материал расположение
 
 perevodchik_button = Button(choose_geometry_window, text='Переводчик', font='Oswald 15', bg=first_color, fg=fourth_color, width=25, command=visible_perevod_ed_window_func)  # Кнопка перехода на доп. материал
@@ -2172,8 +2524,8 @@ stuff_chemistry_button.grid(row=3, column=5, sticky=W, padx=30)  # Кнопка 
 stuff_history_button = Button(choose_subject_window, text='История', font='Oswald 15', state=DISABLED, bg=first_color, fg=fourth_color, width=15)  # Кнопка Истории
 stuff_history_button.grid(row=4, column=5, sticky=W, padx=30)  # Кнопка Истории расположение
 
-back_figure_button = Button(choose_subject_window, text='Назад', font='Oswald 12', command=visible_greet_window_func, bg=first_color, fg=fourth_color, width=12)
-back_figure_button.grid(row=5, column=3, sticky=W, padx=60)
+back_figure_button = Button(choose_subject_window, text='Назад', font='Oswald 15', command=visible_greet_window_func, bg=first_color, fg=fourth_color, width=15)
+back_figure_button.grid(row=5, column=3, sticky=W, padx=30)
 # Окно выбора предмета заканчивается тут(2 окно)
 
 # Окно приветсвия начинается тут(1 окно)
