@@ -2716,4 +2716,4 @@ perevod_ed_window.resizable(False, False)
 greet_window.mainloop()
 
 
-© 2020 TheFox
+"© 2020 TheFox"
