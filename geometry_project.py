@@ -1973,19 +1973,20 @@ def perevod_func():
 
     else:
         mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
 def reset_perevod_func():
+    min_entry.delete(0, END)
 
-    min_entry.delete(0,END)
+    mm_entry.delete(0, END)
 
-    mm_entry.delete(0,END)
+    m_entry.delete(0, END)
 
-    m_entry.delete(0,END)
+    sm_entry.delete(0, END)
 
-    sm_entry.delete(0,END)
+    degres_entry.delete(0, END)
 
-    degres_entry.delete(0,END)
-
-    rad_entry.delete(0,END)
+    rad_entry.delete(0, END)
 
 
 # Окно переводов начинается тут(12 окно)
@@ -2039,7 +2040,7 @@ rad_entry.grid(row=2, column=6, sticky=W)
 result_button = Button(perevod_ed_window, text='Перевести', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
 result_button.grid(row=3, column=1, sticky=W, padx=5, pady=15, columnspan=2)
 
-reset_button = Button(perevod_ed_window, text='Очистить', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
+reset_button = Button(perevod_ed_window, text='Очистить', fg=fourth_color, bg=first_color, font='Oswald 10', command=reset_perevod_func)
 reset_button.grid(row=3, column=2, sticky=W, padx=15, pady=15, columnspan=2)
 
 back_button = Button(perevod_ed_window, text='Назад', bg=first_color, fg=fourth_color, command=visible_geometry_window_func)  # Кнопка назад
