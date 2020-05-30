@@ -2714,3 +2714,6 @@ perevod_ed_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 perevod_ed_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
+
+
+© 2020 TheFox
