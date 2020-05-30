@@ -7,7 +7,7 @@ from tkinter import messagebox as mb
 # import key_base
 
 
-version = 'v0.2'
+version = 'v0.6'
 
 try:
     file = open('File_Setting.txt', 'r')
@@ -1973,6 +1973,19 @@ def perevod_func():
 
     else:
         mb.showerror(title='Ошибка', message='Что-то пошло не так')
+def reset_perevod_func():
+
+    min_entry.delete(0,END)
+
+    mm_entry.delete(0,END)
+
+    m_entry.delete(0,END)
+
+    sm_entry.delete(0,END)
+
+    degres_entry.delete(0,END)
+
+    rad_entry.delete(0,END)
 
 
 # Окно переводов начинается тут(12 окно)
@@ -2189,7 +2202,7 @@ s_result_square_label = Label(calculate_square_window, text='', font='Oswald 15'
 s_result_square_label.place(x=60, y=380)
 
 square_canvas = Canvas(calculate_square_window, width=160, height=150, bg=first_color, highlightthickness=0)
-create_figure = square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=second_color)
+square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=second_color)
 square_canvas.create_line(10, 30, 150, 120, fill=third_color)
 square_canvas.create_line(150, 30, 10, 120, fill=third_color)
 square_canvas.create_text(6, 80, text="A", font="Oswald 15", fill=third_color)
@@ -2454,7 +2467,7 @@ choose_figure_label.grid(row=1, column=1, padx=15)  # Надпись выбер�
 
 # Рисование треугольника
 triangle_canvas = Canvas(choose_figure_window, width=160, height=150, bg=first_color, highlightthickness=0)
-create_figure = triangle_canvas.create_polygon((80, 20), (10, 140), (150, 140), fill=fifth_color, outline=first_color)
+triangle_canvas.create_polygon((80, 20), (10, 140), (150, 140), fill=fifth_color, outline=first_color)
 triangle_canvas.create_text(40, 10, text="Треугольник", font="Oswald 10", fill=third_color)
 triangle_canvas.tag_bind(create_figure, '<Button-1>', visible_triangle_window_event_func)
 triangle_canvas.grid(row=2, column=1)
@@ -2700,6 +2713,3 @@ perevod_ed_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 perevod_ed_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
-
-# TODO Алексей заполняет: ромб, круг, квадрат, трапецию;
-# TODO Никита заполняет: параллелограмм, эллипс, овал. Нужно заполнить аксиомы, теоремы, формулы. Всё по анологии с треугольником. В коммите пишет, что сделали.
