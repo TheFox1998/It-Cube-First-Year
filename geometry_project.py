@@ -1018,6 +1018,7 @@ def delete_custom_theme_func():
         mb.showwarning(title='Предупреждение', message='У вас не создана кастомная тема')
 
 
+@profile
 def calculate_triangle_func():
     if a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         a = float(a_triangle_entry.get())
@@ -1953,7 +1954,7 @@ def perevod_func():
         degres_entry.insert(0, degres)
         rad_entry.insert(0, rad)
 
-    elif degres_entry.get() !='' and rad_entry.get() == '' and min_entry.get() == '':
+    elif degres_entry.get() != '' and rad_entry.get() == '' and min_entry.get() == '':
         degres = float(degres_entry.get())
 
         min = round(degres * 60, 2)
@@ -1969,7 +1970,7 @@ def perevod_func():
         degres = round(rad * (180 / math.pi), 2)
 
         min_entry.insert(0, min)
-        degres_entry.insert(0, rad)
+        degres_entry.insert(0, degres)
 
     else:
         mb.showerror(title='Ошибка', message='Что-то пошло не так')
