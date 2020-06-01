@@ -1969,7 +1969,7 @@ def perevod_func():
         degres = round(rad * (180 / math.pi), 2)
 
         min_entry.insert(0, min)
-        degres_entry.insert(0, rad)
+        degres_entry.insert(0, degres)
 
     else:
         mb.showerror(title='Ошибка', message='Что-то пошло не так')
@@ -2721,5 +2721,5 @@ perevod_ed_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
-
-#© 2020 TheFox
+# © 2020 TheFox
+# TODO Расширить Entry() в окне с переводом единиц
