@@ -476,10 +476,11 @@ def visible_rhombus_window_event_func(event):
     theorems_window.withdraw()
     axioms_window.withdraw()
     formuls_window.withdraw()
+    calculate_rhombus_window.withdraw()
     # Всё что создаём
     figure_window.title('Ромб')
     definition_figure_label.config(text='Ромб - это параллелограмм,\n у которого все стороны равны')
-    calculations_figure_button.config(text='Калькулятор ромба', command=development_func)
+    calculations_figure_button.config(text='Калькулятор ромба', command=visible_calculate_rhombus_window_func)
     axioms_figure_button.config(text='Аксиомы ромба', command=visible_axioms_rhombus_window_func)
 
     theorems_figure_button.config(text='Теоремы ромба', command=visible_theorems_rhombus_window_func)
@@ -2172,6 +2173,487 @@ def visible_calculate_trapezuim_calculate_window_func():
     choose_figure_window.withdraw()
 
 
+def calculate_rhombus_func():
+    """Просчёт ромба"""
+    if a_rhombus_entry.get() != '' and h_rhombus_entry.get() != '':
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        s_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+
+        a = float(a_rhombus_entry.get())
+        h = float(h_rhombus_entry.get())
+
+        p = round(a * 4, 2)
+
+        s = round(a * h, 2)
+
+        alpha = round(math.degrees(math.asin(s / (a ** 2))), 2)
+
+        betta = round(180 - alpha, 2)
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif s_rhombus_entry.get() != '' and alpha_corner_rhombus_entry.get() != '':
+        betta_corner_rhombus_entry['state'] = DISABLED
+        a_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+
+        s = float(s_rhombus_entry.get())
+        alpha = float(alpha_corner_rhombus_entry.get())
+
+        a = round(math.sqrt(s / math.sin(math.radians(alpha))), 2)
+
+        h = round(math.sin(math.radians(alpha)) * math.sqrt(s / math.sin(math.radians(alpha))), 2)
+
+        p = 4 * a
+
+        betta = 180 - alpha
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif s_rhombus_entry.get() != '' and betta_corner_rhombus_entry.get() != '':
+        a_rhombus_entry['state'] = DISABLED
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+
+        s = float(s_rhombus_entry.get())
+        betta = float(betta_corner_rhombus_entry.get())
+
+        a = round(math.sqrt(s / math.sin(math.radians(betta))), 2)
+        alpha = 180 - betta
+
+        h = round(math.sin(math.radians(alpha)) * math.sqrt(s / math.sin(math.radians(alpha))), 2)
+
+        p = 4 * a
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif s_rhombus_entry.get() != '' and d_first_rhombus_entry.get() != '':
+        a_rhombus_entry['state'] = DISABLED
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+
+        s = float(s_rhombus_entry.get())
+        d_1 = float(d_first_rhombus_entry.get())
+
+        d_2 = round(2 * (s / d_1), 2)
+
+        a = round(math.sqrt((d_1 ** 2 + d_2 ** 2)) / 2, 2)
+
+        p = round(4 * a, 2)
+
+        alpha = round(math.degrees(math.asin(s / (a ** 2))), 2)
+
+        betta = round(180 - alpha, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+
+    elif s_rhombus_entry.get() != '' and d_second_rhombus_entry.get() != '':
+        a_rhombus_entry['state'] = DISABLED
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+
+        s = float(s_rhombus_entry.get())
+        d_2 = float(d_second_rhombus_entry.get())
+
+        d_1 = round(2 * (s / d_2), 2)
+
+        a = round(math.sqrt((d_1 ** 2 + d_2 ** 2)) / 2, 2)
+
+        p = round(4 * a, 2)
+
+        alpha = round(math.degrees(math.asin(s / (a ** 2))), 2)
+
+        betta = round(180 - alpha, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif a_rhombus_entry.get() != '' and alpha_corner_rhombus_entry.get() != '':
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+        s_rhombus_entry['state'] = DISABLED
+
+        a = float(a_rhombus_entry.get())
+        alpha = float(alpha_corner_rhombus_entry.get())
+
+        betta = round(180 - alpha, 2)
+
+        p = round(4 * a, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        s = round(a * h, 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif a_rhombus_entry.get() != '' and betta_corner_rhombus_entry.get() != '':
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        s_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+
+        a = float(a_rhombus_entry.get())
+        betta = float(betta_corner_rhombus_entry.get())
+
+        alpha = round(180 - betta, 2)
+
+        p = round(4 * a, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        s = round(a * h, 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif d_first_rhombus_entry.get() != '' and d_second_rhombus_entry.get() != '':
+        a_rhombus_entry['state'] = DISABLED
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        s_rhombus_entry['state'] = DISABLED
+
+        d_1 = float(d_first_rhombus_entry.get())
+        d_2 = float(d_second_rhombus_entry.get())
+
+        a = round(math.sqrt((d_1 ** 2 + d_2 ** 2)) / 2, 2)
+
+        alpha = round(math.degrees(math.asin((2 * (d_1 * d_2)) / (d_1 ** 2 + d_2 ** 2))), 2)
+
+        betta = round(180 - alpha, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        p = round(4 * a, 2)
+
+        s = round(a * h, 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif s_rhombus_entry.get() != '' and a_rhombus_entry.get() != '':
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        d_first_rhombus_entry['state'] = DISABLED
+        d_second_rhombus_entry['state'] = DISABLED
+
+        s = float(s_rhombus_entry.get())
+        a = float(a_rhombus_entry.get())
+
+        h = round(s / a, 2)
+
+        p = round(4 * a, 2)
+
+        alpha = round(math.degrees(math.asin(s / (a ** 2))), 2)
+
+        betta = round(180 - alpha, 2)
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif d_first_rhombus_entry.get() != '' and a_rhombus_entry.get() != '':
+        d_second_rhombus_entry['state'] = DISABLED
+        s_rhombus_entry['state'] = DISABLED
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+
+        d_1 = float(d_first_rhombus_entry.get())
+        a = float(a_rhombus_entry.get())
+
+        alpha = round(math.degrees(math.acos(((d_1 ** 2) / (2 * (a ** 2))) - 1)), 2)
+
+        betta = round(180 - alpha, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        p = round(4 * a, 2)
+        s = round(a * h, 2)
+
+        d_2 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(alpha))), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    elif d_second_rhombus_entry.get() != '' and a_rhombus_entry.get() != '':
+        d_first_rhombus_entry['state'] = DISABLED
+        alpha_corner_rhombus_entry['state'] = DISABLED
+        betta_corner_rhombus_entry['state'] = DISABLED
+        h_rhombus_entry['state'] = DISABLED
+        s_rhombus_entry['state'] = DISABLED
+
+        d_2 = float(d_second_rhombus_entry.get())
+        a = float(a_rhombus_entry.get())
+
+        alpha = round(math.degrees(math.acos(1 - (d_2 ** 2) / (2 * (a ** 2)))), 2)
+
+        betta = round(180 - alpha, 2)
+
+        h = round(a * math.sin(math.radians(alpha)), 2)
+
+        p = round(4 * a, 2)
+
+        s = round(a * h, 2)
+
+        d_1 = round(a * math.sqrt(2 - 2 * math.cos(math.radians(betta))), 2)
+
+        a_result_rhombus_label.config(text=a)
+        alpha_result_rhombus_label.config(text=alpha)
+        betta_result_rhombus_label.config(text=betta)
+        h_result_rhombus_label.config(text=h)
+        d_1_result_rhombus_label.config(text=d_1)
+        d_2_result_rhombus_label.config(text=d_2)
+        s_result_rhombus_label.config(text=s)
+        p_result_rhombus_label.config(text=p)
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
+def reset_rhombus_calculate_func():
+    """Очищать и сделать активными entry and label"""
+    a_rhombus_entry.delete(0, END)
+    alpha_corner_rhombus_entry.delete(0, END)
+    betta_corner_rhombus_entry.delete(0, END)
+    s_rhombus_entry.delete(0, END)
+    h_rhombus_entry.delete(0, END)
+    d_first_rhombus_entry.delete(0, END)
+    d_second_rhombus_entry.delete(0, END)
+
+    a_rhombus_entry['state'] = NORMAL
+    alpha_corner_rhombus_entry['state'] = NORMAL
+    betta_corner_rhombus_entry['state'] = NORMAL
+    s_rhombus_entry['state'] = NORMAL
+    h_rhombus_entry['state'] = NORMAL
+    d_first_rhombus_entry['state'] = NORMAL
+    d_second_rhombus_entry['state'] = NORMAL
+
+    a_result_rhombus_label.config(text='')
+    alpha_result_rhombus_label.config(text='')
+    betta_result_rhombus_label.config(text='')
+    h_result_rhombus_label.config(text='')
+    d_1_result_rhombus_label.config(text='')
+    d_2_result_rhombus_label.config(text='')
+    s_result_rhombus_label.config(text='')
+    p_result_rhombus_label.config(text='')
+
+def visible_calculate_rhombus_window_func():
+    """Показывать окно с калькулятором ромба"""
+    # Всё, что показываем
+    calculate_rhombus_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+# Окно расчётов ромба начинается тут(14 окно)
+calculate_rhombus_window = Tk()
+calculate_rhombus_window['bg'] = first_color
+calculate_rhombus_window.title('Калькулятор ромба')
+
+calculate_rhombus_window.withdraw()
+
+definition_label = Label(calculate_rhombus_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=0, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+a_label = Label(calculate_rhombus_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_label.grid(row=1, column=1, padx=15, pady=5)
+
+a_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+a_rhombus_entry.grid(row=1, column=2, padx=15)
+
+alpha_label = Label(calculate_rhombus_window, text='α = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+alpha_label.grid(row=2, column=1, padx=15)
+
+alpha_corner_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+alpha_corner_rhombus_entry.grid(row=2, column=2, padx=15)
+
+betta_label = Label(calculate_rhombus_window, text='β = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+betta_label.grid(row=3, column=1, padx=15, pady=5)
+
+betta_corner_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+betta_corner_rhombus_entry.grid(row=3, column=2, padx=15)
+
+h_label = Label(calculate_rhombus_window, text='h = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+h_label.grid(row=4, column=1, padx=15)
+
+h_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+h_rhombus_entry.grid(row=4, column=2, padx=15)
+
+d_first_label = Label(calculate_rhombus_window, text='d₁= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_first_label.grid(row=5, column=1, padx=15, pady=5)
+
+d_first_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+d_first_rhombus_entry.grid(row=5, column=2, padx=15)
+
+d_second_label = Label(calculate_rhombus_window, text='d₂= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_second_label.grid(row=6, column=1, padx=15)
+
+d_second_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+d_second_rhombus_entry.grid(row=6, column=2, padx=15)
+
+p_label = Label(calculate_rhombus_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_label.grid(row=7, column=1, pady=5)
+
+s_label = Label(calculate_rhombus_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_label.grid(row=8, column=1)
+
+s_rhombus_entry = Entry(calculate_rhombus_window, width=4, font='Oswald 10', bg=fifth_color)
+s_rhombus_entry.grid(row=8, column=2, padx=15)
+
+# Виджеты для вывода данных
+a_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_rhombus_label.place(x=60, y=65)
+
+alpha_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+alpha_result_rhombus_label.place(x=60, y=97)
+
+betta_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+betta_result_rhombus_label.place(x=60, y=130)
+
+h_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+h_result_rhombus_label.place(x=60, y=165)
+
+d_1_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_1_result_rhombus_label.place(x=60, y=200)
+
+d_2_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_2_result_rhombus_label.place(x=60, y=235)
+
+p_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                               width=5)
+p_result_rhombus_label.place(x=60, y=267)
+
+s_result_rhombus_label = Label(calculate_rhombus_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                               width=5)
+s_result_rhombus_label.place(x=60, y=303)
+
+rhombus_canvas = Canvas(calculate_rhombus_window, width=160, height=150, bg=first_color, highlightthickness=0)
+rhombus_canvas.create_polygon((80, 20), (120, 80), (80, 140), (40, 80), fill=fifth_color, outline=second_color)
+rhombus_canvas.create_text(50, 115, text="A", font="Oswald 10", fill=third_color)
+rhombus_canvas.create_text(95, 73, text="d₂", font="Oswald 10", fill=third_color)
+rhombus_canvas.create_line((40, 80), (100, 50), fill=second_color)
+rhombus_canvas.create_text(62, 60, text="h", font="Oswald 10", fill=third_color)
+rhombus_canvas.create_line((40, 80), (120, 80), fill=second_color)
+rhombus_canvas.create_text(73, 100, text="d₁", font="Oswald 10", fill=third_color)
+rhombus_canvas.create_line((80, 20), (80, 140), fill=second_color)
+rhombus_canvas.create_text(80, 145, text="α", font="Oswald 10", fill=third_color)
+rhombus_canvas.create_text(35, 80, text="β", font="Oswald 10", fill=third_color)
+rhombus_canvas.place(x=350, y=80)
+
+calculate_square_button = Button(calculate_rhombus_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_rhombus_func)
+calculate_square_button.grid(row=11, column=8, padx=15)
+
+back_figure_button = Button(calculate_rhombus_window, text='Сбросить', command=reset_rhombus_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_rhombus_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_rhombus_window_event_func)
+
+exit_button = Button(calculate_rhombus_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов ромба заканчивается тут(14 окно)
+
+
 # Окно расчётов трапеции начинается тут(13 окно)
 calculate_trapezium_window = Tk()
 calculate_trapezium_window['bg'] = first_color
@@ -2951,6 +3433,7 @@ calculate_square_window.geometry('{}x{}+{}+{}'.format(width_window_large, height
 calculate_rectangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 perevod_ed_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_trapezium_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_rhombus_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -3034,6 +3517,12 @@ calculate_trapezium_window.attributes('-topmost', True)
 calculate_trapezium_window.after_idle(calculate_trapezium_window.attributes, '-topmost', True)
 calculate_trapezium_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 calculate_trapezium_window.resizable(False, False)
+
+calculate_rhombus_window.lift()
+calculate_rhombus_window.attributes('-topmost', True)
+calculate_rhombus_window.after_idle(calculate_rhombus_window.attributes, '-topmost', True)
+calculate_rhombus_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_rhombus_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
