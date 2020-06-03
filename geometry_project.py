@@ -2194,37 +2194,43 @@ gamma_result_square_label.place(x=60, y=224)
 delta_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
 delta_result_square_label.place(x=60, y=263)
 
-d_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                              width=5)
 d_result_square_label.place(x=60, y=302)
 
-p_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+p_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                              width=5)
 p_result_square_label.place(x=60, y=341)
 
-s_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+s_result_square_label = Label(calculate_square_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                              width=5)
 s_result_square_label.place(x=60, y=380)
 
-square_canvas = Canvas(calculate_square_window, width=160, height=150, bg=first_color, highlightthickness=0)
-square_canvas.create_rectangle((10, 30), (150, 120), fill=fifth_color, outline=second_color)
-square_canvas.create_line(10, 30, 150, 120, fill=third_color)
-square_canvas.create_line(150, 30, 10, 120, fill=third_color)
-square_canvas.create_text(6, 80, text="A", font="Oswald 15", fill=third_color)
-square_canvas.create_text(153, 80, text="A", font="Oswald 15", fill=third_color)
-square_canvas.create_text(80, 20, text="B", font="Oswald 15", fill=third_color)
-square_canvas.create_text(80, 130, text="B", font="Oswald 15", fill=third_color)
-square_canvas.create_text(125, 65, text="D", font="Oswald 15", fill=third_color)
-square_canvas.create_text(55, 73, text="α", font="Oswald 15", fill=third_color)
-square_canvas.create_text(82, 57, text="β", font="Oswald 15", fill=third_color)
-square_canvas.create_text(18, 96, text="γ", font="Oswald 15", fill=third_color)
-square_canvas.create_text(40, 112, text="δ", font="Oswald 15", fill=third_color)
+square_canvas = Canvas(calculate_square_window, width=180, height=150, bg=first_color, highlightthickness=0)
+square_canvas.create_rectangle((20, 30), (160, 120), fill=fifth_color, outline=second_color)
+square_canvas.create_line(20, 30, 160, 120, fill=third_color)
+square_canvas.create_line(160, 30, 20, 120, fill=third_color)
+square_canvas.create_text(7, 75, text="A", font="Oswald 15", fill=third_color)
+square_canvas.create_text(172, 75, text="A", font="Oswald 15", fill=third_color)
+square_canvas.create_text(90, 15, text="B", font="Oswald 15", fill=third_color)
+square_canvas.create_text(90, 135, text="B", font="Oswald 15", fill=third_color)
+square_canvas.create_text(135, 65, text="D", font="Oswald 15", fill=third_color)
+square_canvas.create_text(65, 73, text="α", font="Oswald 15", fill=third_color)
+square_canvas.create_text(92, 57, text="β", font="Oswald 15", fill=third_color)
+square_canvas.create_text(28, 96, text="γ", font="Oswald 15", fill=third_color)
+square_canvas.create_text(50, 112, text="δ", font="Oswald 15", fill=third_color)
 square_canvas.place(x=350, y=80)
 
-calculate_square_button = Button(calculate_square_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_square_func)
+calculate_square_button = Button(calculate_square_window, text='Произвести расчёты', bg=first_color, fg=fourth_color,
+                                 font='Oswald 10', command=calculate_square_func)
 calculate_square_button.grid(row=11, column=8, padx=15)
 
-back_figure_button = Button(calculate_square_window, text='Сбросить', command=reset_square_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button = Button(calculate_square_window, text='Сбросить', command=reset_square_calculate_func,
+                            bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
 back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
 
-back_figure_button = Button(calculate_square_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button = Button(calculate_square_window, text='Назад', bg=first_color, fg=fourth_color,
+                            font='Oswald 10')  # Кнопка назад
 back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
 back_figure_button.bind('<Button-1>', visible_square_window_event_func)
 
@@ -2715,3 +2721,6 @@ perevod_ed_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 perevod_ed_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
+
+# © 2020 TheFox
+# TODO Расширить Entry() в окне с переводом единиц
