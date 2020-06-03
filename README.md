@@ -4,21 +4,21 @@
 
 ### Использовать в проекте
 
-* Python 3 или выше - https://www.python.org/
+* Python 3 или выше - [python.off.site]
 
 * Любой удобный Вам IDE
 
 ## Модули
 
-* Tkinter
+* Tkinter - [tkinter.docs]
 
-* Math
+* Math - [math.docs]
 
-* MessageBox
+* MessageBox - [mb.docs]
 
-* ColorChooser
+* ColorChooser - [cc.docs]
 
-* Os
+* Os - [os.docs]
 
 ## Документация
 
@@ -82,6 +82,8 @@
 12. `perevod_ed_window` -  Окно, на котором выполняются все переводы единиц(12 окно)
 
 13. `calculate_trapezium_window` - Окно, на котором выполняются все расчёты трапеции(13 окно)
+
+14. `calculate_rhombus_window` - Окно, на котором выполняются все расчёты ромба(14 окно)
 
 ### Название функций и что они делают:
 
@@ -203,6 +205,11 @@
 
 59. `visible_calculate_trapezuim_calculate_window_func` - показывать окно с калькулятором трапеции
 
+60. `visible_calculate_rhombus_window_func` - показывать окно с калькулятором ромба
+
+61. `reset_rhombus_calculate_func` - очищать и сделать активными entry and label
+
+62. `calculate_rhombus_func` - просчёт ромба
 ### Про кастомную тему:
 
 **Кастомная тема принимает 5 цветов:**
@@ -230,3 +237,16 @@ ________________________________________________________________________________
 ## Куратор
 
 #### Горьев Александр Викторович
+
+
+[python.off.site]: https://www.python.org/
+
+[tkinter.docs]: https://docs.python.org/3/library/tk.html
+
+[math.docs]: https://docs.python.org/3/library/math.html
+
+[mb.docs]: https://docs.python.org/3/library/tkinter.html?highlight=messagebox
+
+[cc.docs]: https://docs.python.org/3/library/tkinter.html?highlight=colorchooser
+
+[os.docs]: https://docs.python.org/3/whatsnew/3.8.html#os
