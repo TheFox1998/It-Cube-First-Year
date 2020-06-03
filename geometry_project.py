@@ -709,7 +709,7 @@ def visible_trapezium_window_event_func(event):
     # Всё, что создаём
     figure_window.title('Трапеция')
     definition_figure_label.config(text='Трапеция — четырехугольник, у которого \nдве стороны параллельны, а две \nстороны не параллельны')
-    calculations_figure_button.config(text='Калькулятор трапеции', command=development_func)
+    calculations_figure_button.config(text='Калькулятор трапеции', command=calculate_trapezium_window)
     axioms_figure_button.config(text='Аксиомы трапеции', command=visible_axioms_trapezium_window_func)
     theorems_figure_button.config(text='Теоремы трапеции', command=visible_theorems_trapezium_window_first_func)
     formulas_figure_button.config(text='Формулы трапеции', command=visible_formuls_trapezium_func)
@@ -2312,37 +2312,37 @@ main_label.grid(row=0, column=1, sticky=W, padx=5, columnspan=3, pady=15)
 mm_label = Label(perevod_ed_window, text='Мм = ', fg=second_color, bg=first_color, font='Oswald 15')
 mm_label.grid(row=1, column=1, sticky=W, padx=5, pady=15)
 
-mm_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+mm_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 mm_entry.grid(row=1, column=2, sticky=W)
 
 sm_label = Label(perevod_ed_window, text='См = ', fg=second_color, bg=first_color, font='Oswald 15')
 sm_label.grid(row=1, column=3, sticky=W, padx=5)
 
-sm_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+sm_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 sm_entry.grid(row=1, column=4, sticky=W)
 
 m_label = Label(perevod_ed_window, text='М = ', fg=second_color, bg=first_color, font='Oswald 15')
 m_label.grid(row=1, column=5, sticky=W, padx=5)
 
-m_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+m_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 m_entry.grid(row=1, column=6, sticky=W)
 
 min_label = Label(perevod_ed_window, text='Мин = ', fg=second_color, bg=first_color, font='Oswald 15')
 min_label.grid(row=2, column=1, sticky=W, padx=5, pady=15)
 
-min_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+min_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 min_entry.grid(row=2, column=2, sticky=W)
 
 degres_label = Label(perevod_ed_window, text='Гр° = ', fg=second_color, bg=first_color, font='Oswald 15')
 degres_label.grid(row=2, column=3, sticky=W, padx=5)
 
-degres_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+degres_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 degres_entry.grid(row=2, column=4, sticky=W)
 
 rad_label = Label(perevod_ed_window, text='Рад = ', fg=second_color, bg=first_color, font='Oswald 15')
 rad_label.grid(row=2, column=5, sticky=W, padx=5)
 
-rad_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=5)
+rad_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 rad_entry.grid(row=2, column=6, sticky=W)
 
 result_button = Button(perevod_ed_window, text='Перевести', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
@@ -3038,4 +3038,4 @@ calculate_trapezium_window.resizable(False, False)
 greet_window.mainloop()
 
 # © 2020 TheFox
-# TODO Расширить Entry() в окне с переводом единиц
+
