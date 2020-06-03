@@ -7,7 +7,7 @@ from tkinter import messagebox as mb
 # import key_base
 
 
-version = 'v0.6'
+version = 'v0.9'
 
 try:
     file = open('File_Setting.txt', 'r')
@@ -53,7 +53,8 @@ except FileNotFoundError as ex:
     fifth_color = '#C38152'
 
 
-def visible_choose_subject_func():  # Показ окна с выбором предмета
+def visible_choose_subject_func():
+    """Отркыть окно с выбором предмета"""
     # Всё, что показываем:
     choose_subject_window.deiconify()
     # Всё, что скрываем:
@@ -61,7 +62,8 @@ def visible_choose_subject_func():  # Показ окна с выбором пр
     choose_geometry_window.withdraw()
 
 
-def visible_geometry_window_func():  # Показ окна с геометрией
+def visible_geometry_window_func():
+    """Открыть окно с выбором раздела геометрии"""
     # Всё, что показываем:
     choose_geometry_window.deiconify()
     # Всё, что скрываем:
@@ -71,7 +73,8 @@ def visible_geometry_window_func():  # Показ окна с геометрие
     perevod_ed_window.withdraw()
 
 
-def visible_choose_figure_window_func():  # Показ окна с выбором фигур
+def visible_choose_figure_window_func():
+    """Открыть окно с выбором фигур"""
     # Всё, что показываем:
     choose_figure_window.deiconify()
     # Всё, что скрываем:
@@ -82,7 +85,8 @@ def visible_choose_figure_window_func():  # Показ окна с выборо�
     calculate_triangle_window.withdraw()
 
 
-def visible_greet_window_func():  # Показ главного окна
+def visible_greet_window_func():
+    """Открыть главное окно"""
     # Всё, что показываем:
     greet_window.deiconify()
     # Всё, что скрываем:
@@ -91,13 +95,15 @@ def visible_greet_window_func():  # Показ главного окна
 
 
 def visible_perevod_ed_window_func():
+    """Открыть окно с переводчиком"""
     # Всё, что показываем:
     perevod_ed_window.deiconify()
     # Всё, что скрываем:
     choose_geometry_window.withdraw()
 
 
-def visible_calculate_triangle_window_func():  # Открытие окна c расётами треугольника
+def visible_calculate_triangle_window_func():
+    """Открыть окно с расчётами треугольника"""
     # Всё, что показываем:
     calculate_triangle_window.deiconify()
     figure_window.deiconify()
@@ -105,7 +111,8 @@ def visible_calculate_triangle_window_func():  # Открытие окна c р�
     choose_figure_window.withdraw()
 
 
-def visible_calculate_square_window():  # показ окна с расчётами прямоугольника
+def visible_calculate_square_window():
+    """Открыть окно с расчётами прямоугольника"""
     # Всё, что показываем:
     calculate_square_window.deiconify()
     figure_window.deiconify()
@@ -113,7 +120,8 @@ def visible_calculate_square_window():  # показ окна с расчёта�
     choose_figure_window.withdraw()
 
 
-def visible_calculate_rectangle_window_func():  # показ окна с расчётами квадрата
+def visible_calculate_rectangle_window_func():
+    """Открыть окно с расчётами квадрата"""
     # Всё, что показываем
     calculate_rectangle_window.deiconify()
     figure_window.deiconify()
@@ -121,7 +129,8 @@ def visible_calculate_rectangle_window_func():  # показ окна с рас�
     choose_figure_window.withdraw()
 
 
-def visible_triangle_window_event_func(event):  # Открытие окна с треугольником через event
+def visible_triangle_window_event_func(event):
+    """Открыть окно с треугольником"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -144,7 +153,8 @@ def visible_triangle_window_event_func(event):  # Открытие окна с �
     formulas_figure_button.config(text='Формулы треугольника', command=visible_formuls_triangle_func)
 
 
-def visible_theorems_triangle_window_first_func():  # 1 стр аксиом треугольника
+def visible_theorems_triangle_window_first_func():
+    """Показать первую страницу с теоремами треугольника"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -187,7 +197,8 @@ def visible_theorems_triangle_window_first_func():  # 1 стр аксиом тр
     back_triangle_theorems_button.bind('<Button-1>', visible_triangle_window_event_func)
 
 
-def visible_theorems_triangle_window_second_func():  # 2 стр аксиом треугольника
+def visible_theorems_triangle_window_second_func():
+    """Показать вторую страницу с теоремами треугольника"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -217,7 +228,8 @@ def visible_theorems_triangle_window_second_func():  # 2 стр аксиом т�
     back_triangle_theorems_button.bind('<Button-1>', visible_triangle_window_event_func)
 
 
-def visible_axioms_triangle_window_func():  # Показ окна с аксиомами треугольника
+def visible_axioms_triangle_window_func():
+    """Показать окно с аксиомами трегольника"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -232,7 +244,8 @@ def visible_axioms_triangle_window_func():  # Показ окна с аксио�
     back_triangle_axioms_button.bind('<Button-1>', visible_triangle_window_event_func)
 
 
-def visible_formuls_triangle_func():  # Показ окна с формулами треугольника
+def visible_formuls_triangle_func():
+    """Показать формулы треугольника"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -262,7 +275,8 @@ def visible_formuls_triangle_func():  # Показ окна с формулам�
     back_formulas_triangle_button.bind('<Button-1>', visible_triangle_window_event_func)
 
 
-def visible_square_window_event_func(event):  # Открытие окна с прямоугольником через event
+def visible_square_window_event_func(event):
+    """Открыть окно с прямоугольником"""
     # Всё, что показываем
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -285,6 +299,7 @@ def visible_square_window_event_func(event):  # Открытие окна с п�
 
 
 def visible_theorems_square_window_first_func():
+    """Показать теоремы прямоугольника"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -318,6 +333,7 @@ def visible_theorems_square_window_first_func():
 
 
 def visible_axioms_square_window_func():
+    """Показать аксиомы прямоугольника"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -334,6 +350,7 @@ def visible_axioms_square_window_func():
 
 
 def visible_formuls_square_func():
+    """Показать формулы прямоугольника"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -362,7 +379,8 @@ def visible_formuls_square_func():
     back_formulas_square_button.bind('<Button-1>', visible_square_window_event_func)
 
 
-def visible_rectangle_window_event_func(event):  # Открытие окна с квадратом через event
+def visible_rectangle_window_event_func(event):
+    """Открыть окно с квадратом"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -385,6 +403,7 @@ def visible_rectangle_window_event_func(event):  # Открытие окна с 
 
 
 def visible_theorems_rectangle_window_func():
+    """Показать теоремы квадрата"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -411,6 +430,7 @@ def visible_theorems_rectangle_window_func():
 
 
 def visible_axioms_rectangle_window_func():
+    """Показать аксиомы квадрата"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -426,6 +446,7 @@ def visible_axioms_rectangle_window_func():
 
 
 def visible_formuls_rectangle_func():
+    """Показать формулы квадрата"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -447,7 +468,8 @@ def visible_formuls_rectangle_func():
     back_formulas_rectangle_button.bind('<Button-1>', visible_rectangle_window_event_func)
 
 
-def visible_rhombus_window_event_func(event):  # Открытие окна с ромбом через event
+def visible_rhombus_window_event_func(event):
+    """Открыть окно с ромбом"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -466,6 +488,7 @@ def visible_rhombus_window_event_func(event):  # Открытие окна с р
 
 
 def visible_theorems_rhombus_window_func():
+    """Показать аксиомы ромба"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -498,6 +521,7 @@ def visible_theorems_rhombus_window_func():
 
 
 def visible_axioms_rhombus_window_func():
+    """Показать аксиомы ромба"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -513,6 +537,7 @@ def visible_axioms_rhombus_window_func():
 
 
 def visible_formuls_rhombus_func():
+    """Показать формулы ромба"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -541,7 +566,8 @@ def visible_formuls_rhombus_func():
     back_formulas_rectangle_button.bind('<Button-1>', visible_rhombus_window_event_func)
 
 
-def visible_parallelogram_window_event_func(event):  # Открытие окна с параллелограммом через event
+def visible_parallelogram_window_event_func(event):
+    """Открыть окно с параллелограммом"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -562,6 +588,7 @@ def visible_parallelogram_window_event_func(event):  # Открытие окна
 
 
 def visible_theorems_parallelogram_window_first_func():
+    """Показать первую страницу с теоремами параллограмма"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -598,6 +625,7 @@ def visible_theorems_parallelogram_window_first_func():
 
 
 def visible_theorems_parallelogram_window_second_func():
+    """Показать вторую страницу с теоремами параллелограмма"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -625,6 +653,7 @@ def visible_theorems_parallelogram_window_second_func():
 
 
 def visible_axioms_parallelogram_window_func():
+    """Показать аксиомы параллелограмма"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -640,6 +669,7 @@ def visible_axioms_parallelogram_window_func():
 
 
 def visible_formuls_parallelogram_func():
+    """Показать формулы параллелограмма"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -667,7 +697,8 @@ def visible_formuls_parallelogram_func():
     back_formulas_rectangle_button.bind('<Button-1>', visible_parallelogram_window_event_func)
 
 
-def visible_trapezium_window_event_func(event):  # Открытие окна с трапецией через event
+def visible_trapezium_window_event_func(event):
+    """Открыть окно с трапецией"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -685,6 +716,7 @@ def visible_trapezium_window_event_func(event):  # Открытие окна с 
 
 
 def visible_theorems_trapezium_window_first_func():
+    """Показать первую страницу с теоремами трапеции"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -721,6 +753,7 @@ def visible_theorems_trapezium_window_first_func():
 
 
 def visible_theorems_trapezium_window_second_func():
+    """Показать вторую страницу с теоремами трапеции"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -756,6 +789,7 @@ def visible_theorems_trapezium_window_second_func():
 
 
 def visible_axioms_trapezium_window_func():
+    """Показать аксиомы трапеции"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -771,6 +805,7 @@ def visible_axioms_trapezium_window_func():
 
 
 def visible_formuls_trapezium_func():
+    """Показать формулы трапеции"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -799,7 +834,8 @@ def visible_formuls_trapezium_func():
     back_formulas_rectangle_button.bind('<Button-1>', visible_trapezium_window_event_func)
 
 
-def visible_circle_window_event_func(event):  # Открытие окна с кругом через event
+def visible_circle_window_event_func(event):
+    """Показать окно с кругом"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -820,6 +856,7 @@ def visible_circle_window_event_func(event):  # Открытие окна с к�
 
 
 def visible_theorems_circle_window_func():
+    """Показать теоремы круга"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -855,6 +892,7 @@ def visible_theorems_circle_window_func():
 
 
 def visible_axioms_circle_window_func():
+    """Показать аксиомы круга"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -870,6 +908,7 @@ def visible_axioms_circle_window_func():
 
 
 def visible_formuls_circle_func():
+    """Показать формулы круга"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -892,7 +931,8 @@ def visible_formuls_circle_func():
     back_formulas_rectangle_button.bind('<Button-1>', visible_trapezium_window_event_func)
 
 
-def visible_ellipse_window_event_func(event):  # Открытие окна с эллипсом через event
+def visible_ellipse_window_event_func(event):
+    """Открыть окно с главным меню эллипса"""
     # Всё, что показываем:
     figure_window.deiconify()
     # Всё, что скрываем:
@@ -911,6 +951,7 @@ def visible_ellipse_window_event_func(event):  # Открытие окна с э
 
 
 def visible_theorems_ellipse_window_func():
+    """Показать теоремы эллипса"""
     # Всё, что показываем:
     theorems_window.deiconify()
     # Всё, что скрываем:
@@ -943,6 +984,7 @@ def visible_theorems_ellipse_window_func():
 
 
 def visible_axioms_ellipse_window_func():
+    """Показать аксиомы эллипса"""
     # Всё, что показываем:
     axioms_window.deiconify()
     # Всё, что скрываем:
@@ -958,6 +1000,7 @@ def visible_axioms_ellipse_window_func():
 
 
 def visible_formuls_ellipse_func():
+    """Показать формулы эллипса"""
     # Всё, что показываем
     formuls_window.deiconify()
     # Всё, что скрываем
@@ -979,19 +1022,23 @@ def visible_formuls_ellipse_func():
     back_formulas_rectangle_button.bind('<Button-1>', visible_ellipse_window_event_func)
 
 
-def exit_error_func():  # Показываение ошибки при попытки закрытия важных окон
+def exit_error_func():
+    """Показать mb при нажатии на окна, которые нельзя закрывать при помощи крестика"""
     mb.showerror('Ошибка', 'Это окно закрывается кнопкой "Назад"')
 
 
-def exit_project_func():  # Полностью закрытие проекта
+def exit_project_func():
+    """Закрыть приложение"""
     sys.exit()
 
 
 def development_func():
+    """Показать mb с уведомлением о разработке"""
     mb.showinfo(title='Уведомление', message='На стадии разработки')
 
 
-def write_change_theme_func():  # Создание файла с темой
+def write_change_theme_func():
+    """Создать файл с данными кастомной темы"""
     first_color_choose = tkinter.colorchooser.askcolor(title='Выбор цвета для фона')
 
     second_color_choose = tkinter.colorchooser.askcolor(title='Выбор цвета для заголовков')
@@ -1010,6 +1057,7 @@ def write_change_theme_func():  # Создание файла с темой
 
 
 def delete_custom_theme_func():
+    """Удалить файл с данными кастомной темы"""
     try:
         path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'File_Setting.txt')
         os.remove(path)
@@ -1020,6 +1068,7 @@ def delete_custom_theme_func():
 
 
 def calculate_triangle_func():
+    """Просчитать треугольник"""
     if a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         a = float(a_triangle_entry.get())
         b = float(b_triangle_entry.get())
@@ -1559,6 +1608,7 @@ def calculate_triangle_func():
 
 
 def reset_triangle_calculate_func():
+    """Очистить и сделать актиыними entry and label треугольника"""
     a_triangle_entry.delete(0, END)
     b_triangle_entry.delete(0, END)
     c_triangle_entry.delete(0, END)
@@ -1584,6 +1634,7 @@ def reset_triangle_calculate_func():
 
 
 def calculate_square_func():
+    """Просчитать прямоугольник"""
     if a_square_entry.get() != '' and b_square_entry.get() != '':
         d_square_entry['state'] = DISABLED
         alpha_corner_square_entry['state'] = DISABLED
@@ -1802,6 +1853,7 @@ def calculate_square_func():
 
 
 def reset_square_calculate_func():
+    """Очистить и сделать активной entry and label прямоугольника"""
     a_square_entry.delete(0, END)
     b_square_entry.delete(0, END)
     d_square_entry.delete(0, END)
@@ -1828,6 +1880,7 @@ def reset_square_calculate_func():
 
 
 def calculate_rectangle_func():
+    """Просчитать квадрат"""
     if a_rectangle_entry.get() != '':
         d_rectangle_entry['state'] = DISABLED
         p_rectangle_entry['state'] = DISABLED
@@ -1897,6 +1950,7 @@ def calculate_rectangle_func():
 
 
 def reset_rectangle_calculate_func():
+    """Очистить и сделать активной все entry and label квадрата"""
     a_rectangle_entry.delete(0, END)
     d_rectangle_entry.delete(0, END)
     p_rectangle_entry.delete(0, END)
@@ -1914,6 +1968,7 @@ def reset_rectangle_calculate_func():
 
 
 def perevod_func():
+    """Перевести единицы"""
     if mm_entry.get() != '' and sm_entry.get() == '' and m_entry.get() == '':
         mm = float(mm_entry.get())
 
@@ -1977,6 +2032,7 @@ def perevod_func():
 
 
 def reset_perevod_func():
+    """Очистить entry переводчика"""
     min_entry.delete(0, END)
 
     mm_entry.delete(0, END)
@@ -1991,6 +2047,7 @@ def reset_perevod_func():
 
 
 def calculate_trapezium_func():
+    """Просчитать трапецию"""
     if a_trapezium_entry.get() != '' and b_trapezium_entry.get() != '' and c_trapezium_entry.get() != '' and d_trapezium_entry.get() != '':
         h_trapezium_entry['state'] = DISABLED
         m_trapezium_entry['state'] = DISABLED
@@ -2079,6 +2136,7 @@ def calculate_trapezium_func():
 
 
 def reset_trapezium_calculate_func():
+    """Очистить и сделать активными entry and label"""
     a_trapezium_entry['state'] = NORMAL
     b_trapezium_entry['state'] = NORMAL
     c_trapezium_entry['state'] = NORMAL
@@ -2105,12 +2163,21 @@ def reset_trapezium_calculate_func():
     d_2_result_trapezium_label.config(text='')
 
 
+def visible_calculate_trapezuim_calculate_window_func():
+    """Показывать окно с калькулятором трапеции"""
+    # Всё, что показываем
+    calculate_trapezium_window.withdraw()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
 # Окно расчётов трапеции начинается тут(13 окно)
 calculate_trapezium_window = Tk()
 calculate_trapezium_window['bg'] = first_color
 calculate_trapezium_window.title('Калькулатор трапеции')
 
-calculate_trapezium_window.deiconify()
+calculate_trapezium_window.withdraw()
 
 definition_label = Label(calculate_trapezium_window, text='Калькулятор', font='Oswald 15',
                          bg=first_color,
