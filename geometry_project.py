@@ -674,6 +674,7 @@ def visible_trapezium_window_event_func(event):  # Открытие окна с 
     axioms_window.withdraw()
     theorems_window.withdraw()
     formuls_window.withdraw()
+    calculate_trapezium_window.withdraw()
     # Всё, что создаём
     figure_window.title('Трапеция')
     definition_figure_label.config(text='Трапеция — четырехугольник, у которого \nдве стороны параллельны, а две \nстороны не параллельны')
@@ -1018,7 +1019,6 @@ def delete_custom_theme_func():
         mb.showwarning(title='Предупреждение', message='У вас не создана кастомная тема')
 
 
-@profile
 def calculate_triangle_func():
     if a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         a = float(a_triangle_entry.get())
@@ -1990,6 +1990,246 @@ def reset_perevod_func():
     rad_entry.delete(0, END)
 
 
+def calculate_trapezium_func():
+    if a_trapezium_entry.get() != '' and b_trapezium_entry.get() != '' and c_trapezium_entry.get() != '' and d_trapezium_entry.get() != '':
+        h_trapezium_entry['state'] = DISABLED
+        m_trapezium_entry['state'] = DISABLED
+        a = float(a_trapezium_entry.get())
+        b = float(b_trapezium_entry.get())
+        c = float(c_trapezium_entry.get())
+        d = float(d_trapezium_entry.get())
+
+        p = round(a + b + c + d, 2)
+
+        h = round(math.sqrt(a ** 2 - ((((d - b) ** 2) + a ** 2 - c ** 2) / (2 * (d - b))) ** 2), 2)
+
+        m = round((b + d) / 2, 2)
+
+        s = round(h * m, 2)
+
+        d_1 = round(math.sqrt((c ** 2) + (d * b) - ((d * (c ** 2 - a ** 2)) / (d - b))), 2)
+
+        d_2 = round(math.sqrt((a ** 2 + d * b) - (d * (a ** 2 - c ** 2)) / (d - b)), 2)
+
+        a_result_trapezium_label.config(text=a)
+        b_result_trapezium_label.config(text=b)
+        c_result_trapezium_label.config(text=c)
+        d_result_trapezium_label.config(text=d)
+        m_result_trapezium_label.config(text=m)
+        h_result_trapezium_label.config(text=h)
+        s_result_trapezium_label.config(text=s)
+        p_result_trapezium_label.config(text=p)
+        d_1_result_trapezium_label.config(text=d_1)
+        d_2_result_trapezium_label.config(text=d_2)
+
+    elif b_trapezium_entry.get() != '' and d_trapezium_entry.get() != '' and h_trapezium_entry.get() != '':
+        a_trapezium_entry['state'] = DISABLED
+        c_trapezium_entry['state'] = DISABLED
+        m_trapezium_entry['state'] = DISABLED
+        b = float(b_trapezium_entry.get())
+        d = float(d_trapezium_entry.get())
+        h = float(h_trapezium_entry.get())
+
+        d_1 = round(math.sqrt((h ** 2) + ((b + d) / 2) ** 2), 2)
+        d_2 = d_1
+
+        a = round(math.sqrt((d_1 ** 2) - (d * b)), 2)
+        c = a
+
+        m = round((b + d) / 2, 2)
+
+        p = round(2 * a + b + d, 2)
+
+        s = round(h * m, 2)
+
+        a_result_trapezium_label.config(text=a)
+        b_result_trapezium_label.config(text=b)
+        c_result_trapezium_label.config(text=c)
+        d_result_trapezium_label.config(text=d)
+        m_result_trapezium_label.config(text=m)
+        h_result_trapezium_label.config(text=h)
+        s_result_trapezium_label.config(text=s)
+        p_result_trapezium_label.config(text=p)
+        d_1_result_trapezium_label.config(text=d_1)
+        d_2_result_trapezium_label.config(text=d_2)
+    elif h_trapezium_entry.get() != '' and m_trapezium_entry.get() != '':
+        a_trapezium_entry['state'] = DISABLED
+        b_trapezium_entry['state'] = DISABLED
+        c_trapezium_entry['state'] = DISABLED
+        d_trapezium_entry['state'] = DISABLED
+        h = float(h_trapezium_entry.get())
+        m = float(m_trapezium_entry.get())
+
+        s = round(h * m, 2)
+        d_1 = round(math.sqrt((h ** 2) + (m ** 2)), 2)
+        d_2 = d_1
+
+        a_result_trapezium_label.config(text='')
+        b_result_trapezium_label.config(text='')
+        c_result_trapezium_label.config(text='')
+        d_result_trapezium_label.config(text='')
+        m_result_trapezium_label.config(text=m)
+        h_result_trapezium_label.config(text=h)
+        s_result_trapezium_label.config(text=s)
+        p_result_trapezium_label.config(text='')
+        d_1_result_trapezium_label.config(text=d_1)
+        d_2_result_trapezium_label.config(text=d_2)
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
+def reset_trapezium_calculate_func():
+    a_trapezium_entry['state'] = NORMAL
+    b_trapezium_entry['state'] = NORMAL
+    c_trapezium_entry['state'] = NORMAL
+    d_trapezium_entry['state'] = NORMAL
+    m_trapezium_entry['state'] = NORMAL
+    h_trapezium_entry['state'] = NORMAL
+
+    a_trapezium_entry.delete(0, END)
+    b_trapezium_entry.delete(0, END)
+    c_trapezium_entry.delete(0, END)
+    d_trapezium_entry.delete(0, END)
+    m_trapezium_entry.delete(0, END)
+    h_trapezium_entry.delete(0, END)
+
+    a_result_trapezium_label.config(text='')
+    b_result_trapezium_label.config(text='')
+    c_result_trapezium_label.config(text='')
+    d_result_trapezium_label.config(text='')
+    m_result_trapezium_label.config(text='')
+    h_result_trapezium_label.config(text='')
+    s_result_trapezium_label.config(text='')
+    p_result_trapezium_label.config(text='')
+    d_1_result_trapezium_label.config(text='')
+    d_2_result_trapezium_label.config(text='')
+
+
+# Окно расчётов трапеции начинается тут(13 окно)
+calculate_trapezium_window = Tk()
+calculate_trapezium_window['bg'] = first_color
+calculate_trapezium_window.title('Калькулатор трапеции')
+
+calculate_trapezium_window.deiconify()
+
+definition_label = Label(calculate_trapezium_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=0, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+a_label = Label(calculate_trapezium_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_label.grid(row=1, column=1, padx=15, pady=5)
+
+a_trapezium_entry = Entry(calculate_trapezium_window, width=4, font='Oswald 10', bg=fifth_color)
+a_trapezium_entry.grid(row=1, column=2, padx=15)
+
+b_label = Label(calculate_trapezium_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+b_label.grid(row=2, column=1, padx=15)
+
+b_trapezium_entry = Entry(calculate_trapezium_window, width=4, font='Oswald 10', bg=fifth_color)
+b_trapezium_entry.grid(row=2, column=2, padx=15)
+
+c_label = Label(calculate_trapezium_window, text='C = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+c_label.grid(row=3, column=1, padx=15, pady=5)
+
+c_trapezium_entry = Entry(calculate_trapezium_window, width=4, font='Oswald 10', bg=fifth_color)
+c_trapezium_entry.grid(row=3, column=2, padx=15)
+
+d_label = Label(calculate_trapezium_window, text='D = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_label.grid(row=4, column=1, padx=15)
+
+d_trapezium_entry = Entry(calculate_trapezium_window, width=4, font='Oswald 10', bg=fifth_color)
+d_trapezium_entry.grid(row=4, column=2, padx=15)
+
+h_label = Label(calculate_trapezium_window, text='h = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+h_label.grid(row=5, column=1, padx=15, pady=5)
+
+h_trapezium_entry = Entry(calculate_trapezium_window, width=4, font='Oswald 10', bg=fifth_color)
+h_trapezium_entry.grid(row=5, column=2, padx=15)
+
+m_label = Label(calculate_trapezium_window, text='m = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+m_label.grid(row=6, column=1, padx=15)
+
+m_trapezium_entry = Entry(calculate_trapezium_window, width=4, font='Oswald 10', bg=fifth_color)
+m_trapezium_entry.grid(row=6, column=2, padx=15)
+
+d_first_label = Label(calculate_trapezium_window, text='d₁= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_first_label.grid(row=7, column=1, padx=15, pady=5)
+
+d_second_label = Label(calculate_trapezium_window, text='d₂= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_second_label.grid(row=8, column=1, padx=15)
+
+p_label = Label(calculate_trapezium_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_label.grid(row=9, column=1, pady=5)
+
+s_label = Label(calculate_trapezium_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_label.grid(row=10, column=1)
+
+# Виджеты для вывода данных
+a_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_trapezium_label.place(x=60, y=65)
+
+b_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+b_result_trapezium_label.place(x=60, y=97)
+
+c_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+c_result_trapezium_label.place(x=60, y=130)
+
+d_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_result_trapezium_label.place(x=60, y=165)
+
+h_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+h_result_trapezium_label.place(x=60, y=200)
+
+m_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+m_result_trapezium_label.place(x=60, y=235)
+
+d_1_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                   width=5)
+d_1_result_trapezium_label.place(x=60, y=267)
+
+d_2_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                   width=5)
+d_2_result_trapezium_label.place(x=60, y=303)
+
+p_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                 width=5)
+p_result_trapezium_label.place(x=60, y=336)
+
+s_result_trapezium_label = Label(calculate_trapezium_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                 width=5)
+s_result_trapezium_label.place(x=60, y=369)
+
+trapezium_first_canvas = Canvas(calculate_trapezium_window, width=160, height=150, bg=first_color, highlightthickness=0)
+trapezium_first_canvas.create_polygon((40, 40), (120, 40), (150, 110), (10, 110), fill=fifth_color, outline=second_color)
+trapezium_first_canvas.create_line((40, 40), (40, 110), fill=second_color)
+trapezium_first_canvas.create_text(47, 65, text="h", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_text(15, 70, text="A", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_text(75, 30, text="B", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_text(145, 70, text="C", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_text(75, 125, text="D", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_line((40, 40), (150, 110), fill=second_color)
+trapezium_first_canvas.create_text(67, 86, text="d₁", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_line((120, 40), (10, 110), fill=second_color)
+trapezium_first_canvas.create_text(97, 86, text="d₂", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.create_line((25, 75), (135, 75), fill=second_color)
+trapezium_first_canvas.create_text(103, 68, text="m", font="Oswald 10", fill=third_color)
+trapezium_first_canvas.place(x=350, y=80)
+
+calculate_square_button = Button(calculate_trapezium_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_trapezium_func)
+calculate_square_button.grid(row=11, column=8, padx=15)
+
+back_figure_button = Button(calculate_trapezium_window, text='Сбросить', command=reset_trapezium_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_trapezium_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_trapezium_window_event_func)
+
+exit_button = Button(calculate_trapezium_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов трапеции заканчивается тут(13 окно)
+
 # Окно переводов начинается тут(12 окно)
 perevod_ed_window = Tk()
 perevod_ed_window['bg'] = first_color
@@ -2046,6 +2286,7 @@ reset_button.grid(row=3, column=2, sticky=W, padx=15, pady=15, columnspan=2)
 
 back_button = Button(perevod_ed_window, text='Назад', bg=first_color, fg=fourth_color, command=visible_geometry_window_func)  # Кнопка назад
 back_button.place(x=15, y=460)  # Кнопка назад
+
 # Окно переводов заканчивается тут(12 окно)
 # Окно расчётов квадрата начинается тут(11 окно)
 calculate_rectangle_window = Tk()
@@ -2125,7 +2366,7 @@ calculate_square_window.title('Калькулатор прямоугольник
 
 calculate_square_window.withdraw()
 
-definition_label = Label(calculate_square_window, text='Калькулятор', font='Oswald 15',
+definition_label = Label(calculate_square_window, text='Калькулятор прямоугольника', font='Oswald 15',
                          bg=first_color,
                          fg=third_color)  # Надпись определение треугольника
 definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
@@ -2642,6 +2883,7 @@ formuls_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_l
 calculate_square_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_rectangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 perevod_ed_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_trapezium_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -2719,6 +2961,12 @@ perevod_ed_window.attributes('-topmost', True)
 perevod_ed_window.after_idle(perevod_ed_window.attributes, '-topmost', True)
 perevod_ed_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 perevod_ed_window.resizable(False, False)
+
+calculate_trapezium_window.lift()
+calculate_trapezium_window.attributes('-topmost', True)
+calculate_trapezium_window.after_idle(calculate_trapezium_window.attributes, '-topmost', True)
+calculate_trapezium_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_trapezium_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
