@@ -709,7 +709,7 @@ def visible_trapezium_window_event_func(event):
     # Всё, что создаём
     figure_window.title('Трапеция')
     definition_figure_label.config(text='Трапеция — четырехугольник, у которого \nдве стороны параллельны, а две \nстороны не параллельны')
-    calculations_figure_button.config(text='Калькулятор трапеции', command=calculate_trapezium_window)
+    calculations_figure_button.config(text='Калькулятор трапеции', command=visible_calculate_trapezuim_calculate_window_func)
     axioms_figure_button.config(text='Аксиомы трапеции', command=visible_axioms_trapezium_window_func)
     theorems_figure_button.config(text='Теоремы трапеции', command=visible_theorems_trapezium_window_first_func)
     formulas_figure_button.config(text='Формулы трапеции', command=visible_formuls_trapezium_func)
@@ -2166,7 +2166,7 @@ def reset_trapezium_calculate_func():
 def visible_calculate_trapezuim_calculate_window_func():
     """Показывать окно с калькулятором трапеции"""
     # Всё, что показываем
-    calculate_trapezium_window.withdraw()
+    calculate_trapezium_window.deiconify()
     figure_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
@@ -2175,7 +2175,7 @@ def visible_calculate_trapezuim_calculate_window_func():
 # Окно расчётов трапеции начинается тут(13 окно)
 calculate_trapezium_window = Tk()
 calculate_trapezium_window['bg'] = first_color
-calculate_trapezium_window.title('Калькулатор трапеции')
+calculate_trapezium_window.title('Калькулятор трапеции')
 
 calculate_trapezium_window.withdraw()
 
@@ -2358,7 +2358,7 @@ back_button.place(x=15, y=460)  # Кнопка назад
 # Окно расчётов квадрата начинается тут(11 окно)
 calculate_rectangle_window = Tk()
 calculate_rectangle_window['bg'] = first_color
-calculate_rectangle_window.title('Калькулатор квадрата')
+calculate_rectangle_window.title('Калькулятор квадрата')
 
 calculate_rectangle_window.withdraw()
 
@@ -2429,7 +2429,7 @@ exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад 
 # Окно расчётов прямоугольника начинается тут(10 окно)
 calculate_square_window = Tk()
 calculate_square_window['bg'] = first_color
-calculate_square_window.title('Калькулатор прямоугольника')
+calculate_square_window.title('Калькулятор прямоугольника')
 
 calculate_square_window.withdraw()
 
@@ -2575,7 +2575,7 @@ fifth_formulas_label.grid(row=5, column=0, columnspan=9, padx=10, sticky=W, pady
 
 # Окно расчётов треугольника начинается тут(8 окно)
 calculate_triangle_window = Tk()  # Окно треугольника
-calculate_triangle_window.title('Калькулятор')  # Заголовок окна треугольника
+calculate_triangle_window.title('Калькулятор треугольника')  # Заголовок окна треугольника
 calculate_triangle_window['bg'] = first_color
 
 calculate_triangle_window.withdraw()  # Скрытие окна треугольника
@@ -3038,4 +3038,3 @@ calculate_trapezium_window.resizable(False, False)
 greet_window.mainloop()
 
 # © 2020 TheFox
-
