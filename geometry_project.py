@@ -3,11 +3,9 @@ import os
 import tkinter.colorchooser
 from tkinter import *
 from tkinter import messagebox as mb
+from tkinter import filedialog as fd
+import datetime
 
-# import key_base
-
-
-version = 'v0.9'
 
 try:
     file = open('File_Setting.txt', 'r')
@@ -2827,6 +2825,43 @@ def visible_calculate_parallelogram_window_func():
     choose_figure_window.withdraw()
 
 
+def save_result_perevod_ed_func():
+    if sm_entry.get() != '' and mm_entry != '' and m_entry.get() != '' and degres_entry.get() == '' and rad_entry.get() == '' and min_entry.get() == '':
+        file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
+        f = open(file_name, 'w')
+        mm = mm_entry.get()
+        sm = sm_entry.get()
+        m = m_entry.get()
+        now = datetime.datetime.now()
+
+        f.write('Мм = ' + str(mm) + ' См = ' + str(sm) + ' М = ' + str(m) + '\n' + now.strftime("%d-%m-%Y %H:%M"))
+        f.close()
+    elif degres_entry.get()!='' and rad_entry.get()!='' and min_entry.get()!='' and sm_entry.get()=='' and mm_entry.get()=='' and m_entry.get()=='':
+        file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
+        f = open(file_name, 'w')
+        min = min_entry.get()
+        degres = degres_entry.get()
+        rad = rad_entry.get()
+        now = datetime.datetime.now()
+        f.write('Минут = ' + str(min) + ' Градусов = ' + str(degres) + ' Радиан = ' + str(rad) + '\n' + now.strftime("%d-%m-%Y %H:%M"))
+        f.close()
+    elif sm_entry.get() != '' and mm_entry != '' and m_entry.get() != '' and degres_entry.get()!='' and rad_entry.get()!='' and min_entry.get()!='':
+        file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
+        f = open(file_name, 'w')
+        min = min_entry.get()
+        degres = degres_entry.get()
+        rad = rad_entry.get()
+
+        mm = mm_entry.get()
+        sm = sm_entry.get()
+        m = m_entry.get()
+        now = datetime.datetime.now()
+        f.write('Мм = ' + str(mm) + ' См = ' + str(sm) + ' М = ' + str(m) + '\nМинут = ' + str(min) + ' Градусов = ' + str(degres) + ' Радиан = ' + str(rad) + '\n' + now.strftime("%d-%m-%Y %H:%M"))
+        f.close()
+    else:
+        mb.showerror(title='Ошибка',message='Что-то пошло не так')
+
+
 # Окно расчётов параллелограмма начинается тут(15 окно)
 calculate_parallelogram_window = Tk()
 calculate_parallelogram_window['bg'] = first_color
@@ -3245,10 +3280,13 @@ rad_entry = Entry(perevod_ed_window, bg=fifth_color, font='Oswald 10', width=7)
 rad_entry.grid(row=2, column=6, sticky=W)
 
 result_button = Button(perevod_ed_window, text='Перевести', fg=fourth_color, bg=first_color, font='Oswald 10', command=perevod_func)
-result_button.grid(row=3, column=1, sticky=W, padx=5, pady=15, columnspan=2)
+result_button.grid(row=3, column=3, sticky=W, padx=5, pady=15, columnspan=2)
+
+save_result_button = Button(perevod_ed_window, text='Сохранить результаты', fg=fourth_color, bg=first_color, font='Oswald 10', command=save_result_perevod_ed_func)
+save_result_button.grid(row=3, column=5, sticky=W, padx=5, pady=15, columnspan=2)
 
 reset_button = Button(perevod_ed_window, text='Очистить', fg=fourth_color, bg=first_color, font='Oswald 10', command=reset_perevod_func)
-reset_button.grid(row=3, column=2, sticky=W, padx=15, pady=15, columnspan=2)
+reset_button.grid(row=3, column=1, sticky=W, padx=5, pady=15, columnspan=2)
 
 back_button = Button(perevod_ed_window, text='Назад', bg=first_color, fg=fourth_color, command=visible_geometry_window_func)  # Кнопка назад
 back_button.place(x=15, y=460)  # Кнопка назад
@@ -3759,7 +3797,7 @@ back_figure_button.grid(row=7, column=0)  # Кнопка назад распол
 
 # Окно выбора предмета начинается тут(2 окно)
 choose_subject_window = Tk()  # Окно выбора предмета
-choose_subject_window.title(version)  # Заголовок окна выбора предмета
+choose_subject_window.title('Все предметы')  # Заголовок окна выбора предмета
 choose_subject_window['bg'] = first_color
 
 choose_subject_window.withdraw()  # Скрытие окна выбора предмета
@@ -3801,7 +3839,7 @@ back_figure_button.grid(row=5, column=3, sticky=W, padx=30)
 # Окно приветсвия начинается тут(1 окно)
 greet_window = Tk()  # Создание главного окна
 greet_window.geometry('700x500')  # Размер главного окна
-greet_window.title(version)  # Заголовок главного окна
+greet_window.title('Study Assistant')  # Заголовок главного окна
 greet_window['bg'] = first_color
 # greet_window.iconbitmap('D:\\pythoncube\\untitled\\ProjectForPythonCube\\12.ico')
 
