@@ -85,6 +85,8 @@
 
 14. `calculate_rhombus_window` - Окно, на котором выполняются все расчёты ромба(14 окно)
 
+15. `calculate_parallelogram_window` - Окно, на котором выполняются все расчёты параллелограмма(15 окно)
+
 ### Название функций и что они делают:
 
 1. `visible_choose_subject_func` - переход с главного окна на выбор предмета
@@ -210,6 +212,13 @@
 61. `reset_rhombus_calculate_func` - очищать и сделать активными entry and label
 
 62. `calculate_rhombus_func` - просчёт ромба
+
+63. `visible_calculate_parallelogram_window_func` - показывать окно с калькулятором параллелограмма
+
+64. `reset_parallelogram_calculate_func` - очищать и сделать активными entry and label
+
+65. `calculate_parallelogram_func` - просчёт параллелограмма
+
 ### Про кастомную тему:
 
 **Кастомная тема принимает 5 цветов:**
