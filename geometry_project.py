@@ -575,11 +575,12 @@ def visible_parallelogram_window_event_func(event):
     axioms_window.withdraw()
     formuls_window.withdraw()
     theorems_window.withdraw()
+    calculate_parallelogram_window.withdraw()
     # Всё, что создаём
     figure_window.title('Параллелограмм')
     definition_figure_label.config(text='Параллелограмм - это четырёхугольник, \nу которого противоположные стороны \nпопарно параллельны, то есть \nлежат на параллельных прямых')
 
-    calculations_figure_button.config(text='Калькулятор параллелограмма', command=development_func)
+    calculations_figure_button.config(text='Калькулятор параллелограмма', command=visible_calculate_parallelogram_window_func)
 
     axioms_figure_button.config(text='Аксиомы параллелограмма', command=visible_axioms_parallelogram_window_func)
 
@@ -2535,6 +2536,7 @@ def reset_rhombus_calculate_func():
     s_result_rhombus_label.config(text='')
     p_result_rhombus_label.config(text='')
 
+
 def visible_calculate_rhombus_window_func():
     """Показывать окно с калькулятором ромба"""
     # Всё, что показываем
@@ -2542,6 +2544,421 @@ def visible_calculate_rhombus_window_func():
     figure_window.deiconify()
     # Всё, что скрываем:
     choose_figure_window.withdraw()
+
+
+def calculate_parallelogram_func():
+    """Просчёт параллелограмма"""
+    if a_parallelogram_entry.get() != '' and b_parallelogram_entry.get() != '' and h_second_parallelogram_entry.get() != '':
+        h_first_parallelogram_entry['state'] = DISABLED
+        d_first_parallelogram_entry['state'] = DISABLED
+        d_second_parallelogram_entry['state'] = DISABLED
+        alpha_parallelogram_entry['state'] = DISABLED
+        betta_parallelogram_entry['state'] = DISABLED
+
+        a = float(a_parallelogram_entry.get())
+        b = float(b_parallelogram_entry.get())
+        h_2 = float(h_second_parallelogram_entry.get())
+
+        p = round(2 * (a + b), 2)
+        s = round(b * h_2, 2)
+        alpha = round(math.degrees(math.asin(s / (a * b))), 2)
+        betta = round(180 - alpha, 2)
+        d_1 = round(math.sqrt(a ** 2 + b ** 2 - 2 * a * b * math.cos(math.radians(betta))), 2)
+        d_2 = round(math.sqrt(a ** 2 + b ** 2 - 2 * a * b * math.cos(math.radians(alpha))), 2)
+        h_1 = round(b * math.sin(math.radians(alpha)), 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    elif a_parallelogram_entry.get() != '' and b_parallelogram_entry.get() != '' and alpha_parallelogram_entry.get() != '':
+        h_first_parallelogram_entry['state'] = DISABLED
+        h_second_parallelogram_entry['state'] = DISABLED
+        d_first_parallelogram_entry['state'] = DISABLED
+        d_second_parallelogram_entry['state'] = DISABLED
+        betta_parallelogram_entry['state'] = DISABLED
+
+        a = float(a_parallelogram_entry.get())
+        b = float(b_parallelogram_entry.get())
+        alpha = float(alpha_parallelogram_entry.get())
+
+        h_2 = round(a * math.sin(math.radians(alpha)), 2)
+
+        h_1 = round(b * math.sin(math.radians(alpha)), 2)
+
+        p = round(2 * (a + b), 2)
+        s = round(b * h_2, 2)
+        betta = round(180 - alpha, 2)
+
+        d_1 = round(math.sqrt(a ** 2 + b ** 2 + 2 * a * b * math.cos(math.radians(alpha))), 2)
+
+        d_2 = round(math.sqrt(a ** 2 + b ** 2 - 2 * a * b * math.cos(math.radians(alpha))), 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    elif a_parallelogram_entry.get() != '' and b_parallelogram_entry.get() != '' and betta_parallelogram_entry.get() != '':
+        h_first_parallelogram_entry['state'] = DISABLED
+        h_second_parallelogram_entry['state'] = DISABLED
+        d_first_parallelogram_entry['state'] = DISABLED
+        d_second_parallelogram_entry['state'] = DISABLED
+        alpha_parallelogram_entry['state'] = DISABLED
+
+        a = float(a_parallelogram_entry.get())
+        b = float(b_parallelogram_entry.get())
+        betta = float(betta_parallelogram_entry.get())
+
+        alpha = round(180 - betta, 2)
+
+        h_2 = round(a * math.sin(math.radians(alpha)), 2)
+        h_1 = round(b * math.sin(math.radians(alpha)), 2)
+
+        p = round(2 * (a + b), 2)
+        s = round(a * h_1, 2)
+        d_1 = round(math.sqrt(a ** 2 + b ** 2 - 2 * a * b * math.cos(math.radians(betta))), 2)
+        d_2 = round(math.sqrt(a ** 2 + b ** 2 + 2 * a * b * math.cos(math.radians(betta))), 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    elif d_first_parallelogram_entry.get() != '' and d_second_parallelogram_entry.get() != '' and a_parallelogram_entry.get() != '':
+        b_parallelogram_entry['state'] = DISABLED
+        h_first_parallelogram_entry['state'] = DISABLED
+        h_second_parallelogram_entry['state'] = DISABLED
+        alpha_parallelogram_entry['state'] = DISABLED
+        betta_parallelogram_entry['state'] = DISABLED
+
+        d_1 = float(d_first_parallelogram_entry.get())
+        d_2 = float(d_second_parallelogram_entry.get())
+        a = float(a_parallelogram_entry.get())
+
+        b = round(math.sqrt(((d_1 ** 2) + (d_2 ** 2) - (2 * (a ** 2))) / 2), 2)
+
+        betta = round(math.degrees(math.acos(((a ** 2) + (b ** 2) - (d_2 ** 2)) / (2 * a * b))), 2)
+
+        alpha = round(180 - betta, 2)
+
+        h_2 = round(a * math.sin(math.radians(alpha)), 2)
+
+        h_1 = round(b * math.sin(math.radians(alpha)), 2)
+
+        p = round(2 * (a + b), 2)
+
+        s = round(a * h_1, 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    elif d_first_parallelogram_entry.get() != '' and d_second_parallelogram_entry.get() != '' and b_parallelogram_entry.get() != '':
+        a_parallelogram_entry['state'] = DISABLED
+        h_first_parallelogram_entry['state'] = DISABLED
+        h_second_parallelogram_entry['state'] = DISABLED
+        alpha_parallelogram_entry['state'] = DISABLED
+        betta_parallelogram_entry['state'] = DISABLED
+
+        d_1 = float(d_first_parallelogram_entry.get())
+        d_2 = float(d_second_parallelogram_entry.get())
+        b = float(b_parallelogram_entry.get())
+
+        a = round(math.sqrt(((d_1 ** 2) + (d_2 ** 2) - (2 * (b ** 2))) / 2), 2)
+
+        betta = round(math.degrees(math.acos(((a ** 2) + (b ** 2) - (d_2 ** 2)) / (2 * a * b))), 2)
+
+        alpha = round(180 - betta, 2)
+
+        h_2 = round(a * math.sin(math.radians(alpha)), 2)
+
+        h_1 = round(b * math.sin(math.radians(alpha)), 2)
+
+        p = round(2 * (a + b), 2)
+
+        s = round(a * h_1, 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    elif alpha_parallelogram_entry.get() != '' and h_first_parallelogram_entry.get() != '' and h_second_parallelogram_entry.get() != '':
+        a_parallelogram_entry['state'] = DISABLED
+        b_parallelogram_entry['state'] = DISABLED
+        d_first_parallelogram_entry['state'] = DISABLED
+        d_second_parallelogram_entry['state'] = DISABLED
+        betta_parallelogram_entry['state'] = DISABLED
+
+        alpha = float(alpha_parallelogram_entry.get())
+        h_1 = float(h_first_parallelogram_entry.get())
+        h_2 = float(h_second_parallelogram_entry.get())
+
+        a = round(h_2 / math.sin(math.radians(alpha)), 2)
+
+        b = round(h_1 / math.sin(math.radians(alpha)), 2)
+
+        betta = round(180 - alpha, 2)
+
+        d_1 = round(math.sqrt(a ** 2 + b ** 2 + 2 * a * b * math.cos(math.radians(alpha))), 2)
+
+        d_2 = round(math.sqrt(a ** 2 + b ** 2 - 2 * a * b * math.cos(math.radians(alpha))), 2)
+        s = round(a * h_1, 2)
+        p = round(2 * (a + b), 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    elif betta_parallelogram_entry.get() != '' and h_first_parallelogram_entry.get() != '' and h_second_parallelogram_entry.get() != '':
+        a_parallelogram_entry['state'] = DISABLED
+        b_parallelogram_entry['state'] = DISABLED
+        d_first_parallelogram_entry['state'] = DISABLED
+        d_second_parallelogram_entry['state'] = DISABLED
+        alpha_parallelogram_entry['state'] = DISABLED
+
+        betta = float(betta_parallelogram_entry.get())
+        h_1 = float(h_first_parallelogram_entry.get())
+        h_2 = float(h_second_parallelogram_entry.get())
+        alpha = round(180 - betta, 2)
+        a = round(h_2 / math.sin(math.radians(alpha)), 2)
+
+        b = round(h_1 / math.sin(math.radians(alpha)), 2)
+
+        d_1 = round(math.sqrt(a ** 2 + b ** 2 + 2 * a * b * math.cos(math.radians(alpha))), 2)
+
+        d_2 = round(math.sqrt(a ** 2 + b ** 2 - 2 * a * b * math.cos(math.radians(alpha))), 2)
+        s = round(a * h_1, 2)
+        p = round(2 * (a + b), 2)
+
+        a_result_parallelogram_label.config(text=a)
+        b_result_parallelogram_label.config(text=b)
+        h_first_result_parallelogram_label.config(text=h_1)
+        h_second_result_parallelogram_label.config(text=h_2)
+        d_first_result_parallelogram_label.config(text=d_1)
+        d_second_result_parallelogram_label.config(text=d_2)
+        alpha_result_parallelogram_label.config(text=alpha)
+        betta_result_parallelogram_label.config(text=betta)
+        p_result_parallelogram_label.config(text=p)
+        s_result_parallelogram_label.config(text=s)
+
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
+def reset_parallelogram_calculate_func():
+    """Очищать и сделать активными entry and label"""
+    a_parallelogram_entry.delete(0, END)
+    b_parallelogram_entry.delete(0, END)
+    h_first_parallelogram_entry.delete(0, END)
+    h_second_parallelogram_entry.delete(0, END)
+    d_first_parallelogram_entry.delete(0, END)
+    d_second_parallelogram_entry.delete(0, END)
+    alpha_parallelogram_entry.delete(0, END)
+    betta_parallelogram_entry.delete(0, END)
+
+    a_parallelogram_entry['state'] = NORMAL
+    b_parallelogram_entry['state'] = NORMAL
+    h_first_parallelogram_entry['state'] = NORMAL
+    h_second_parallelogram_entry['state'] = NORMAL
+    d_first_parallelogram_entry['state'] = NORMAL
+    d_second_parallelogram_entry['state'] = NORMAL
+    alpha_parallelogram_entry['state'] = NORMAL
+    betta_parallelogram_entry['state'] = NORMAL
+
+    a_result_parallelogram_label.config(text='')
+    b_result_parallelogram_label.config(text='')
+    h_first_result_parallelogram_label.config(text='')
+    h_second_result_parallelogram_label.config(text='')
+    d_first_result_parallelogram_label.config(text='')
+    d_second_result_parallelogram_label.config(text='')
+    alpha_result_parallelogram_label.config(text='')
+    betta_result_parallelogram_label.config(text='')
+    p_result_parallelogram_label.config(text='')
+    s_result_parallelogram_label.config(text='')
+
+
+def visible_calculate_parallelogram_window_func():
+    """Показывать окно с калькулятором параллелограмма"""
+    # Всё, что показываем
+    calculate_parallelogram_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
+# Окно расчётов параллелограмма начинается тут(15 окно)
+calculate_parallelogram_window = Tk()
+calculate_parallelogram_window['bg'] = first_color
+calculate_parallelogram_window.title('Калькулятор параллелограмма')
+
+calculate_parallelogram_window.withdraw()
+
+definition_label = Label(calculate_parallelogram_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=0, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+a_label = Label(calculate_parallelogram_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_label.grid(row=1, column=1, padx=15, pady=5)
+
+a_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+a_parallelogram_entry.grid(row=1, column=2, padx=15)
+
+b_label = Label(calculate_parallelogram_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+b_label.grid(row=2, column=1, padx=15)
+
+b_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+b_parallelogram_entry.grid(row=2, column=2, padx=15)
+
+h_first_label = Label(calculate_parallelogram_window, text='h₁= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+h_first_label.grid(row=3, column=1, padx=15, pady=5)
+
+h_first_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+h_first_parallelogram_entry.grid(row=3, column=2, padx=15)
+
+h_second_label = Label(calculate_parallelogram_window, text='h₂= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+h_second_label.grid(row=4, column=1, padx=15)
+
+h_second_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+h_second_parallelogram_entry.grid(row=4, column=2, padx=15)
+
+d_first_label = Label(calculate_parallelogram_window, text='d₁= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_first_label.grid(row=5, column=1, padx=15, pady=5)
+
+d_first_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+d_first_parallelogram_entry.grid(row=5, column=2, padx=15)
+
+d_second_label = Label(calculate_parallelogram_window, text='d₂= ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_second_label.grid(row=6, column=1, padx=15)
+
+d_second_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+d_second_parallelogram_entry.grid(row=6, column=2, padx=15)
+
+alpha_corner_label = Label(calculate_parallelogram_window, text='α = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+alpha_corner_label.grid(row=7, column=1, padx=15, pady=5)
+
+alpha_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+alpha_parallelogram_entry.grid(row=7, column=2, padx=15)
+
+betta_corner_label = Label(calculate_parallelogram_window, text='β = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+betta_corner_label.grid(row=8, column=1, padx=15)
+
+betta_parallelogram_entry = Entry(calculate_parallelogram_window, width=4, font='Oswald 10', bg=fifth_color)
+betta_parallelogram_entry.grid(row=8, column=2, padx=15)
+
+p_label = Label(calculate_parallelogram_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_label.grid(row=9, column=1, pady=5)
+
+s_label = Label(calculate_parallelogram_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_label.grid(row=10, column=1)
+
+# Виджеты для вывода данных
+a_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_parallelogram_label.place(x=60, y=65)
+
+b_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+b_result_parallelogram_label.place(x=60, y=97)
+
+h_first_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+h_first_result_parallelogram_label.place(x=60, y=130)
+
+h_second_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+h_second_result_parallelogram_label.place(x=60, y=165)
+
+d_first_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_first_result_parallelogram_label.place(x=60, y=200)
+
+d_second_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_second_result_parallelogram_label.place(x=60, y=235)
+
+alpha_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                         width=5)
+alpha_result_parallelogram_label.place(x=60, y=267)
+
+betta_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                         width=5)
+betta_result_parallelogram_label.place(x=60, y=303)
+
+p_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                     width=5)
+p_result_parallelogram_label.place(x=60, y=336)
+
+s_result_parallelogram_label = Label(calculate_parallelogram_window, text='', font='Oswald 15', bg=first_color, fg=third_color,
+                                     width=5)
+s_result_parallelogram_label.place(x=60, y=369)
+
+parallelogram_canvas = Canvas(calculate_parallelogram_window, width=160, height=150, bg=first_color, highlightthickness=0)
+parallelogram_canvas.create_polygon((50, 50), (150, 50), (110, 120), (10, 120), fill=fifth_color, outline=second_color)
+parallelogram_canvas.create_text(15, 80, text="A", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_text(100, 40, text="B", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_text(25, 110, text="α", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_text(100, 110, text="β", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_text(105, 80, text="d₁", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_line((10, 120), (150, 50), fill=second_color)
+parallelogram_canvas.create_text(85, 105, text="d₂", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_line((50, 50), (110, 120), fill=second_color)
+parallelogram_canvas.create_text(105, 60, text="h₁", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_line((50, 50), (132, 80), fill=second_color)
+parallelogram_canvas.create_text(60, 110, text="h₂", font="Oswald 10", fill=third_color)
+parallelogram_canvas.create_line((50, 50), (50, 120), fill=second_color)
+parallelogram_canvas.place(x=350, y=80)
+
+calculate_square_button = Button(calculate_parallelogram_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_parallelogram_func)
+calculate_square_button.grid(row=11, column=8, padx=15)
+
+back_figure_button = Button(calculate_parallelogram_window, text='Сбросить', command=reset_parallelogram_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_parallelogram_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_parallelogram_window_event_func)
+
+exit_button = Button(calculate_parallelogram_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов параллелограмма заканчивается тут(15 окно)
+
+
 # Окно расчётов ромба начинается тут(14 окно)
 calculate_rhombus_window = Tk()
 calculate_rhombus_window['bg'] = first_color
@@ -3434,6 +3851,7 @@ calculate_rectangle_window.geometry('{}x{}+{}+{}'.format(width_window_large, hei
 perevod_ed_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_trapezium_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_rhombus_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_parallelogram_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -3523,6 +3941,12 @@ calculate_rhombus_window.attributes('-topmost', True)
 calculate_rhombus_window.after_idle(calculate_rhombus_window.attributes, '-topmost', True)
 calculate_rhombus_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 calculate_rhombus_window.resizable(False, False)
+
+calculate_parallelogram_window.lift()
+calculate_parallelogram_window.attributes('-topmost', True)
+calculate_parallelogram_window.after_idle(calculate_parallelogram_window.attributes, '-topmost', True)
+calculate_parallelogram_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_parallelogram_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
