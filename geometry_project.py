@@ -1,11 +1,10 @@
+import datetime
 import math
 import os
 import tkinter.colorchooser
 from tkinter import *
-from tkinter import messagebox as mb
 from tkinter import filedialog as fd
-import datetime
-
+from tkinter import messagebox as mb
 
 try:
     file = open('File_Setting.txt', 'r')
@@ -2826,6 +2825,7 @@ def visible_calculate_parallelogram_window_func():
 
 
 def save_result_perevod_ed_func():
+    """Сохранить результат перевода"""
     if sm_entry.get() != '' and mm_entry != '' and m_entry.get() != '' and degres_entry.get() == '' and rad_entry.get() == '' and min_entry.get() == '':
         file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
         f = open(file_name, 'w')
