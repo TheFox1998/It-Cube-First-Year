@@ -20,6 +20,10 @@
 
 * Os - [os.docs]
 
+* FileDialog - [fd.docs]
+
+* DateTime - [dt.docs]
+
 ## Документация
 
 **Если Вы добавляете функцию в проект, то пишите про неё в документацию в соответствующий пункт**
@@ -219,6 +223,8 @@
 
 65. `calculate_parallelogram_func` - Просчёт параллелограмма
 
+66. `save_result_perevod_ed_func` - Сохранить результат перевода
+
 ### Про кастомную тему:
 
 **Кастомная тема принимает 5 цветов:**
@@ -259,3 +265,7 @@ ________________________________________________________________________________
 [cc.docs]: https://docs.python.org/3/library/tkinter.html?highlight=colorchooser
 
 [os.docs]: https://docs.python.org/3/whatsnew/3.8.html#os
+
+[fd.docs]: https://docs.python.org/3.10/library/dialog.html
+
+[dt.docs]: https://docs.python.org/3.10/library/datetime.html?highlight=datetime#module-datetime
