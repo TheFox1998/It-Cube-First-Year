@@ -91,6 +91,8 @@
 
 15. `calculate_parallelogram_window` - Окно, на котором выполняются все расчёты параллелограмма(15 окно)
 
+16. `calculate_circle_window` - Окно, на котором выполняются все расчёты круга(16 окно)
+
 ### Название функций и что они делают:
 
 1. `visible_choose_subject_func` - Отркыть окно с выбором предмета
@@ -224,6 +226,12 @@
 65. `calculate_parallelogram_func` - Просчёт параллелограмма
 
 66. `save_result_perevod_ed_func` - Сохранить результат перевода
+
+67. `visible_calculate_circle_window_func` - Показать окно с калькулятором круга
+
+68. `reset_circle_calculate_func` - Очищать и сделать активными entry and label
+
+69. `calculate_circle_func` - Просчёт круга
 
 ### Про кастомную тему:
 
