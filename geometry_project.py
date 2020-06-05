@@ -845,7 +845,7 @@ def visible_circle_window_event_func(event):
     figure_window.title('Круг')
     definition_figure_label.config(text='Круг - часть плоскости,\n лежащая внутри окружности')
 
-    calculations_figure_button.config(text='Калькулятор круга', command=development_func)
+    calculations_figure_button.config(text='Калькулятор круга', command=visible_calculate_circle_window_func)
 
     axioms_figure_button.config(text='Аксиомы круга', command=visible_axioms_circle_window_func)
 
@@ -2827,7 +2827,7 @@ def visible_calculate_parallelogram_window_func():
 def save_result_perevod_ed_func():
     """Сохранить результат перевода"""
     if sm_entry.get() != '' and mm_entry != '' and m_entry.get() != '' and degres_entry.get() == '' and rad_entry.get() == '' and min_entry.get() == '':
-        file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
+        file_name = fd.asksaveasfilename(filetypes=(("Text File", "*.txt"),))
         f = open(file_name, 'w')
         mm = mm_entry.get()
         sm = sm_entry.get()
@@ -2836,8 +2836,8 @@ def save_result_perevod_ed_func():
 
         f.write('Мм = ' + str(mm) + ' См = ' + str(sm) + ' М = ' + str(m) + '\n' + now.strftime("%d-%m-%Y %H:%M"))
         f.close()
-    elif degres_entry.get()!='' and rad_entry.get()!='' and min_entry.get()!='' and sm_entry.get()=='' and mm_entry.get()=='' and m_entry.get()=='':
-        file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
+    elif degres_entry.get() != '' and rad_entry.get() != '' and min_entry.get() != '' and sm_entry.get() == '' and mm_entry.get() == '' and m_entry.get() == '':
+        file_name = fd.asksaveasfilename(filetypes=(("Text File", "*.txt"),))
         f = open(file_name, 'w')
         min = min_entry.get()
         degres = degres_entry.get()
@@ -2845,8 +2845,8 @@ def save_result_perevod_ed_func():
         now = datetime.datetime.now()
         f.write('Минут = ' + str(min) + ' Градусов = ' + str(degres) + ' Радиан = ' + str(rad) + '\n' + now.strftime("%d-%m-%Y %H:%M"))
         f.close()
-    elif sm_entry.get() != '' and mm_entry != '' and m_entry.get() != '' and degres_entry.get()!='' and rad_entry.get()!='' and min_entry.get()!='':
-        file_name = fd.asksaveasfilename(filetypes = (("Text File", "*.txt"),) )
+    elif sm_entry.get() != '' and mm_entry != '' and m_entry.get() != '' and degres_entry.get() != '' and rad_entry.get() != '' and min_entry.get() != '':
+        file_name = fd.asksaveasfilename(filetypes=(("Text File", "*.txt"),))
         f = open(file_name, 'w')
         min = min_entry.get()
         degres = degres_entry.get()
@@ -2859,8 +2859,184 @@ def save_result_perevod_ed_func():
         f.write('Мм = ' + str(mm) + ' См = ' + str(sm) + ' М = ' + str(m) + '\nМинут = ' + str(min) + ' Градусов = ' + str(degres) + ' Радиан = ' + str(rad) + '\n' + now.strftime("%d-%m-%Y %H:%M"))
         f.close()
     else:
-        mb.showerror(title='Ошибка',message='Что-то пошло не так')
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
 
+
+def calculate_circle_func():
+    """Просчёт круга"""
+    if r_circle_entry.get() != '':
+        d_circle_entry['state'] = DISABLED
+        p_circle_entry['state'] = DISABLED
+        s_circle_entry['state'] = DISABLED
+
+        r = float(r_circle_entry.get())
+
+        s = round(math.pi * r ** 2, 2)
+
+        d = round(r * 2, 2)
+
+        p = round(2 * math.pi * r, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    elif s_circle_entry.get() != '':
+        r_circle_entry['state'] = DISABLED
+        d_circle_entry['state'] = DISABLED
+        p_circle_entry['state'] = DISABLED
+
+        s = float(s_circle_entry.get())
+
+        r = round(math.sqrt(s / math.pi), 2)
+
+        d = round(2 * math.sqrt(s / math.pi), 2)
+
+        p = round(2 * math.pi * r, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    elif d_circle_entry.get() != '':
+        r_circle_entry['state'] = DISABLED
+        p_circle_entry['state'] = DISABLED
+        s_circle_entry['state'] = DISABLED
+
+        d = float(d_circle_entry.get())
+
+        r = round(d / 2, 2)
+
+        p = round(2 * math.pi * r, 2)
+
+        s = round(math.pi * r ** 2, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    elif p_circle_entry.get() != '':
+        r_circle_entry['state'] = DISABLED
+        d_circle_entry['state'] = DISABLED
+        s_circle_entry['state'] = DISABLED
+
+        p = float(p_circle_entry.get())
+
+        r = round(p / (2 * math.pi), 2)
+
+        d = round(r * 2, 2)
+
+        s = round(math.pi * r ** 2, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
+def reset_circle_calculate_func():
+    """Очищать и сделать активными entry and label"""
+    r_circle_entry.delete(0, END)
+    d_circle_entry.delete(0, END)
+    p_circle_entry.delete(0, END)
+    s_circle_entry.delete(0, END)
+
+    r_circle_entry['state'] = NORMAL
+    d_circle_entry['state'] = NORMAL
+    p_circle_entry['state'] = NORMAL
+    s_circle_entry['state'] = NORMAL
+
+    r_result_circle_label.config(text='')
+    s_result_circle_label.config(text='')
+    p_result_circle_label.config(text='')
+    d_result_circle_label.config(text='')
+
+
+def visible_calculate_circle_window_func():
+    """Показать окно с калькулятором круга"""
+    # Всё, что показываем
+    calculate_circle_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
+# Окно расчётов круга начинается тут(16 окно)
+calculate_circle_window = Tk()
+calculate_circle_window['bg'] = first_color
+calculate_circle_window.title('Калькулятор круга')
+
+calculate_circle_window.withdraw()
+
+definition_label = Label(calculate_circle_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=1, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+r_label = Label(calculate_circle_window, text='r = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+r_label.grid(row=2, column=1, padx=15, pady=20)
+
+r_circle_entry = Entry(calculate_circle_window, width=4, font='Oswald 10', bg=fifth_color)
+r_circle_entry.grid(row=2, column=2, padx=15)
+
+d_circle_label = Label(calculate_circle_window, text='d = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_circle_label.grid(row=3, column=1, padx=15)
+
+d_circle_entry = Entry(calculate_circle_window, width=4, font='Oswald 10', bg=fifth_color)
+d_circle_entry.grid(row=3, column=2, padx=15)
+
+p_label = Label(calculate_circle_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_label.grid(row=4, column=1, pady=20)
+
+p_circle_entry = Entry(calculate_circle_window, width=4, font='Oswald 10', bg=fifth_color)
+p_circle_entry.grid(row=4, column=2, padx=15)
+
+s_label = Label(calculate_circle_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_label.grid(row=5, column=1)
+
+s_circle_entry = Entry(calculate_circle_window, width=4, font='Oswald 10', bg=fifth_color)
+s_circle_entry.grid(row=5, column=2, padx=15)
+
+# Виджеты для вывода данных
+r_result_circle_label = Label(calculate_circle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+r_result_circle_label.place(x=60, y=78)
+
+d_result_circle_label = Label(calculate_circle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_result_circle_label.place(x=60, y=128)
+
+p_result_circle_label = Label(calculate_circle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+p_result_circle_label.place(x=60, y=175)
+
+s_result_circle_label = Label(calculate_circle_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+s_result_circle_label.place(x=60, y=225)
+
+circle_canvas = Canvas(calculate_circle_window, width=160, height=160, bg=first_color, highlightthickness=0)
+circle_canvas.create_oval(25, 20, 140, 135, fill=fifth_color, outline=second_color)
+circle_canvas.create_text(110, 70, text="r", font="Oswald 10", fill=third_color)
+circle_canvas.create_line((80, 80), (140, 80), fill=second_color)
+circle_canvas.create_text(70, 100, text="d", font="Oswald 10", fill=third_color)
+circle_canvas.create_line((80, 20), (80, 135), fill=second_color)
+circle_canvas.place(x=350, y=80)
+
+calculate_rectangle_button = Button(calculate_circle_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_circle_func)
+calculate_rectangle_button.grid(row=11, column=8, padx=15)
+
+back_figure_button = Button(calculate_circle_window, text='Сбросить', command=reset_circle_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_circle_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_circle_window_event_func)
+
+exit_button = Button(calculate_circle_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов круга заканчивается тут(16 окно)
 
 # Окно расчётов параллелограмма начинается тут(15 окно)
 calculate_parallelogram_window = Tk()
@@ -3292,6 +3468,7 @@ back_button = Button(perevod_ed_window, text='Назад', bg=first_color, fg=fo
 back_button.place(x=15, y=460)  # Кнопка назад
 
 # Окно переводов заканчивается тут(12 окно)
+
 # Окно расчётов квадрата начинается тут(11 окно)
 calculate_rectangle_window = Tk()
 calculate_rectangle_window['bg'] = first_color
@@ -3890,6 +4067,7 @@ perevod_ed_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_windo
 calculate_trapezium_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_rhombus_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_parallelogram_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_circle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -3985,6 +4163,12 @@ calculate_parallelogram_window.attributes('-topmost', True)
 calculate_parallelogram_window.after_idle(calculate_parallelogram_window.attributes, '-topmost', True)
 calculate_parallelogram_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 calculate_parallelogram_window.resizable(False, False)
+
+calculate_circle_window.lift()
+calculate_circle_window.attributes('-topmost', True)
+calculate_circle_window.after_idle(calculate_circle_window.attributes, '-topmost', True)
+calculate_circle_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_circle_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
