@@ -2967,6 +2967,203 @@ def visible_calculate_circle_window_func():
     choose_figure_window.withdraw()
 
 
+def calculate_circle_func():
+    """Просчёт круга"""
+    if r_circle_entry.get() != '':
+        d_circle_entry['state'] = DISABLED
+        p_circle_entry['state'] = DISABLED
+        s_circle_entry['state'] = DISABLED
+
+        r = float(r_circle_entry.get())
+
+        s = round(math.pi * r ** 2, 2)
+
+        d = round(r * 2, 2)
+
+        p = round(2 * math.pi * r, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    elif s_circle_entry.get() != '':
+        r_circle_entry['state'] = DISABLED
+        d_circle_entry['state'] = DISABLED
+        p_circle_entry['state'] = DISABLED
+
+        s = float(s_circle_entry.get())
+
+        r = round(math.sqrt(s / math.pi), 2)
+
+        d = round(2 * math.sqrt(s / math.pi), 2)
+
+        p = round(2 * math.pi * r, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    elif d_circle_entry.get() != '':
+        r_circle_entry['state'] = DISABLED
+        p_circle_entry['state'] = DISABLED
+        s_circle_entry['state'] = DISABLED
+
+        d = float(d_circle_entry.get())
+
+        r = round(d / 2, 2)
+
+        p = round(2 * math.pi * r, 2)
+
+        s = round(math.pi * r ** 2, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    elif p_circle_entry.get() != '':
+        r_circle_entry['state'] = DISABLED
+        d_circle_entry['state'] = DISABLED
+        s_circle_entry['state'] = DISABLED
+
+        p = float(p_circle_entry.get())
+
+        r = round(p / (2 * math.pi), 2)
+
+        d = round(r * 2, 2)
+
+        s = round(math.pi * r ** 2, 2)
+
+        r_result_circle_label.config(text=r)
+        s_result_circle_label.config(text=s)
+        p_result_circle_label.config(text=p)
+        d_result_circle_label.config(text=d)
+
+    else:
+        mb.showerror(title='Ошибка', message='Что-то пошло не так')
+
+
+def reset_ellipse_calculate_func():
+    """Очищать и сделать активными entry and label"""
+    pass
+
+
+def visible_calculate_ellipse_window_func():
+    """Показать окно с калькулятором круга"""
+    # Всё, что показываем
+    calculate_ellipse_window.deiconify()
+    figure_window.deiconify()
+    # Всё, что скрываем:
+    choose_figure_window.withdraw()
+
+
+def calculate_parallelogram_func_test():
+    if a_ellipse_entry.get() != '' and b_ellipse_entry.get() != '':
+        a = float(a_ellipse_entry.get())
+        b = float(b_ellipse_entry.get())
+
+        s = round(math.pi * a * b, 2)
+        p = 2
+        c = 90 ** 2 / a ** 2 + 90 ** 2 / b ** 2
+        d = 90 ** 2 / a ** 2 + 90 ** 2 / b ** 2
+        print(f'A = {a}')
+        print(f'B = {b}')
+        print(f'C = {c}')
+        print(f'D = {d}')
+        print(f'P = {p}')
+        print(f'S = {s}')
+
+
+# Окно расчётов эллипса начинается тут(16 окно)
+calculate_ellipse_window = Tk()
+calculate_ellipse_window['bg'] = first_color
+calculate_ellipse_window.title('Калькулятор параллелограмма')
+
+calculate_ellipse_window.deiconify()
+
+definition_label = Label(calculate_ellipse_window, text='Калькулятор', font='Oswald 15',
+                         bg=first_color,
+                         fg=third_color)  # Надпись определение треугольника
+definition_label.grid(row=0, column=2, pady=15, padx=15)  # Надпись определение треугольника расположение
+
+a_label = Label(calculate_ellipse_window, text='A = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+a_label.grid(row=1, column=1, padx=15, pady=5)
+
+a_ellipse_entry = Entry(calculate_ellipse_window, width=4, font='Oswald 10', bg=fifth_color)
+a_ellipse_entry.grid(row=1, column=2, padx=15)
+
+b_label = Label(calculate_ellipse_window, text='B = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+b_label.grid(row=2, column=1, padx=15)
+
+b_ellipse_entry = Entry(calculate_ellipse_window, width=4, font='Oswald 10', bg=fifth_color)
+b_ellipse_entry.grid(row=2, column=2, padx=15)
+
+c_label = Label(calculate_ellipse_window, text='C = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+c_label.grid(row=3, column=1, padx=15, pady=5)
+
+c_ellipse_entry = Entry(calculate_ellipse_window, width=4, font='Oswald 10', bg=fifth_color)
+c_ellipse_entry.grid(row=3, column=2, padx=15)
+
+d_label = Label(calculate_ellipse_window, text='D = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+d_label.grid(row=4, column=1, padx=15)
+
+d_ellipse_entry = Entry(calculate_ellipse_window, width=4, font='Oswald 10', bg=fifth_color)
+d_ellipse_entry.grid(row=4, column=2, padx=15)
+
+p_label = Label(calculate_ellipse_window, text='P = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+p_label.grid(row=5, column=1, padx=15, pady=5)
+
+s_label = Label(calculate_ellipse_window, text='S = ', font='Oswald 15', bg=first_color, fg=second_color, width=3)
+s_label.grid(row=6, column=1, padx=15)
+
+# Виджеты для вывода данных
+a_result_ellipse_label = Label(calculate_ellipse_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+a_result_ellipse_label.place(x=60, y=65)
+
+b_result_ellipse_label = Label(calculate_ellipse_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+b_result_ellipse_label.place(x=60, y=97)
+
+c_result_ellipse_label = Label(calculate_ellipse_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+c_result_ellipse_label.place(x=60, y=130)
+
+d_result_ellipse_label = Label(calculate_ellipse_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+d_result_ellipse_label.place(x=60, y=165)
+
+p_result_ellipse_label = Label(calculate_ellipse_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+p_result_ellipse_label.place(x=60, y=200)
+
+s_result_ellipse_label = Label(calculate_ellipse_window, text='', font='Oswald 15', bg=first_color, fg=third_color, width=5)
+s_result_ellipse_label.place(x=60, y=235)
+
+ellipse_canvas = Canvas(calculate_ellipse_window, width=160, height=150, bg=first_color, highlightthickness=0)
+ellipse_canvas.create_oval(20, 60, 140, 110, fill=fifth_color, outline=second_color)
+ellipse_canvas.create_text(100, 50, text="A(полуось)", font="Oswald 10", fill=third_color)
+ellipse_canvas.create_line((20, 85), (140, 85), fill=second_color)
+ellipse_canvas.create_text(120, 93, text="B(полуось)", font="Oswald 10", fill=third_color)
+ellipse_canvas.create_line((80, 60), (80, 110), fill=second_color)
+ellipse_canvas.create_text(80, 120, text="C(ось)", font="Oswald 10", fill=third_color)
+ellipse_canvas.create_text(20, 90, text="D(ось)", font="Oswald 10", fill=third_color)
+ellipse_canvas.place(x=350, y=80)
+
+calculate_square_button = Button(calculate_ellipse_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_parallelogram_func)
+calculate_square_button.grid(row=11, column=8, padx=15)
+calculate_square_button = Button(calculate_ellipse_window, text='Произвести расчёты_test', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_parallelogram_func_test)
+calculate_square_button.grid(row=11, column=9, padx=15)
+
+back_figure_button = Button(calculate_ellipse_window, text='Сбросить', command=reset_parallelogram_calculate_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=3, pady=15, padx=15)  # Кнопка назад расположение
+
+back_figure_button = Button(calculate_ellipse_window, text='Назад', bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+back_figure_button.grid(row=11, column=2, pady=15, padx=15)  # Кнопка назад расположение
+back_figure_button.bind('<Button-1>', visible_ellipse_window_event_func)
+
+exit_button = Button(calculate_ellipse_window, text='Выход', command=exit_project_func, bg=first_color, fg=fourth_color, font='Oswald 10')  # Кнопка назад
+exit_button.grid(row=11, column=1, pady=15, padx=15)  # Кнопка назад расположение
+# Окно расчётов эллипса заканчивается тут(16 окно)
+
+
 # Окно расчётов круга начинается тут(16 окно)
 calculate_circle_window = Tk()
 calculate_circle_window['bg'] = first_color
@@ -4023,7 +4220,7 @@ greet_window['bg'] = first_color
 greet_label = Label(greet_window, text='Добро пожаловать', font='Oswald 20', bg=first_color, fg=second_color)  # Надпись добро пожаловать
 greet_label.grid(row=1, column=3, padx=230, pady=10)  # Надпись Добро пожаловать расположение
 
-greet_label2 = Label(greet_window, text='в наше приложение', font='Oswald 20', bg=first_color,
+greet_label2 = Label(greet_window, text='в приложение', font='Oswald 20', bg=first_color,
                      fg=third_color)  # Надпись в наше приложение
 greet_label2.grid(row=2, column=3)  # Надпись в наше приложение расположение
 
@@ -4068,6 +4265,7 @@ calculate_trapezium_window.geometry('{}x{}+{}+{}'.format(width_window_large, hei
 calculate_rhombus_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_parallelogram_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 calculate_circle_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
+calculate_ellipse_window.geometry('{}x{}+{}+{}'.format(width_window_large, height_window_large, x_window_large, y_window_large))
 # Треугольник поверх всех окно
 figure_window.lift()
 figure_window.attributes('-topmost', True)
@@ -4169,6 +4367,12 @@ calculate_circle_window.attributes('-topmost', True)
 calculate_circle_window.after_idle(calculate_circle_window.attributes, '-topmost', True)
 calculate_circle_window.protocol('WM_DELETE_WINDOW', exit_error_func)
 calculate_circle_window.resizable(False, False)
+
+calculate_ellipse_window.lift()
+calculate_ellipse_window.attributes('-topmost', True)
+calculate_ellipse_window.after_idle(calculate_ellipse_window.attributes, '-topmost', True)
+calculate_ellipse_window.protocol('WM_DELETE_WINDOW', exit_error_func)
+calculate_ellipse_window.resizable(False, False)
 # Запуск главного окна
 greet_window.mainloop()
 
