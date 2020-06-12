@@ -1102,6 +1102,18 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+            if alpha == 90 or betta == 90 or gamma == 90:
+                calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+                calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+                calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            else:
+                calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+                calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+                calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+                calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+                calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+                calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+                calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':  # проверено работает
@@ -1132,6 +1144,19 @@ def calculate_triangle_func():
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
 
+        if alpha == 90 or betta == 90 or gamma == 90:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+        else:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+            calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+            calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
+
     elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90':  # проверено работает
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
@@ -1159,6 +1184,19 @@ def calculate_triangle_func():
         gamma_result_triangle_label.config(text=gamma)
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
+
+        if alpha == 90 or betta == 90 or gamma == 90:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+        else:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+            calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+            calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
     elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         a_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
@@ -1187,6 +1225,19 @@ def calculate_triangle_func():
         gamma_result_triangle_label.config(text=gamma)
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
+
+        if alpha == 90 or betta == 90 or gamma == 90:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+        else:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+            calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+            calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
     elif c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         a_triangle_entry['state'] = DISABLED
         b_triangle_entry['state'] = DISABLED
@@ -1244,6 +1295,19 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            if alpha == 90 or betta == 90 or gamma == 90:
+                calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+                calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+                calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            else:
+                calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+                calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+                calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+                calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+                calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+                calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+                calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '90' and betta_corner_triangle_entry.get() != '90':  # проверено работает
@@ -1280,6 +1344,19 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            if alpha == 90 or betta == 90 or gamma == 90:
+                calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+                calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+                calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            else:
+                calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+                calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+                calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+                calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+                calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+                calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+                calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif a_triangle_entry.get() != '' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':  # проверено работает
@@ -1310,6 +1387,19 @@ def calculate_triangle_func():
         gamma_result_triangle_label.config(text=gamma)
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
+
+        if alpha == 90 or betta == 90 or gamma == 90:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+        else:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+            calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+            calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
     elif b_triangle_entry.get() != '' and c_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '' and alpha_corner_triangle_entry.get() != '90':  # проверено работает
 
         a_triangle_entry['state'] = DISABLED
@@ -1340,6 +1430,19 @@ def calculate_triangle_func():
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
 
+        if alpha == 90 or betta == 90 or gamma == 90:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+        else:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+            calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+            calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
+
     elif a_triangle_entry.get() != '' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '90':  # проверено работает
         c_triangle_entry['state'] = DISABLED
         alpha_corner_triangle_entry['state'] = DISABLED
@@ -1369,6 +1472,19 @@ def calculate_triangle_func():
         gamma_result_triangle_label.config(text=gamma)
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
+
+        if alpha == 90 or betta == 90 or gamma == 90:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+        else:
+            calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+            calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+            calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+            calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
     elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         a = float(a_triangle_entry.get())
         c = float(c_triangle_entry.get())
@@ -1391,6 +1507,11 @@ def calculate_triangle_func():
         gamma_result_triangle_label.config(text=gamma)
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
+
+        calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+        calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+        calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+
     elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and c_triangle_entry.get() != '':  # проверено работает
         b = float(b_triangle_entry.get())
         c = float(c_triangle_entry.get())
@@ -1414,6 +1535,10 @@ def calculate_triangle_func():
         gamma_result_triangle_label.config(text=gamma)
         p_result_triangle_label.config(text=p)
         s_result_triangle_label.config(text=s)
+
+        calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+        calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+        calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
     elif alpha_corner_triangle_entry.get() == '90' and c_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':  # проверено работает
         if float(betta_corner_triangle_entry.get()) < 90:
             gamma_corner_triangle_entry['state'] = DISABLED
@@ -1442,6 +1567,10 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif alpha_corner_triangle_entry.get() == '90' and a_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':  # проверено работает
@@ -1473,6 +1602,10 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
 
@@ -1505,6 +1638,10 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
 
@@ -1537,6 +1674,10 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and betta_corner_triangle_entry.get() != '':  # проверено работает
@@ -1569,6 +1710,10 @@ def calculate_triangle_func():
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
 
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     elif alpha_corner_triangle_entry.get() == '90' and b_triangle_entry.get() != '' and gamma_corner_triangle_entry.get() != '':  # проверено работает
@@ -1600,6 +1745,10 @@ def calculate_triangle_func():
             gamma_result_triangle_label.config(text=gamma)
             p_result_triangle_label.config(text=p)
             s_result_triangle_label.config(text=s)
+
+            calculate_triangle_canvas.coords(main_triangle_canvas, 20, 30, 20, 140, 140, 140)
+            calculate_triangle_canvas.coords(gamma_triangle_canvas, 20, 18)
+            calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
         else:
             mb.showerror(title='Ошибка', message='Такого треугольника не существует')
     else:
@@ -1630,6 +1779,14 @@ def reset_triangle_calculate_func():
     gamma_result_triangle_label.config(text='')
     p_result_triangle_label.config(text='')
     s_result_triangle_label.config(text='')
+
+    calculate_triangle_canvas.coords(main_triangle_canvas, 40, 30, 20, 140, 140, 140)
+    calculate_triangle_canvas.coords(betta_triangle_canvas, 150, 140)
+    calculate_triangle_canvas.coords(alpha_triangle_canvas, 10, 140)
+    calculate_triangle_canvas.coords(gamma_triangle_canvas, 40, 15)
+    calculate_triangle_canvas.coords(a_triangle_canvas, 13, 80)
+    calculate_triangle_canvas.coords(c_triangle_canvas, 80, 152)
+    calculate_triangle_canvas.coords(b_triangle_canvas, 110, 80)
 
 
 def calculate_square_func():
@@ -3964,13 +4121,13 @@ s_result_triangle_label = Label(calculate_triangle_window, text='', font='Oswald
 s_result_triangle_label.place(x=60, y=381)
 
 calculate_triangle_canvas = Canvas(calculate_triangle_window, width=180, height=160, bg=first_color, highlightthickness=0)
-main_triangle = calculate_triangle_canvas.create_polygon((40, 30), (10, 140), (150, 140), fill=fifth_color, outline=second_color)
-calculate_triangle_canvas.create_text(155, 140, text="β", font="Oswald 15", fill=third_color)
-calculate_triangle_canvas.create_text(5, 140, text="α", font="Oswald 15", fill=third_color)
-calculate_triangle_canvas.create_text(40, 15, text="γ", font="Oswald 15", fill=third_color)
-calculate_triangle_canvas.create_text(10, 80, text="A", font="Oswald 15", fill=third_color)
-calculate_triangle_canvas.create_text(80, 152, text="C", font="Oswald 15", fill=third_color)
-calculate_triangle_canvas.create_text(110, 80, text="B", font="Oswald 15", fill=third_color)
+main_triangle_canvas = calculate_triangle_canvas.create_polygon((40, 30), (20, 140), (140, 140), fill=fifth_color, outline=second_color)
+betta_triangle_canvas = calculate_triangle_canvas.create_text(150, 140, text="β", font="Oswald 15", fill=third_color)
+alpha_triangle_canvas = calculate_triangle_canvas.create_text(10, 140, text="α", font="Oswald 15", fill=third_color)
+gamma_triangle_canvas = calculate_triangle_canvas.create_text(40, 15, text="γ", font="Oswald 15", fill=third_color)
+a_triangle_canvas = calculate_triangle_canvas.create_text(13, 80, text="A", font="Oswald 15", fill=third_color)
+c_triangle_canvas = calculate_triangle_canvas.create_text(80, 152, text="C", font="Oswald 15", fill=third_color)
+b_triangle_canvas = calculate_triangle_canvas.create_text(110, 80, text="B", font="Oswald 15", fill=third_color)
 calculate_triangle_canvas.place(x=350, y=80)
 
 calculate_triangle_button = Button(calculate_triangle_window, text='Произвести расчёты', bg=first_color, fg=fourth_color, font='Oswald 10', command=calculate_triangle_func)
